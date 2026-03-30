@@ -38,10 +38,10 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1.5fr] gap-10 lg:gap-16 mb-16">
                     {/* Brand */}
                     <FooterColumn delay={0}>
-                        <p className="font-heading text-[1.4rem] font-normal tracking-[0.3em] uppercase text-ecru mb-5">
+                        <p className="font-heading text-[1.4rem] font-normal tracking-[0.3em] uppercase text-[rgba(245,240,232,0.98)] mb-5">
                             Marisol
                         </p>
-                        <p className="font-body text-[0.78rem] font-light text-silver-dark leading-[1.9] max-w-[280px]">
+                        <p className="font-body text-[0.8rem] font-normal text-[rgba(245,240,232,0.9)] leading-[1.9] max-w-[280px]">
                             Ocean-inspired luxury jewelry, handcrafted with intention. Each
                             piece tells a story of nature, artistry, and timeless elegance.
                         </p>
@@ -49,7 +49,7 @@ export default function Footer() {
 
                     {/* Explore */}
                     <FooterColumn delay={100}>
-                        <p className="font-body text-[0.65rem] font-medium tracking-label uppercase text-silver mb-7">
+                        <p className="font-body text-[0.65rem] font-semibold tracking-label uppercase text-[rgba(245,240,232,0.95)] mb-7">
                             Explore
                         </p>
                         <ul className="space-y-3.5">
@@ -57,8 +57,8 @@ export default function Footer() {
                                 <li key={link.label}>
                                     <a
                                         href={link.href}
-                                        className="font-body text-[0.8rem] font-light text-silver-dark
-                      transition-colors duration-300 ease-smooth hover:text-ecru"
+                                        className="font-body text-[0.82rem] font-medium text-[rgba(245,240,232,0.88)]
+                      transition-colors duration-300 ease-smooth hover:text-white"
                                     >
                                         {link.label}
                                     </a>
@@ -69,7 +69,7 @@ export default function Footer() {
 
                     {/* Client Care */}
                     <FooterColumn delay={200}>
-                        <p className="font-body text-[0.65rem] font-medium tracking-label uppercase text-silver mb-7">
+                        <p className="font-body text-[0.65rem] font-semibold tracking-label uppercase text-[rgba(245,240,232,0.95)] mb-7">
                             Client Care
                         </p>
                         <ul className="space-y-3.5">
@@ -77,8 +77,8 @@ export default function Footer() {
                                 <li key={link.label}>
                                     <a
                                         href={link.href}
-                                        className="font-body text-[0.8rem] font-light text-silver-dark
-                      transition-colors duration-300 ease-smooth hover:text-ecru"
+                                        className="font-body text-[0.82rem] font-medium text-[rgba(245,240,232,0.88)]
+                      transition-colors duration-300 ease-smooth hover:text-white"
                                     >
                                         {link.label}
                                     </a>
@@ -89,15 +89,15 @@ export default function Footer() {
 
                     {/* Contact */}
                     <FooterColumn delay={300}>
-                        <p className="font-body text-[0.65rem] font-medium tracking-label uppercase text-silver mb-7">
+                        <p className="font-body text-[0.65rem] font-semibold tracking-label uppercase text-[rgba(245,240,232,0.95)] mb-7">
                             Contact
                         </p>
                         <div className="space-y-2.5">
                             <p>
                                 <a
                                     href="mailto:atelier@marisol.com"
-                                    className="font-body text-[0.8rem] font-light text-silver-dark
-                    transition-colors duration-300 ease-smooth hover:text-ecru"
+                                    className="font-body text-[0.82rem] font-medium text-[rgba(245,240,232,0.88)]
+                    transition-colors duration-300 ease-smooth hover:text-white"
                                 >
                                     atelier@marisol.com
                                 </a>
@@ -105,13 +105,13 @@ export default function Footer() {
                             <p>
                                 <a
                                     href="tel:+14155550178"
-                                    className="font-body text-[0.8rem] font-light text-silver-dark
-                    transition-colors duration-300 ease-smooth hover:text-ecru"
+                                    className="font-body text-[0.82rem] font-medium text-[rgba(245,240,232,0.88)]
+                    transition-colors duration-300 ease-smooth hover:text-white"
                                 >
                                     +1 (415) 555-0178
                                 </a>
                             </p>
-                            <p className="font-body text-[0.8rem] font-light text-silver-dark leading-[1.7]">
+                            <p className="font-body text-[0.82rem] font-medium text-[rgba(245,240,232,0.96)] leading-[1.7]">
                                 By Appointment Only
                                 <br />
                                 San Francisco &middot; Paris
@@ -125,9 +125,9 @@ export default function Footer() {
                                 href="#"
                                 aria-label="Instagram"
                                 className="w-9 h-9 flex items-center justify-center rounded-full
-                  border border-silver/20 text-silver-dark
+                  border border-ecru/40 text-ecru
                   transition-all duration-300 ease-smooth
-                  hover:border-ecru hover:text-ecru"
+                  hover:border-white hover:text-white"
                             >
                                 <svg
                                     className="w-3.5 h-3.5"
@@ -155,9 +155,9 @@ export default function Footer() {
                                 href="#"
                                 aria-label="Pinterest"
                                 className="w-9 h-9 flex items-center justify-center rounded-full
-                  border border-silver/20 text-silver-dark
+                  border border-ecru/40 text-ecru
                   transition-all duration-300 ease-smooth
-                  hover:border-ecru hover:text-ecru"
+                  hover:border-white hover:text-white"
                             >
                                 <svg
                                     className="w-3.5 h-3.5"
@@ -177,9 +177,9 @@ export default function Footer() {
                                 href="#"
                                 aria-label="Facebook"
                                 className="w-9 h-9 flex items-center justify-center rounded-full
-                  border border-silver/20 text-silver-dark
+                  border border-ecru/40 text-ecru
                   transition-all duration-300 ease-smooth
-                  hover:border-ecru hover:text-ecru"
+                  hover:border-white hover:text-white"
                             >
                                 <svg
                                     className="w-3.5 h-3.5"
@@ -199,24 +199,24 @@ export default function Footer() {
 
                 {/* Bottom Bar */}
                 <div
-                    className="border-t border-silver/10 pt-8 flex flex-col md:flex-row
+                    className="border-t border-ecru/10 pt-8 flex flex-col md:flex-row
             justify-between items-center gap-4"
                 >
-                    <p className="font-body text-[0.7rem] font-light text-silver-dark/60 tracking-[0.05em]">
+                    <p className="font-body text-[0.72rem] font-normal text-[rgba(245,240,232,0.72)] tracking-[0.05em]">
                         &copy; 2026 Marisol. All rights reserved.
                     </p>
                     <div className="flex gap-6">
                         <a
                             href="#"
-                            className="font-body text-[0.7rem] font-light text-silver-dark/60
-                transition-colors duration-300 ease-smooth hover:text-silver"
+                            className="font-body text-[0.72rem] font-normal text-[rgba(245,240,232,0.72)]
+                transition-colors duration-300 ease-smooth hover:text-[rgba(245,240,232,0.92)]"
                         >
                             Privacy Policy
                         </a>
                         <a
                             href="#"
-                            className="font-body text-[0.7rem] font-light text-silver-dark/60
-                transition-colors duration-300 ease-smooth hover:text-silver"
+                            className="font-body text-[0.72rem] font-normal text-[rgba(245,240,232,0.72)]
+                transition-colors duration-300 ease-smooth hover:text-[rgba(245,240,232,0.92)]"
                         >
                             Terms of Service
                         </a>

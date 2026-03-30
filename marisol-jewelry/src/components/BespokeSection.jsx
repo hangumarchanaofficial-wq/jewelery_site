@@ -64,7 +64,7 @@ function BespokePiece({ piece }) {
             style={{ transitionDelay: "150ms" }}
         >
             {/* Label */}
-            <p className="font-body text-[0.65rem] font-medium tracking-[0.35em] uppercase text-burgundy-light mb-5">
+            <p className="font-body text-[0.65rem] font-medium tracking-[0.35em] uppercase text-burgundy mb-5">
                 {piece.label}
             </p>
 
@@ -77,12 +77,12 @@ function BespokePiece({ piece }) {
             <div className="w-12 h-px bg-gradient-to-r from-burgundy to-silver mb-7" />
 
             {/* Story quote */}
-            <p className="font-heading text-[clamp(1.05rem,1.4vw,1.2rem)] font-light italic text-soft-black/85 leading-[1.9] mb-8">
+            <p className="font-heading text-[clamp(1.05rem,1.4vw,1.2rem)] font-light italic text-soft-black leading-[1.9] mb-8">
                 {piece.story}
             </p>
 
             {/* Detail */}
-            <p className="font-body text-[0.82rem] font-light text-silver-dark leading-[1.9] mb-10">
+            <p className="font-body text-[0.82rem] font-normal text-soft-black/80 leading-[1.9] mb-10">
                 {piece.detail}
             </p>
 
@@ -90,7 +90,7 @@ function BespokePiece({ piece }) {
             <a
                 href="#"
                 className="group/link inline-flex items-center gap-3 font-body text-[0.7rem]
-          font-medium tracking-label uppercase text-burgundy
+          font-semibold tracking-label uppercase text-burgundy
           transition-[gap] duration-300 ease-smooth hover:gap-5"
             >
                 Discover the Story

@@ -32,6 +32,27 @@ const PIECES = [
             "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=85&auto=format&fit=crop",
         alt: "Woven gold chain bracelet inspired by waves",
     },
+    {
+        name: "Soleil Pearl Strand",
+        price: "From $3,950",
+        image:
+            "https://images.unsplash.com/photo-1599459183200-59c3b0208c09?w=600&q=85&auto=format&fit=crop",
+        alt: "Luminous pearl necklace resting against soft fabric",
+    },
+    {
+        name: "Astra Tide Hoops",
+        price: "From $2,250",
+        image:
+            "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=600&q=85&auto=format&fit=crop",
+        alt: "Diamond hoop earrings arranged on a pale stone surface",
+    },
+    {
+        name: "Velora Chain",
+        price: "From $3,150",
+        image:
+            "https://images.unsplash.com/photo-1515562141589-67f0d569b6bc?w=600&q=85&auto=format&fit=crop",
+        alt: "Fine gold chain necklace draped across weathered driftwood",
+    },
 ];
 
 function ProductCard({ piece, index }) {
@@ -42,19 +63,18 @@ function ProductCard({ piece, index }) {
         return (
             <div
                 ref={ref}
-                className="col-span-2 row-span-2 max-lg:col-span-2 max-lg:row-span-1 max-md:col-span-1
-          relative overflow-hidden cursor-pointer group"
+                className="relative overflow-hidden cursor-pointer group h-full"
                 style={{
                     transitionDelay: `${delay}ms`,
                 }}
             >
                 <div
-                    className={`transition-all duration-1000 ease-luxury
+                    className={`h-full transition-all duration-1000 ease-luxury
             ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                     style={{ transitionDelay: `${delay}ms` }}
                 >
                     {/* Image */}
-                    <div className="relative overflow-hidden bg-ecru-warm h-full min-h-[350px] md:min-h-[560px]">
+                    <div className="relative overflow-hidden bg-ecru-warm min-h-[350px] md:min-h-[520px] lg:h-full lg:aspect-[6/5]">
                         <SmartImage
                             src={piece.image}
                             alt={piece.alt}
@@ -86,15 +106,17 @@ function ProductCard({ piece, index }) {
     return (
         <div
             ref={ref}
-            className="relative overflow-hidden cursor-pointer group"
+            className={`relative overflow-hidden cursor-pointer group h-full ${
+                piece.name === "Velora Chain" ? "translate-y-[5px]" : ""
+            }`}
         >
             <div
-                className={`transition-all duration-1000 ease-luxury
+                className={`h-full flex flex-col transition-all duration-1000 ease-luxury
           ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                 style={{ transitionDelay: `${delay}ms` }}
             >
                 {/* Image */}
-                <div className="relative overflow-hidden bg-ecru-warm h-[280px] md:h-[320px]">
+                <div className="relative overflow-hidden bg-ecru-warm aspect-[4/3] sm:aspect-[5/4] lg:flex-1 lg:min-h-0">
                     <SmartImage
                         src={piece.image}
                         alt={piece.alt}
@@ -104,11 +126,11 @@ function ProductCard({ piece, index }) {
                 </div>
 
                 {/* Info below image */}
-                <div className="pt-6 pb-2 px-1">
-                    <h3 className="font-heading text-[1.15rem] font-normal text-soft-black mb-1.5 tracking-[0.02em]">
+                <div className="pt-3 pb-1 px-1 min-h-[64px] lg:min-h-[70px]">
+                    <h3 className="font-heading text-[1.02rem] lg:text-[1.05rem] font-normal text-soft-black mb-1 tracking-[0.02em] min-h-[2.4rem]">
                         {piece.name}
                     </h3>
-                    <span className="font-body text-[0.72rem] font-normal tracking-[0.15em] uppercase text-silver-dark">
+                    <span className="font-body text-[0.68rem] font-normal tracking-[0.14em] uppercase text-silver-dark">
             {piece.price}
           </span>
                 </div>
@@ -118,6 +140,9 @@ function ProductCard({ piece, index }) {
 }
 
 export default function SignaturePieces() {
+    const featuredPiece = PIECES.find((piece) => piece.featured);
+    const supportingPieces = PIECES.filter((piece) => !piece.featured);
+
     return (
         <section
             id="collection"
@@ -131,11 +156,22 @@ export default function SignaturePieces() {
                     center
                 />
 
-                {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {PIECES.map((piece, index) => (
-                        <ProductCard key={piece.name} piece={piece} index={index} />
-                    ))}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-7 xl:gap-8 items-stretch">
+                    <div className="lg:col-span-7 h-full">
+                        {featuredPiece && (
+                            <ProductCard key={featuredPiece.name} piece={featuredPiece} index={0} />
+                        )}
+                    </div>
+
+                    <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-5 lg:gap-x-7 lg:gap-y-5 lg:h-full lg:auto-rows-fr content-start">
+                        {supportingPieces.map((piece, index) => (
+                            <ProductCard
+                                key={piece.name}
+                                piece={piece}
+                                index={index + 1}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>

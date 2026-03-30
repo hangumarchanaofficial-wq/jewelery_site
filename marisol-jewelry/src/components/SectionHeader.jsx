@@ -20,7 +20,7 @@ export default function SectionHeader({
             {/* Label */}
             <p
                 className={`font-body text-[0.65rem] font-medium tracking-[0.35em] uppercase mb-5
-          ${light ? "text-silver" : "text-silver-dark"}`}
+          ${light ? "text-silver" : "text-soft-black/65"}`}
             >
                 {label}
             </p>
@@ -49,7 +49,7 @@ export default function SectionHeader({
                 <p
                     className={`font-body text-[0.88rem] font-light leading-[1.9] max-w-[540px]
             ${center ? "mx-auto" : ""}
-            ${light ? "text-ecru/75" : "text-silver-dark"}`}
+            ${light ? "text-ecru/75" : "text-soft-black/70"}`}
                 >
                     {description}
                 </p>
