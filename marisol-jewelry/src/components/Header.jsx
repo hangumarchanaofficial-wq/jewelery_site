@@ -49,6 +49,13 @@ export default function Header() {
         }
     };
 
+    const brandTextClass = scrolled ? "text-burgundy" : "text-[rgba(245,240,232,0.96)] drop-shadow-[0_1px_12px_rgba(0,0,0,0.22)]";
+    const navTextClass = scrolled ? "text-soft-black hover:text-burgundy" : "text-[rgba(245,240,232,0.94)] hover:text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.28)]";
+    const activeNavTextClass = scrolled ? "text-burgundy" : "text-ecru";
+    const navUnderlineClass = scrolled ? "bg-burgundy" : "bg-ecru/85";
+    const mobileToggleColor = scrolled ? "bg-burgundy" : "bg-ecru";
+    const logoColor = scrolled ? "#6B1D2A" : "rgba(245,240,232,0.96)";
+
     return (
         <header
             className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ease-smooth
@@ -58,17 +65,20 @@ export default function Header() {
                     : "bg-transparent py-7"
             }`}
         >
+            {!scrolled && (
+                <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-charcoal/25 via-charcoal/10 to-transparent pointer-events-none" />
+            )}
             <div className="container-luxury flex items-center justify-between">
                 {/* Brand */}
-                <a href="#/" className="flex items-center gap-3.5">
-                    <BrandLogo className="w-9 h-9" />
-                    <span className="font-heading text-[1.65rem] font-normal tracking-luxury uppercase text-burgundy">
+                <a href="#/" className="relative z-[1] flex items-center gap-3.5">
+                    <BrandLogo className="w-9 h-9" color={logoColor} />
+                    <span className={`font-heading text-[1.65rem] font-normal tracking-luxury uppercase ${brandTextClass}`}>
             Marisol
           </span>
                 </a>
 
                 {/* Desktop Nav */}
-                <nav className="hidden lg:flex items-center gap-8 xl:gap-12">
+                <nav className="relative z-[1] hidden lg:flex items-center gap-8 xl:gap-12">
                     {NAV_LINKS.map((link) => (
                         <a
                             key={link.label}
@@ -76,11 +86,11 @@ export default function Header() {
                             onClick={(e) => handleNavClick(e, link)}
                             className={`relative font-body text-nav font-medium tracking-label uppercase
                 pb-1 transition-colors duration-300 ease-smooth group
-                ${isActive(link.href) ? "text-burgundy" : "text-soft-black hover:text-burgundy"}`}
+                ${isActive(link.href) ? activeNavTextClass : navTextClass}`}
                         >
                             {link.label}
                             <span
-                                className={`absolute bottom-0 left-0 h-px bg-burgundy transition-all duration-400 ease-luxury
+                                className={`absolute bottom-0 left-0 h-px ${navUnderlineClass} transition-all duration-400 ease-luxury
                   ${isActive(link.href) ? "w-full" : "w-0 group-hover:w-full"}`}
                             />
                         </a>
@@ -90,19 +100,19 @@ export default function Header() {
                 {/* Mobile Toggle */}
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
-                    className="lg:hidden flex flex-col gap-[5px] p-2 z-[1001]"
+                    className="lg:hidden relative z-[1001] flex flex-col gap-[5px] p-2"
                     aria-label="Toggle menu"
                 >
           <span
-              className={`block w-6 h-[1.5px] bg-burgundy transition-transform duration-300 ease-smooth
+              className={`block w-6 h-[1.5px] ${mobileToggleColor} transition-transform duration-300 ease-smooth
               ${menuOpen ? "translate-y-[6.5px] rotate-45" : ""}`}
           />
                     <span
-                        className={`block w-6 h-[1.5px] bg-burgundy transition-opacity duration-300
+                        className={`block w-6 h-[1.5px] ${mobileToggleColor} transition-opacity duration-300
               ${menuOpen ? "opacity-0" : "opacity-100"}`}
                     />
                     <span
-                        className={`block w-6 h-[1.5px] bg-burgundy transition-transform duration-300 ease-smooth
+                        className={`block w-6 h-[1.5px] ${mobileToggleColor} transition-transform duration-300 ease-smooth
               ${menuOpen ? "-translate-y-[6.5px] -rotate-45" : ""}`}
                     />
                 </button>

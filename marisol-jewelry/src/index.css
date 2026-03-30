@@ -315,7 +315,6 @@ img, video {
 /* Reset links */
 a {
   text-decoration: none;
-  color: inherit;
 }
 
 /* Focus styles — accessible but on-brand */

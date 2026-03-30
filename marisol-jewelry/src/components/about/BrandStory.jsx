@@ -34,7 +34,7 @@ const CHAPTERS = [
     },
 ];
 
-function StoryChapter({ chapter, index }) {
+function StoryChapter({ chapter }) {
     const [imageRef, imageVisible] = useScrollReveal();
     const [textRef, textVisible] = useScrollReveal();
 
@@ -53,12 +53,6 @@ function StoryChapter({ chapter, index }) {
               group-hover:scale-[1.03]"
                     />
                 </div>
-                {/* Chapter number overlay */}
-                <div className="absolute top-6 left-6">
-          <span className="font-heading text-[4rem] md:text-[5rem] font-light text-ecru/10 leading-none select-none">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-                </div>
             </div>
         </div>
     );
@@ -70,22 +64,22 @@ function StoryChapter({ chapter, index }) {
         ${textVisible ? "opacity-100 translate-x-0" : `opacity-0 ${chapter.reverse ? "-translate-x-10" : "translate-x-10"}`}`}
             style={{ transitionDelay: "200ms" }}
         >
-            <div className="py-4 lg:py-0">
-                <p className="font-body text-label font-medium tracking-editorial uppercase text-burgundy-light mb-5">
+            <div className="py-4 lg:py-0 max-w-[520px]">
+                <p className="font-body text-[0.62rem] font-semibold tracking-[0.38em] uppercase text-burgundy mb-6">
                     {chapter.label}
                 </p>
 
-                <h2 className="font-heading text-editorial-title font-light text-burgundy leading-heading mb-6">
+                <h2 className="font-heading text-[clamp(2rem,3.4vw,3.2rem)] font-light text-burgundy leading-[1.15] tracking-[0.01em] mb-7">
                     {chapter.title}
                 </h2>
 
-                <div className="w-10 h-px divider-burgundy-silver mb-8" />
+                <div className="w-14 h-px bg-gradient-to-r from-burgundy/90 to-silver/70 mb-10" />
 
-                <blockquote className="font-heading text-body-serif font-light italic text-soft-black/75 leading-prose mb-8 max-w-[460px]">
+                <blockquote className="font-heading text-[clamp(1.08rem,1.5vw,1.32rem)] font-light italic text-soft-black/90 leading-[2] mb-10 max-w-[470px]">
                     "{chapter.quote}"
                 </blockquote>
 
-                <p className="font-body text-[0.82rem] font-light text-silver-dark leading-editorial max-w-[480px]">
+                <p className="font-body text-[0.86rem] font-normal text-soft-black/84 leading-[1.95] max-w-[500px]">
                     {chapter.body}
                 </p>
             </div>
@@ -116,8 +110,8 @@ export default function BrandStory() {
     return (
         <section className="section-padding-lg bg-ecru-light">
             <div className="container-luxury">
-                {CHAPTERS.map((chapter, i) => (
-                    <StoryChapter key={chapter.title} chapter={chapter} index={i} />
+                {CHAPTERS.map((chapter) => (
+                    <StoryChapter key={chapter.title} chapter={chapter} />
                 ))}
             </div>
         </section>
