@@ -1,4 +1,5 @@
 import useScrollReveal from "../hooks/useScrollReveal";
+import SmartImage from "./SmartImage";
 
 export default function BrandEssence() {
     const [ref, isVisible] = useScrollReveal();
@@ -10,7 +11,7 @@ export default function BrandEssence() {
         >
             {/* Background Texture */}
             <div className="absolute inset-0 opacity-[0.12] z-[1]">
-                <img
+                <SmartImage
                     src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&q=80&auto=format&fit=crop"
                     alt=""
                     className="w-full h-full object-cover"

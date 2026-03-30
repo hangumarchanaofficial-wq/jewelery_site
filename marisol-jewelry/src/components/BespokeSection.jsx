@@ -1,4 +1,5 @@
 import useScrollReveal from "../hooks/useScrollReveal";
+import SmartImage from "./SmartImage";
 
 const BESPOKE_PIECES = [
     {
@@ -45,7 +46,7 @@ function BespokePiece({ piece }) {
             />
 
             <div className="relative overflow-hidden aspect-[4/5] bg-ecru group">
-                <img
+                <SmartImage
                     src={piece.image}
                     alt={piece.alt}
                     className="w-full h-full object-cover transition-transform duration-1000 ease-luxury

@@ -1,5 +1,6 @@
 import useScrollReveal from "../hooks/useScrollReveal";
 import SectionHeader from "./SectionHeader";
+import SmartImage from "./SmartImage";
 
 const PIECES = [
     {
@@ -54,7 +55,7 @@ function ProductCard({ piece, index }) {
                 >
                     {/* Image */}
                     <div className="relative overflow-hidden bg-ecru-warm h-full min-h-[350px] md:min-h-[560px]">
-                        <img
+                        <SmartImage
                             src={piece.image}
                             alt={piece.alt}
                             className="w-full h-full object-cover transition-transform duration-800 ease-luxury
@@ -94,7 +95,7 @@ function ProductCard({ piece, index }) {
             >
                 {/* Image */}
                 <div className="relative overflow-hidden bg-ecru-warm h-[280px] md:h-[320px]">
-                    <img
+                    <SmartImage
                         src={piece.image}
                         alt={piece.alt}
                         className="w-full h-full object-cover transition-transform duration-800 ease-luxury

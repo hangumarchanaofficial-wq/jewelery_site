@@ -1,43 +1,75 @@
 @import "tailwindcss";
 
-/* ═══════════════════════════════════════
-   TAILWIND v4 THEME — MARISOL BRAND
-   ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   M A R I S O L — LUXURY JEWELRY BRAND
+   Tailwind CSS v4 Design Token System
+
+   This file is the single source of truth for:
+   • Brand color palette
+   • Typography system
+   • Custom easings & animations
+   • Global base styles
+   • Custom utilities & component layers
+
+   Works with: Homepage, Collection Page, all future pages
+   ═══════════════════════════════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────
+   1. THEME — Design Tokens & Animations
+   ─────────────────────────────────────── */
 
 @theme {
-  /* Brand Colors */
-  --color-burgundy: #6b1d2a;
-  --color-burgundy-deep: #4a0e1a;
+
+  /* ─── Brand Color Palette ─── */
+  --color-burgundy:       #6b1d2a;
+  --color-burgundy-deep:  #4a0e1a;
   --color-burgundy-light: #8b2e3f;
-  --color-ecru: #f5f0e8;
-  --color-ecru-warm: #ede6d8;
-  --color-ecru-light: #faf8f4;
-  --color-silver: #b8b8b8;
-  --color-silver-light: #d4d4d4;
-  --color-silver-dark: #8a8a8a;
-  --color-deep-blue: #1a2744;
-  --color-ocean-blue: #2c4a6e;
-  --color-forest-green: #2d4a3e;
-  --color-charcoal: #1c1c1c;
-  --color-soft-black: #2a2a2a;
+  --color-burgundy-muted: #7a3345;
 
-  /* Typography */
+  --color-ecru:           #f5f0e8;
+  --color-ecru-warm:      #ede6d8;
+  --color-ecru-light:     #faf8f4;
+  --color-ecru-dark:      #e5ddd0;
+
+  --color-silver:         #b8b8b8;
+  --color-silver-light:   #d4d4d4;
+  --color-silver-dark:    #8a8a8a;
+  --color-silver-muted:   #a0a0a0;
+
+  --color-deep-blue:      #1a2744;
+  --color-ocean-blue:     #2c4a6e;
+  --color-ocean-light:    #3d6b99;
+  --color-forest-green:   #2d4a3e;
+
+  --color-charcoal:       #1c1c1c;
+  --color-soft-black:     #2a2a2a;
+  --color-dark-surface:   #222222;
+
+
+  /* ─── Typography ─── */
   --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+  --font-body:    "Montserrat", "Helvetica Neue", Arial, sans-serif;
 
-  /* Custom Easings */
-  --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
-  /* Custom Animations */
+  /* ─── Custom Easing Curves ─── */
+  --ease-luxury:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-smooth:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
+
+
+  /* ─── Custom Shadows ─── */
+  --shadow-luxury:    0 8px 40px rgba(26, 39, 68, 0.08);
+  --shadow-elevated:  0 16px 64px rgba(26, 39, 68, 0.12);
+  --shadow-subtle:    0 2px 16px rgba(26, 39, 68, 0.05);
+
+
+  /* ═══════════════════════════════════════
+     ANIMATIONS — Homepage
+     ═══════════════════════════════════════ */
+
+  /* Fade up — base (used in hero, sections) */
   --animate-fade-up: fade-up 1.2s var(--ease-luxury) forwards;
-  --animate-fade-up-delay-1: fade-up 1.2s 0.3s var(--ease-luxury) forwards;
-  --animate-fade-up-delay-2: fade-up 1.2s 0.6s var(--ease-luxury) forwards;
-  --animate-fade-up-delay-3: fade-up 1.2s 0.9s var(--ease-luxury) forwards;
-  --animate-fade-up-delay-4: fade-up 1.2s 1.2s var(--ease-luxury) forwards;
-  --animate-loader-pulse: loader-pulse 1.5s var(--ease-smooth) infinite;
-  --animate-loader-line: loader-line 1.5s var(--ease-smooth) infinite;
-  --animate-ken-burns: ken-burns 8s var(--ease-luxury) forwards;
 
   @keyframes fade-up {
     from {
@@ -50,9 +82,17 @@
     }
   }
 
+  /* Fade up — staggered delays for sequential reveals */
+  --animate-fade-up-delay-1: fade-up 1.2s 0.3s var(--ease-luxury) forwards;
+  --animate-fade-up-delay-2: fade-up 1.2s 0.6s var(--ease-luxury) forwards;
+  --animate-fade-up-delay-3: fade-up 1.2s 0.9s var(--ease-luxury) forwards;
+  --animate-fade-up-delay-4: fade-up 1.2s 1.2s var(--ease-luxury) forwards;
+
+  /* Page loader — pulsing brand name */
+  --animate-loader-pulse: loader-pulse 1.5s var(--ease-smooth) infinite;
+
   @keyframes loader-pulse {
-    0%,
-    100% {
+    0%, 100% {
       opacity: 0.4;
     }
     50% {
@@ -60,15 +100,20 @@
     }
   }
 
+  /* Page loader — breathing line */
+  --animate-loader-line: loader-line 1.5s var(--ease-smooth) infinite;
+
   @keyframes loader-line {
-    0%,
-    100% {
+    0%, 100% {
       width: 30px;
     }
     50% {
       width: 80px;
     }
   }
+
+  /* Hero slider — Ken Burns zoom */
+  --animate-ken-burns: ken-burns 8s var(--ease-luxury) forwards;
 
   @keyframes ken-burns {
     from {
@@ -78,11 +123,170 @@
       transform: scale(1);
     }
   }
+
+
+  /* ═══════════════════════════════════════
+     ANIMATIONS — Collection Page
+     ═══════════════════════════════════════ */
+
+  /* Pure opacity fade (no movement) */
+  --animate-fade-in: fade-in 1.4s var(--ease-luxury) forwards;
+
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Slow fade — for ambient/decorative elements */
+  --animate-fade-in-slow: fade-in 2s 0.4s var(--ease-luxury) forwards;
+
+  /* Divider line expansion — grows from 0 to 80px */
+  --animate-width-expand: width-expand 1.6s 0.8s var(--ease-luxury) forwards;
+
+  @keyframes width-expand {
+    from {
+      width: 0;
+    }
+    to {
+      width: 80px;
+    }
+  }
+
+  /* Gentle floating — scroll indicator, decorative elements */
+  --animate-float: float-gentle 6s ease-in-out infinite;
+
+  @keyframes float-gentle {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  /* Slow horizontal drift — for texture/pattern backgrounds */
+  --animate-parallax-slow: parallax-drift 20s linear infinite;
+
+  @keyframes parallax-drift {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Shimmer — for metallic/silver accent elements */
+  --animate-shimmer: shimmer 3s var(--ease-smooth) infinite;
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+
+  /* Scale in — for modal/overlay entrances */
+  --animate-scale-in: scale-in 0.6s var(--ease-elegant) forwards;
+
+  @keyframes scale-in {
+    from {
+      opacity: 0;
+      transform: scale(0.96);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* Slide from left — editorial image reveals */
+  --animate-slide-left: slide-from-left 1.4s var(--ease-luxury) forwards;
+
+  @keyframes slide-from-left {
+    from {
+      opacity: 0;
+      transform: translateX(-40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Slide from right — editorial text reveals */
+  --animate-slide-right: slide-from-right 1.4s var(--ease-luxury) forwards;
+
+  @keyframes slide-from-right {
+    from {
+      opacity: 0;
+      transform: translateX(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
 }
 
-/* ═══════════════════════════════════════
-   GLOBAL BASE STYLES
-   ═══════════════════════════════════════ */
+
+/* ───────────────────────────────────────
+   2. ROOT — CSS Variables (non-utility)
+
+   These are NOT mapped to Tailwind classes.
+   Used for custom CSS, inline styles, and
+   JS-driven values like gradients.
+   ─────────────────────────────────────── */
+
+:root {
+  /* Overlay gradients (used via inline style) */
+  --gradient-hero-home:
+          linear-gradient(
+                  to bottom,
+                  rgba(26, 39, 68, 0.15) 0%,
+                  rgba(74, 14, 26, 0.30) 50%,
+                  rgba(26, 39, 68, 0.55) 100%
+          );
+
+  --gradient-hero-collection:
+          linear-gradient(
+                  180deg,
+                  rgba(26, 39, 68, 0.25) 0%,
+                  rgba(74, 14, 26, 0.18) 35%,
+                  rgba(26, 39, 68, 0.50) 70%,
+                  rgba(26, 39, 68, 0.75) 100%
+          );
+
+  --gradient-vignette:
+          radial-gradient(
+                  ellipse at center,
+                  transparent 40%,
+                  rgba(26, 39, 68, 0.3) 100%
+          );
+
+  --gradient-card-overlay:
+          linear-gradient(
+                  to top,
+                  rgba(26, 26, 26, 0.65) 0%,
+                  transparent 100%
+          );
+
+  /* Film grain SVG pattern (ultra-subtle texture) */
+  --pattern-grain:
+          url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+
+/* ───────────────────────────────────────
+   3. BASE — Global Element Styles
+   ─────────────────────────────────────── */
+
 html {
   scroll-behavior: smooth;
 }
@@ -91,53 +295,626 @@ body {
   font-family: var(--font-body);
   background-color: var(--color-ecru-light);
   color: var(--color-soft-black);
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
+/* Prevent layout shift from scrollbar */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* Reset images */
+img, video {
+  max-width: 100%;
+  display: block;
+}
+
+/* Reset links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Focus styles — accessible but on-brand */
+:focus-visible {
+  outline: 1.5px solid var(--color-burgundy);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(107, 29, 42, 0.15);
+  color: var(--color-burgundy-deep);
+}
+
+
+/* ─── Custom Scrollbar ─── */
+
 ::-webkit-scrollbar {
   width: 5px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-ecru-light);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--color-silver);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-burgundy-light);
 }
 
-/* ═══════════════════════════════════════
-   CUSTOM UTILITY LAYER
-   ═══════════════════════════════════════ */
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-silver) var(--color-ecru-light);
+}
+
+
+/* ───────────────────────────────────────
+   4. UTILITIES — Custom Tailwind Utilities
+   ─────────────────────────────────────── */
+
 @layer utilities {
+
+  /* ─── Font Family Shortcuts ─── */
   .font-heading {
     font-family: var(--font-heading);
   }
+
   .font-body {
     font-family: var(--font-body);
   }
-  .text-burgundy {
-    color: var(--color-burgundy);
-  }
-  .text-burgundy-light {
-    color: var(--color-burgundy-light);
-  }
-  .bg-burgundy {
-    background-color: var(--color-burgundy);
-  }
-  .border-burgundy {
-    border-color: var(--color-burgundy);
-  }
+
+
+  /* ─── Brand Letter Spacing ─── */
   .tracking-luxury {
     letter-spacing: 0.35em;
   }
+
   .tracking-label {
     letter-spacing: 0.25em;
   }
+
+  .tracking-editorial {
+    letter-spacing: 0.4em;
+  }
+
+  .tracking-tight-luxury {
+    letter-spacing: 0.1em;
+  }
+
+
+  /* ─── Brand Line Heights ─── */
+  .leading-editorial {
+    line-height: 1.9;
+  }
+
+  .leading-heading {
+    line-height: 1.25;
+  }
+
+  .leading-hero {
+    line-height: 1.1;
+  }
+
+  .leading-prose {
+    line-height: 2;
+  }
+
+
+  /* ─── Gradient Text (metallic shimmer) ─── */
+  .text-gradient-silver {
+    background: linear-gradient(
+            135deg,
+            var(--color-silver-dark) 0%,
+            var(--color-silver-light) 50%,
+            var(--color-silver-dark) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .text-gradient-burgundy {
+    background: linear-gradient(
+            135deg,
+            var(--color-burgundy-deep) 0%,
+            var(--color-burgundy-light) 50%,
+            var(--color-burgundy) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+
+  /* ─── Decorative Dividers ─── */
+  .divider-burgundy-silver {
+    background: linear-gradient(
+            to right,
+            var(--color-burgundy),
+            var(--color-silver)
+    );
+  }
+
+  .divider-silver-ecru {
+    background: linear-gradient(
+            to right,
+            var(--color-silver),
+            var(--color-ecru),
+            var(--color-silver)
+    );
+  }
+
+  .divider-fade-left {
+    background: linear-gradient(
+            to right,
+            transparent,
+            var(--color-silver-dark),
+            transparent
+    );
+  }
+
+
+  /* ─── Film Grain Overlay ─── */
+  .grain-overlay {
+    background-image: var(--pattern-grain);
+    background-size: 128px 128px;
+    pointer-events: none;
+  }
+
+
+  /* ─── Cinematic Letterbox Bars ─── */
+  .letterbox-bar {
+    height: clamp(20px, 3vw, 48px);
+  }
+
+
+  /* ─── Section Spacing Presets ─── */
+  .section-padding {
+    padding-top: clamp(80px, 10vw, 140px);
+    padding-bottom: clamp(80px, 10vw, 140px);
+  }
+
+  .section-padding-lg {
+    padding-top: clamp(100px, 12vw, 160px);
+    padding-bottom: clamp(100px, 12vw, 160px);
+  }
+
+  .section-padding-xl {
+    padding-top: clamp(100px, 14vw, 180px);
+    padding-bottom: clamp(100px, 14vw, 180px);
+  }
+
+
+  /* ─── Container (custom max-width + fluid padding) ─── */
+  .container-luxury {
+    max-width: 1340px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: clamp(24px, 5vw, 60px);
+    padding-right: clamp(24px, 5vw, 60px);
+  }
+
+
+  /* ─── Image Hover Scale (consistent brand feel) ─── */
+  .hover-scale-luxury {
+    transition: transform 0.8s var(--ease-luxury);
+  }
+
+  .hover-scale-luxury:hover {
+    transform: scale(1.06);
+  }
+
+  .hover-scale-subtle {
+    transition: transform 1s var(--ease-luxury);
+  }
+
+  .hover-scale-subtle:hover {
+    transform: scale(1.04);
+  }
+
+
+  /* ─── Text Size Presets (fluid) ─── */
+  .text-hero {
+    font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+  }
+
+  .text-hero-collection {
+    font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+  }
+
+  .text-section-title {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+  }
+
+  .text-editorial-title {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+  }
+
+  .text-editorial-quote {
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  }
+
+  .text-body-serif {
+    font-size: clamp(1.05rem, 1.4vw, 1.2rem);
+  }
+
+  .text-body-serif-lg {
+    font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  }
+
+  .text-caption {
+    font-size: 0.65rem;
+  }
+
+  .text-nav {
+    font-size: 0.72rem;
+  }
+
+  .text-price {
+    font-size: 0.72rem;
+  }
+
+  .text-label {
+    font-size: 0.6rem;
+  }
+
+  .text-legal {
+    font-size: 0.7rem;
+  }
+
+  .text-micro {
+    font-size: 0.55rem;
+  }
+
+  .text-footer-body {
+    font-size: 0.8rem;
+  }
+
+  .text-footer-heading {
+    font-size: 0.65rem;
+  }
 }
 
+
+/* ───────────────────────────────────────
+   5. COMPONENTS — Reusable UI Patterns
+   ─────────────────────────────────────── */
+
+@layer components {
+
+  /* ─── Primary CTA Button (light variant — on dark bg) ─── */
+  .btn-luxury {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    border: 1px solid rgba(245, 240, 232, 0.5);
+    color: var(--color-ecru);
+    cursor: pointer;
+    background: transparent;
+    transition:
+            color 0.4s var(--ease-smooth),
+            border-color 0.4s var(--ease-smooth);
+  }
+
+  .btn-luxury::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-ecru);
+    transition: left 0.5s var(--ease-luxury);
+    z-index: 0;
+  }
+
+  .btn-luxury:hover {
+    color: var(--color-burgundy);
+    border-color: var(--color-ecru);
+  }
+
+  .btn-luxury:hover::before {
+    left: 0;
+  }
+
+  .btn-luxury > span {
+    position: relative;
+    z-index: 1;
+  }
+
+
+  /* ─── Primary CTA Button (dark variant — on light bg) ─── */
+  .btn-luxury-dark {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    padding: 18px 48px;
+    border: 1px solid rgba(107, 29, 42, 0.3);
+    color: var(--color-burgundy);
+    cursor: pointer;
+    background: transparent;
+    transition:
+            color 0.4s var(--ease-smooth),
+            border-color 0.4s var(--ease-smooth);
+  }
+
+  .btn-luxury-dark::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-burgundy);
+    transition: left 0.5s var(--ease-luxury);
+    z-index: 0;
+  }
+
+  .btn-luxury-dark:hover {
+    color: var(--color-ecru);
+    border-color: var(--color-burgundy);
+  }
+
+  .btn-luxury-dark:hover::before {
+    left: 0;
+  }
+
+  .btn-luxury-dark > span {
+    position: relative;
+    z-index: 1;
+  }
+
+
+  /* ─── Arrow Link (bespoke storytelling) ─── */
+  .link-arrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-burgundy);
+    transition: gap 0.3s var(--ease-smooth);
+  }
+
+  .link-arrow:hover {
+    gap: 20px;
+  }
+
+  .link-arrow-line {
+    display: block;
+    width: 32px;
+    height: 1px;
+    background-color: var(--color-burgundy);
+    transition: width 0.3s var(--ease-smooth);
+  }
+
+  .link-arrow:hover .link-arrow-line {
+    width: 48px;
+  }
+
+
+  /* ─── Nav Link (underline reveal) ─── */
+  .nav-link {
+    position: relative;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--color-soft-black);
+    padding-bottom: 4px;
+    transition: color 0.3s var(--ease-smooth);
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: var(--color-burgundy);
+    transition: width 0.4s var(--ease-luxury);
+  }
+
+  .nav-link:hover {
+    color: var(--color-burgundy);
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+
+  /* ─── Social Icon Button ─── */
+  .social-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid rgba(184, 184, 184, 0.2);
+    color: var(--color-silver-dark);
+    transition:
+            border-color 0.3s var(--ease-smooth),
+            color 0.3s var(--ease-smooth);
+  }
+
+  .social-icon:hover {
+    border-color: var(--color-ecru);
+    color: var(--color-ecru);
+  }
+
+  .social-icon svg {
+    width: 14px;
+    height: 14px;
+  }
+
+
+  /* ─── Section Divider Line ─── */
+  .section-divider {
+    width: 48px;
+    height: 1px;
+    background: linear-gradient(
+            to right,
+            var(--color-burgundy),
+            var(--color-silver)
+    );
+  }
+
+  .section-divider-center {
+    width: 48px;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(
+            to right,
+            var(--color-burgundy),
+            var(--color-silver)
+    );
+  }
+
+  .section-divider-light {
+    width: 48px;
+    height: 1px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(
+            to right,
+            var(--color-silver),
+            var(--color-ecru),
+            var(--color-silver)
+    );
+  }
+
+
+  /* ─── Floating Caption Card ─── */
+  .caption-card {
+    background-color: rgba(250, 248, 244, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 8px 40px rgba(26, 39, 68, 0.08);
+  }
+
+
+  /* ─── Cinematic Play Button ─── */
+  .play-button {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid rgba(245, 240, 232, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(28, 28, 28, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition:
+            border-color 0.3s var(--ease-smooth),
+            background-color 0.3s var(--ease-smooth),
+            transform 0.3s var(--ease-smooth);
+  }
+
+  .play-button:hover {
+    border-color: rgba(245, 240, 232, 0.6);
+    background-color: rgba(28, 28, 28, 0.4);
+    transform: scale(1.1);
+  }
+
+  @media (min-width: 768px) {
+    .play-button {
+      width: 80px;
+      height: 80px;
+    }
+  }
+}
+
+
+/* ───────────────────────────────────────
+   6. RESPONSIVE OVERRIDES
+
+   Tailwind handles most responsive needs
+   via utility prefixes (md:, lg:, etc).
+   These are for custom properties that
+   can't be expressed purely in utilities.
+   ─────────────────────────────────────── */
+
+@media (max-width: 768px) {
+  /* Tighten button padding on small screens */
+  .btn-luxury,
+  .btn-luxury-dark {
+    padding: 15px 36px;
+    font-size: 0.62rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Reduce hero text size floor */
+  .text-hero {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .text-hero-collection {
+    font-size: clamp(2.2rem, 9vw, 3.2rem);
+  }
+}
+
+
+/* ───────────────────────────────────────
+   7. PRINT STYLES
+
+   Minimal print support for
+   collection lookbook printing.
+   ─────────────────────────────────────── */
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .header,
+  .footer,
+  .page-loader,
+  video,
+  .play-button {
+    display: none !important;
+  }
+
+  .section-padding,
+  .section-padding-lg,
+  .section-padding-xl {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  img {
+    max-width: 100%;
+    break-inside: avoid;
+  }
+}

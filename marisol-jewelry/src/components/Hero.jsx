@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
+import SmartImage from "./SmartImage";
 
 const SLIDES = [
     {
@@ -57,7 +58,7 @@ export default function Hero() {
                     className={`absolute inset-0 transition-opacity duration-[1800ms] ease-luxury
             ${index === current ? "opacity-100 z-[2]" : "opacity-0 z-[1]"}`}
                 >
-                    <img
+                    <SmartImage
                         src={slide.image}
                         alt={slide.alt}
                         className={`w-full h-full object-cover transition-transform duration-[8000ms] ease-luxury

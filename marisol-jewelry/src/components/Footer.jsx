@@ -1,9 +1,9 @@
 import useScrollReveal from "../hooks/useScrollReveal";
 
 const EXPLORE_LINKS = [
-    { label: "About Us", href: "#about" },
-    { label: "Collection", href: "#collection" },
-    { label: "Products", href: "#products" },
+    { label: "About Us", href: "#/about" },
+    { label: "Collection", href: "#/collection" },
+    { label: "Products", href: "#/products" },
     { label: "Bespoke", href: "#" },
     { label: "Journal", href: "#" },
 ];
