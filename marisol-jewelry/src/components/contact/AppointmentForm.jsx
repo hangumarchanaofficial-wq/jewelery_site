@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import SmartImage from "../SmartImage";
 
@@ -14,10 +14,10 @@ const ITEM_TYPES = [
 ];
 
 const TIMEZONES = [
-    "PST (UTC−8)",
-    "MST (UTC−7)",
-    "CST (UTC−6)",
-    "EST (UTC−5)",
+    "PST (UTC-8)",
+    "MST (UTC-7)",
+    "CST (UTC-6)",
+    "EST (UTC-5)",
     "GMT (UTC+0)",
     "CET (UTC+1)",
     "GST (UTC+4)",
@@ -27,15 +27,82 @@ const TIMEZONES = [
 ];
 
 const HOURS = [
-    "Morning (9 am – 12 pm)",
-    "Afternoon (12 pm – 3 pm)",
-    "Late Afternoon (3 pm – 6 pm)",
-    "Evening (6 pm – 8 pm)",
+    "Morning (9 am - 12 pm)",
+    "Afternoon (12 pm - 3 pm)",
+    "Late Afternoon (3 pm - 6 pm)",
+    "Evening (6 pm - 8 pm)",
     "Flexible",
 ];
 
+function LuxurySelect({ label, placeholder, options, value, onChange }) {
+    const [open, setOpen] = useState(false);
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const handler = (e) => {
+            if (ref.current && !ref.current.contains(e.target)) {
+                setOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handler);
+        return () => document.removeEventListener("mousedown", handler);
+    }, []);
+
+    const select = (opt) => {
+        onChange(opt);
+        setOpen(false);
+    };
+
+    return (
+        <div ref={ref} className="relative">
+            <label className="mb-3 block tracking-[0.2em] text-charcoal/70 font-body text-[10px] uppercase">
+                {label}
+            </label>
+            <button
+                type="button"
+                onClick={() => setOpen((o) => !o)}
+                className={`w-full flex items-center justify-between pb-3 pt-1 border-b bg-transparent
+                    font-body text-[15px] font-light text-left outline-none transition-all duration-300
+                    ${open ? "border-burgundy/60" : "border-silver/30"}
+                    ${value ? "text-charcoal" : "text-charcoal/60"}`}
+            >
+                <span>{value || placeholder}</span>
+                <svg
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    className={`w-3.5 h-3.5 text-silver transition-transform duration-300 ${open ? "rotate-180" : ""}`}
+                >
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
+                </svg>
+            </button>
+
+            {open && (
+                <div className="absolute top-full left-0 right-0 z-50 mt-1 bg-ecru-light border border-silver/20 shadow-[0_8px_40px_rgba(26,39,68,0.10)] max-h-52 overflow-y-auto">
+                    {options.map((opt, i) => (
+                        <div key={opt}>
+                            {i > 0 && <div className="mx-5 h-px bg-silver/15" />}
+                            <button
+                                type="button"
+                                onClick={() => select(opt)}
+                                className={`w-full text-left px-5 py-2.5 font-body text-[13px] font-light
+                                    transition-colors duration-200
+                                    ${value === opt
+                                        ? "bg-burgundy/5 text-burgundy border-l-2 border-burgundy"
+                                        : "text-charcoal/75 hover:bg-ecru-warm hover:text-charcoal border-l-2 border-transparent"
+                                    }`}
+                            >
+                                {opt}
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
 export default function AppointmentForm() {
-    const { ref: sectionRef, isVisible } = useScrollReveal(0.1);
+    const [sectionRef, isVisible] = useScrollReveal({ threshold: 0.1 });
     const [formData, setFormData] = useState({
         itemType: "",
         fullName: "",
@@ -55,7 +122,6 @@ export default function AppointmentForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // In production, this would send to an API
         console.log("Appointment request:", formData);
         setSubmitted(true);
     };
@@ -64,9 +130,8 @@ export default function AppointmentForm() {
         return (
             <section className="bg-ecru-light px-6 py-24 md:py-32">
                 <div className="mx-auto max-w-2xl text-center">
-                    {/* Success Diamond */}
                     <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center">
-                        <svg viewBox="0 0 40 40" fill="none" className="h-12 w-12 text-burgundy/70 animate-[fade-in_0.8s_ease-out]">
+                        <svg viewBox="0 0 40 40" fill="none" className="h-12 w-12 text-burgundy/70">
                             <path d="M20 2L26 14L38 16L30 26L31 38L20 33L9 38L10 26L2 16L14 14L20 2Z" stroke="currentColor" strokeWidth="1" fill="currentColor" fillOpacity="0.05" />
                             <path d="M14 20L18 24L26 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
@@ -74,7 +139,7 @@ export default function AppointmentForm() {
                     <h2 className="mb-4 font-heading text-[clamp(1.8rem,3.5vw,2.6rem)] font-light text-charcoal">
                         Thank You
                     </h2>
-                    <p className="mx-auto max-w-md font-body text-[15px] font-light leading-relaxed text-charcoal/60">
+                    <p className="mx-auto max-w-md font-body text-[15px] font-light leading-relaxed text-charcoal/70">
                         Your appointment request has been received. A member of our concierge team
                         will reach out within 24 hours to confirm your consultation.
                     </p>
@@ -82,15 +147,7 @@ export default function AppointmentForm() {
                     <button
                         onClick={() => {
                             setSubmitted(false);
-                            setFormData({
-                                itemType: "",
-                                fullName: "",
-                                email: "",
-                                whatsapp: "",
-                                description: "",
-                                timezone: "",
-                                reachableHours: "",
-                            });
+                            setFormData({ itemType: "", fullName: "", email: "", whatsapp: "", description: "", timezone: "", reachableHours: "" });
                         }}
                         className="mt-8 font-body text-[13px] tracking-[0.15em] uppercase text-burgundy/60 transition-colors duration-300 hover:text-burgundy"
                     >
@@ -109,35 +166,26 @@ export default function AppointmentForm() {
         >
             <div className="mx-auto max-w-6xl">
                 <div className="grid gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-20">
-                    {/* Left – Context */}
-                    <div
-                        className={`
-              flex flex-col justify-center transition-all duration-[1000ms] ease-luxury
-              ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}
-            `}
-                    >
-            <span className="mb-5 tracking-[0.3em] text-burgundy/50 font-body text-[11px] uppercase">
-              Private Consultation
-            </span>
+                    {/* Left */}
+                    <div className={`flex flex-col justify-center transition-all duration-[1000ms] ease-luxury ${isVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}>
+                        <span className="mb-5 tracking-[0.3em] text-burgundy/80 font-body text-[11px] uppercase">
+                            Private Consultation
+                        </span>
                         <h2 className="mb-6 font-heading text-[clamp(1.8rem,3.5vw,2.8rem)] font-light leading-[1.15] text-charcoal">
-                            Book an
-                            <br />
-                            Appointment
+                            Book an<br />Appointment
                         </h2>
                         <div className="mb-8 h-px w-16 bg-gradient-to-r from-burgundy/30 to-transparent" />
-                        <p className="mb-6 font-body text-[15px] font-light leading-[1.8] text-charcoal/60">
+                        <p className="mb-6 font-body text-[15px] font-light leading-[1.8] text-charcoal/80">
                             Each Marisol piece is conceived through intimate dialogue. Whether you
                             seek a signature creation or a bespoke commission, our artisans dedicate
                             unhurried attention to understanding your vision.
                         </p>
-                        <p className="font-body text-[13px] font-light leading-[1.8] text-charcoal/45">
+                        <p className="font-body text-[13px] font-light leading-[1.8] text-charcoal/70">
                             Consultations are available in person at our San Francisco atelier,
                             or virtually via video call. Please share your preferences below,
                             and we will arrange everything for you.
                         </p>
-
-                        {/* Decorative Image */}
-                        <div className="mt-12 hidden overflow-hidden rounded-sm lg:block">
+                        <div className="mt-12 hidden overflow-hidden lg:block">
                             <SmartImage
                                 src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80&auto=format&fit=crop"
                                 alt="Artisan crafting a gold ring in the Marisol atelier"
@@ -147,64 +195,26 @@ export default function AppointmentForm() {
                     </div>
 
                     {/* Right – Form */}
-                    <div
-                        className={`
-              transition-all duration-[1200ms] delay-200 ease-luxury
-              ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}
-            `}
-                    >
+                    <div className={`transition-all duration-[1200ms] delay-200 ease-luxury ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}>
                         <form
                             onSubmit={handleSubmit}
-                            className="rounded-sm border border-silver/15 bg-white/60 p-8 shadow-[0_4px_30px_rgba(0,0,0,0.03)] backdrop-blur-sm md:p-12"
+                            noValidate
+                            className="border border-silver/15 bg-white/60 p-8 shadow-[0_4px_30px_rgba(0,0,0,0.03)] backdrop-blur-sm md:p-12"
                         >
                             <div className="space-y-8">
-                                {/* Item Requirement */}
-                                <div className="group">
-                                    <label
-                                        htmlFor="itemType"
-                                        className="mb-3 block tracking-[0.2em] text-charcoal/50 font-body text-[10px] uppercase"
-                                    >
-                                        What Are You Looking For?
-                                    </label>
-                                    <div className="relative">
-                                        <select
-                                            id="itemType"
-                                            name="itemType"
-                                            value={formData.itemType}
-                                            onChange={handleChange}
-                                            onFocus={() => setFocusedField("itemType")}
-                                            onBlur={() => setFocusedField(null)}
-                                            required
-                                            className={`
-                        w-full appearance-none border-b bg-transparent pb-3 pt-1
-                        font-body text-[15px] font-light text-charcoal
-                        outline-none transition-all duration-500
-                        ${focusedField === "itemType" ? "border-burgundy/40" : "border-silver/30"}
-                      `}
-                                        >
-                                            <option value="" disabled>Select a category</option>
-                                            {ITEM_TYPES.map((type) => (
-                                                <option key={type} value={type}>{type}</option>
-                                            ))}
-                                        </select>
-                                        <svg
-                                            viewBox="0 0 20 20"
-                                            fill="currentColor"
-                                            className="pointer-events-none absolute right-0 top-1/2 h-4 w-4 -translate-y-1/2 text-silver"
-                                        >
-                                            <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
-                                        </svg>
-                                    </div>
-                                </div>
+                                {/* Category */}
+                                <LuxurySelect
+                                    label="What Are You Looking For?"
+                                    placeholder="Select a category"
+                                    options={ITEM_TYPES}
+                                    value={formData.itemType}
+                                    onChange={(val) => setFormData((p) => ({ ...p, itemType: val }))}
+                                />
 
-                                {/* Name & Email Row */}
+                                {/* Name & Email */}
                                 <div className="grid gap-8 md:grid-cols-2">
-                                    {/* Full Name */}
                                     <div>
-                                        <label
-                                            htmlFor="fullName"
-                                            className="mb-3 block tracking-[0.2em] text-charcoal/50 font-body text-[10px] uppercase"
-                                        >
+                                        <label htmlFor="fullName" className="mb-3 block tracking-[0.2em] text-charcoal/70 font-body text-[10px] uppercase">
                                             Full Name
                                         </label>
                                         <input
@@ -217,21 +227,11 @@ export default function AppointmentForm() {
                                             onBlur={() => setFocusedField(null)}
                                             required
                                             placeholder="Your name"
-                                            className={`
-                        w-full border-b bg-transparent pb-3 pt-1
-                        font-body text-[15px] font-light text-charcoal
-                        placeholder:text-silver/60 outline-none transition-all duration-500
-                        ${focusedField === "fullName" ? "border-burgundy/40" : "border-silver/30"}
-                      `}
+                                            className={`w-full border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light text-charcoal placeholder:text-charcoal/55 outline-none [&:invalid]:shadow-none transition-all duration-500 ${focusedField === "fullName" ? "border-burgundy/60" : "border-silver/30"}`}
                                         />
                                     </div>
-
-                                    {/* Email */}
                                     <div>
-                                        <label
-                                            htmlFor="email"
-                                            className="mb-3 block tracking-[0.2em] text-charcoal/50 font-body text-[10px] uppercase"
-                                        >
+                                        <label htmlFor="email" className="mb-3 block tracking-[0.2em] text-charcoal/70 font-body text-[10px] uppercase">
                                             Email Address
                                         </label>
                                         <input
@@ -244,23 +244,15 @@ export default function AppointmentForm() {
                                             onBlur={() => setFocusedField(null)}
                                             required
                                             placeholder="your@email.com"
-                                            className={`
-                        w-full border-b bg-transparent pb-3 pt-1
-                        font-body text-[15px] font-light text-charcoal
-                        placeholder:text-silver/60 outline-none transition-all duration-500
-                        ${focusedField === "email" ? "border-burgundy/40" : "border-silver/30"}
-                      `}
+                                            className={`w-full border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light text-charcoal placeholder:text-charcoal/55 outline-none [&:invalid]:shadow-none transition-all duration-500 ${focusedField === "email" ? "border-burgundy/60" : "border-silver/30"}`}
                                         />
                                     </div>
                                 </div>
 
                                 {/* WhatsApp */}
                                 <div>
-                                    <label
-                                        htmlFor="whatsapp"
-                                        className="mb-3 block tracking-[0.2em] text-charcoal/50 font-body text-[10px] uppercase"
-                                    >
-                                        WhatsApp Number <span className="normal-case tracking-normal text-silver">(optional)</span>
+                                    <label htmlFor="whatsapp" className="mb-3 block tracking-[0.2em] text-charcoal/70 font-body text-[10px] uppercase">
+                                        WhatsApp Number <span className="normal-case tracking-normal text-silver/70">(optional)</span>
                                     </label>
                                     <input
                                         type="tel"
@@ -270,22 +262,14 @@ export default function AppointmentForm() {
                                         onChange={handleChange}
                                         onFocus={() => setFocusedField("whatsapp")}
                                         onBlur={() => setFocusedField(null)}
-                                        placeholder="+1 (000) 000‑0000"
-                                        className={`
-                      w-full border-b bg-transparent pb-3 pt-1
-                      font-body text-[15px] font-light text-charcoal
-                      placeholder:text-silver/60 outline-none transition-all duration-500
-                      ${focusedField === "whatsapp" ? "border-burgundy/40" : "border-silver/30"}
-                    `}
+                                        placeholder="+1 (000) 000-0000"
+                                        className={`w-full border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light text-charcoal placeholder:text-charcoal/55 outline-none transition-all duration-500 ${focusedField === "whatsapp" ? "border-burgundy/60" : "border-silver/30"}`}
                                     />
                                 </div>
 
                                 {/* Description */}
                                 <div>
-                                    <label
-                                        htmlFor="description"
-                                        className="mb-3 block tracking-[0.2em] text-charcoal/50 font-body text-[10px] uppercase"
-                                    >
+                                    <label htmlFor="description" className="mb-3 block tracking-[0.2em] text-charcoal/70 font-body text-[10px] uppercase">
                                         Describe Your Vision
                                     </label>
                                     <textarea
@@ -296,118 +280,41 @@ export default function AppointmentForm() {
                                         onFocus={() => setFocusedField("description")}
                                         onBlur={() => setFocusedField(null)}
                                         rows={4}
-                                        placeholder="Tell us about the piece you envision — the occasion, the feeling, any inspirations…"
-                                        className={`
-                      w-full resize-none border-b bg-transparent pb-3 pt-1
-                      font-body text-[15px] font-light leading-relaxed text-charcoal
-                      placeholder:text-silver/60 outline-none transition-all duration-500
-                      ${focusedField === "description" ? "border-burgundy/40" : "border-silver/30"}
-                    `}
+                                        placeholder="Tell us about the piece you envision..."
+                                        className={`w-full resize-none border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light leading-relaxed text-charcoal placeholder:text-charcoal/55 outline-none transition-all duration-500 ${focusedField === "description" ? "border-burgundy/60" : "border-silver/30"}`}
                                     />
                                 </div>
 
-                                {/* Timezone & Hours Row */}
+                                {/* Timezone & Hours */}
                                 <div className="grid gap-8 md:grid-cols-2">
-                                    {/* Timezone */}
-                                    <div>
-                                        <label
-                                            htmlFor="timezone"
-                                            className="mb-3 block tracking-[0.2em] text-charcoal/50 font-body text-[10px] uppercase"
-                                        >
-                                            Your Time Zone
-                                        </label>
-                                        <div className="relative">
-                                            <select
-                                                id="timezone"
-                                                name="timezone"
-                                                value={formData.timezone}
-                                                onChange={handleChange}
-                                                onFocus={() => setFocusedField("timezone")}
-                                                onBlur={() => setFocusedField(null)}
-                                                required
-                                                className={`
-                          w-full appearance-none border-b bg-transparent pb-3 pt-1
-                          font-body text-[15px] font-light text-charcoal
-                          outline-none transition-all duration-500
-                          ${focusedField === "timezone" ? "border-burgundy/40" : "border-silver/30"}
-                        `}
-                                            >
-                                                <option value="" disabled>Select timezone</option>
-                                                {TIMEZONES.map((tz) => (
-                                                    <option key={tz} value={tz}>{tz}</option>
-                                                ))}
-                                            </select>
-                                            <svg
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                                className="pointer-events-none absolute right-0 top-1/2 h-4 w-4 -translate-y-1/2 text-silver"
-                                            >
-                                                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                    {/* Reachable Hours */}
-                                    <div>
-                                        <label
-                                            htmlFor="reachableHours"
-                                            className="mb-3 block tracking-[0.2em] text-charcoal/50 font-body text-[10px] uppercase"
-                                        >
-                                            Preferred Hours
-                                        </label>
-                                        <div className="relative">
-                                            <select
-                                                id="reachableHours"
-                                                name="reachableHours"
-                                                value={formData.reachableHours}
-                                                onChange={handleChange}
-                                                onFocus={() => setFocusedField("reachableHours")}
-                                                onBlur={() => setFocusedField(null)}
-                                                required
-                                                className={`
-                          w-full appearance-none border-b bg-transparent pb-3 pt-1
-                          font-body text-[15px] font-light text-charcoal
-                          outline-none transition-all duration-500
-                          ${focusedField === "reachableHours" ? "border-burgundy/40" : "border-silver/30"}
-                        `}
-                                            >
-                                                <option value="" disabled>Select preferred time</option>
-                                                {HOURS.map((h) => (
-                                                    <option key={h} value={h}>{h}</option>
-                                                ))}
-                                            </select>
-                                            <svg
-                                                viewBox="0 0 20 20"
-                                                fill="currentColor"
-                                                className="pointer-events-none absolute right-0 top-1/2 h-4 w-4 -translate-y-1/2 text-silver"
-                                            >
-                                                <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
-                                            </svg>
-                                        </div>
-                                    </div>
+                                    <LuxurySelect
+                                        label="Your Time Zone"
+                                        placeholder="Select timezone"
+                                        options={TIMEZONES}
+                                        value={formData.timezone}
+                                        onChange={(val) => setFormData((p) => ({ ...p, timezone: val }))}
+                                    />
+                                    <LuxurySelect
+                                        label="Preferred Hours"
+                                        placeholder="Select preferred time"
+                                        options={HOURS}
+                                        value={formData.reachableHours}
+                                        onChange={(val) => setFormData((p) => ({ ...p, reachableHours: val }))}
+                                    />
                                 </div>
 
-                                {/* Submit Button */}
+                                {/* Submit */}
                                 <div className="pt-4">
                                     <button
                                         type="submit"
-                                        className="
-                      group relative w-full overflow-hidden rounded-sm border border-burgundy
-                      bg-burgundy px-10 py-4
-                      font-body text-[12px] tracking-[0.3em] uppercase text-ecru
-                      transition-all duration-700 ease-luxury
-                      hover:bg-burgundy-dark hover:shadow-[0_8px_30px_rgba(107,29,42,0.2)]
-                      focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-burgundy
-                    "
+                                        className="group relative w-full overflow-hidden border border-burgundy bg-burgundy px-10 py-4 font-body text-[12px] tracking-[0.3em] uppercase text-ecru transition-all duration-700 ease-luxury hover:bg-burgundy-deep hover:shadow-[0_8px_30px_rgba(107,29,42,0.2)]"
                                     >
                                         <span className="relative z-10">Request Appointment</span>
-                                        {/* Shine Effect */}
                                         <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
                                     </button>
                                 </div>
 
-                                {/* Privacy Note */}
-                                <p className="text-center font-body text-[11px] font-light leading-relaxed text-charcoal/35">
+                                <p className="text-center font-body text-[11px] font-light leading-relaxed text-charcoal/60">
                                     Your information is held in strictest confidence.
                                     <br />
                                     We will never share your details with third parties.

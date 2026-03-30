@@ -7,10 +7,10 @@ export default function CollectionDivider() {
     return (
         <section
             ref={ref}
-            className="relative py-[clamp(80px,12vw,140px)] bg-deep-blue overflow-hidden"
+            className="relative min-h-screen bg-deep-blue overflow-hidden flex items-center"
         >
-            {/* Subtle ocean texture background */}
-            <div className="absolute inset-0 opacity-[0.08] z-[1]">
+            {/* Ocean background image */}
+            <div className="absolute inset-0 opacity-30 z-[1]">
                 <SmartImage
                     src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=75&auto=format&fit=crop"
                     alt=""
@@ -47,7 +47,7 @@ export default function CollectionDivider() {
                         <div className="w-16 md:w-24 h-px bg-gradient-to-l from-transparent to-silver/30" />
                     </div>
 
-                    <p className="font-heading text-[clamp(1.1rem,2vw,1.5rem)] font-light italic text-ecru/50 leading-[2] mb-10">
+                    <p className="font-heading text-[clamp(1.1rem,2vw,1.5rem)] font-light italic text-ecru leading-[2] mb-10">
                         "Luxury is not in the weight of gold, but in the weight of meaning.<br className="hidden md:block" />
                         Every piece we create carries the intention of its making —<br className="hidden md:block" />
                         unhurried, unrepeatable, and wholly yours."
@@ -55,7 +55,7 @@ export default function CollectionDivider() {
 
                     <div className="flex items-center justify-center gap-4">
                         <div className="w-8 h-px bg-silver/20" />
-                        <span className="font-body text-[0.58rem] font-medium tracking-[0.3em] uppercase text-silver/40">
+                        <span className="font-body text-[0.58rem] font-medium tracking-[0.3em] uppercase text-silver/80">
               Marisol Atelier &middot; Est. 2019
             </span>
                         <div className="w-8 h-px bg-silver/20" />

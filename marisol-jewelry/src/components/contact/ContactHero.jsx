@@ -2,10 +2,10 @@ import useScrollReveal from "../../hooks/useScrollReveal";
 import SmartImage from "../SmartImage";
 
 export default function ContactHero() {
-    const { ref: titleRef, isVisible: titleVisible } = useScrollReveal(0.2);
+    const [titleRef, titleVisible] = useScrollReveal({ threshold: 0.2 });
 
     return (
-        <section className="relative h-[70vh] min-h-[520px] max-h-[780px] overflow-hidden">
+        <section className="relative h-screen min-h-[650px] overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <SmartImage

@@ -1,7 +1,7 @@
 import useScrollReveal from "../../hooks/useScrollReveal";
 
 export default function QuickInquiry() {
-    const { ref, isVisible } = useScrollReveal(0.2);
+    const [ref, isVisible] = useScrollReveal({ threshold: 0.2 });
 
     return (
         <section ref={ref} className="bg-ecru px-6 py-20 md:py-28">
@@ -13,13 +13,13 @@ export default function QuickInquiry() {
             ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}
           `}
                 >
-          <span className="mb-4 block tracking-[0.3em] text-burgundy/50 font-body text-[11px] uppercase">
+          <span className="mb-4 block tracking-[0.3em] text-burgundy font-body text-[11px] uppercase">
             Quick Connect
           </span>
                     <h2 className="mb-4 font-heading text-[clamp(1.4rem,3vw,2rem)] font-light text-charcoal">
                         Prefer a Direct Message?
                     </h2>
-                    <p className="mx-auto max-w-md font-body text-[14px] font-light leading-relaxed text-charcoal/50">
+                    <p className="mx-auto max-w-md font-body text-[14px] font-light leading-relaxed text-charcoal/75">
                         If you have a brief question or simply wish to say hello,
                         reach us instantly through your preferred channel.
                     </p>
@@ -64,10 +64,10 @@ export default function QuickInquiry() {
                         rel="noopener noreferrer"
                         className="
               group relative flex items-center gap-3 overflow-hidden rounded-sm
-              border border-forest-green/60 bg-transparent px-10 py-4
-              font-body text-[12px] tracking-[0.25em] uppercase text-forest-green
+              border border-charcoal/40 bg-transparent px-10 py-4
+              font-body text-[12px] tracking-[0.25em] uppercase text-charcoal
               transition-all duration-700 ease-luxury
-              hover:bg-forest-green hover:text-ecru hover:shadow-[0_6px_25px_rgba(45,74,62,0.15)]
+              hover:bg-charcoal hover:text-ecru hover:border-charcoal hover:shadow-[0_6px_25px_rgba(26,26,26,0.12)]
             "
                     >
                         <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 transition-colors duration-700">
@@ -81,7 +81,7 @@ export default function QuickInquiry() {
                 {/* Availability Note */}
                 <p
                     className={`
-            mt-10 font-body text-[12px] font-light text-charcoal/35
+            mt-10 font-body text-[12px] font-light text-charcoal/65
             transition-all duration-[1000ms] delay-500 ease-luxury
             ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}
           `}

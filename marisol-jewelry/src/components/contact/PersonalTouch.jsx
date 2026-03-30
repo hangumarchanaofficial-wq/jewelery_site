@@ -2,21 +2,23 @@ import useScrollReveal from "../../hooks/useScrollReveal";
 import SmartImage from "../SmartImage";
 
 export default function PersonalTouch() {
-    const { ref, isVisible } = useScrollReveal(0.3);
+    const [ref, isVisible] = useScrollReveal({ threshold: 0.3 });
 
     return (
         <section
             ref={ref}
-            className="relative overflow-hidden bg-deep-blue px-6 py-24 md:py-32"
+            className="relative min-h-screen overflow-hidden bg-deep-blue flex items-center px-6"
         >
-            {/* Subtle Background Texture */}
-            <div className="absolute inset-0 opacity-[0.03]">
+            {/* Premium Background Image */}
+            <div className="absolute inset-0">
                 <SmartImage
-                    src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=1920&q=60&auto=format&fit=crop"
+                    src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=1920&q=90&auto=format&fit=crop"
                     alt=""
                     aria-hidden="true"
                     className="h-full w-full object-cover"
                 />
+                {/* Dark overlay for readability */}
+                <div className="absolute inset-0 bg-gradient-to-b from-deep-blue/80 via-deep-blue/70 to-deep-blue/85" />
             </div>
 
             {/* Content */}
@@ -31,7 +33,7 @@ export default function PersonalTouch() {
                 <svg
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="mx-auto mb-8 h-6 w-6 text-silver/40"
+                    className="mx-auto mb-8 h-6 w-6 text-silver/70"
                 >
                     <path
                         d="M12 2L22 12L12 22L2 12L12 2Z"
@@ -48,7 +50,7 @@ export default function PersonalTouch() {
 
                 <div className="mx-auto my-8 h-px w-12 bg-gradient-to-r from-transparent via-silver/40 to-transparent" />
 
-                <p className="font-body text-[13px] font-light tracking-[0.15em] uppercase text-silver/50">
+                <p className="font-body text-[13px] font-light tracking-[0.15em] uppercase text-silver/80">
                     — The Marisol Atelier
                 </p>
             </div>

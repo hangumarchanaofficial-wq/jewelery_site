@@ -49,29 +49,33 @@ export default function Header() {
         }
     };
 
-    const brandTextClass = scrolled ? "text-burgundy" : "text-[rgba(245,240,232,0.96)] drop-shadow-[0_1px_12px_rgba(0,0,0,0.22)]";
-    const navTextClass = scrolled ? "text-soft-black hover:text-burgundy" : "text-[rgba(245,240,232,0.94)] hover:text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.28)]";
-    const activeNavTextClass = scrolled ? "text-burgundy" : "text-ecru";
-    const navUnderlineClass = scrolled ? "bg-burgundy" : "bg-ecru/85";
-    const mobileToggleColor = scrolled ? "bg-burgundy" : "bg-ecru";
-    const logoColor = scrolled ? "#6B1D2A" : "rgba(245,240,232,0.96)";
+    // Pages with light backgrounds need dark text from the start
+    const lightBgPages = ["#/products", "#/about", "#/contact", "#/product/"];
+    const isLightPage = lightBgPages.some((p) => currentPage.startsWith(p));
+    const isDark = scrolled || isLightPage;
+
+    const brandTextClass = isDark ? "text-burgundy" : "text-[rgba(245,240,232,0.96)] drop-shadow-[0_1px_12px_rgba(0,0,0,0.22)]";
+    const navTextClass = isDark ? "text-soft-black hover:text-burgundy" : "text-[rgba(245,240,232,0.94)] hover:text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.28)]";
+    const activeNavTextClass = isDark ? "text-burgundy" : "text-ecru";
+    const navUnderlineClass = isDark ? "bg-burgundy" : "bg-ecru/85";
+    const mobileToggleColor = isDark ? "bg-burgundy" : "bg-ecru";
+    const logoColor = isDark ? "#6B1D2A" : "rgba(245,240,232,0.96)";
 
     return (
         <header
             className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ease-smooth
         ${
-                scrolled
+                isDark
                     ? "bg-ecru-light/97 backdrop-blur-xl shadow-[0_1px_0_rgba(107,29,42,0.08)] py-4"
                     : "bg-transparent py-7"
             }`}
         >
-            {!scrolled && (
+            {!isDark && (
                 <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-charcoal/25 via-charcoal/10 to-transparent pointer-events-none" />
             )}
             <div className="container-luxury flex items-center justify-between">
                 {/* Brand */}
-                <a href="#/" className="relative z-[1] flex items-center gap-3.5">
-                    <BrandLogo className="w-9 h-9" color={logoColor} />
+                <a href="#/" className="relative z-[1] flex items-center">
                     <span className={`font-heading text-[1.65rem] font-normal tracking-luxury uppercase ${brandTextClass}`}>
             Marisol
           </span>

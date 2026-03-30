@@ -30,19 +30,15 @@ export default function CinematicVisual() {
     return (
         <section
             ref={ref}
-            className="relative bg-charcoal overflow-hidden"
+            className="relative bg-charcoal overflow-hidden h-screen min-h-[600px]"
         >
-            {/* Cinematic letterbox bars */}
-            <div className="absolute top-0 left-0 right-0 h-[clamp(20px,3vw,48px)] bg-charcoal z-[3]" />
-            <div className="absolute bottom-0 left-0 right-0 h-[clamp(20px,3vw,48px)] bg-charcoal z-[3]" />
-
             <div
-                className={`transition-all duration-[2000ms] ease-luxury
+                className={`h-full transition-all duration-[2000ms] ease-luxury
           ${isVisible ? "opacity-100 scale-100" : "opacity-0 scale-[1.02]"}`}
             >
                 {/* Video Container */}
                 <div
-                    className="relative aspect-[21/9] max-h-[75vh] min-h-[300px] cursor-pointer group"
+                    className="relative w-full h-full cursor-pointer group"
                     onClick={togglePlay}
                     onMouseEnter={() => setShowControls(true)}
                     onMouseLeave={() => setShowControls(isPlaying ? false : true)}
@@ -62,8 +58,15 @@ export default function CinematicVisual() {
                         loop
                         playsInline
                         preload="metadata"
-                        className="relative w-full h-full object-cover"
                         poster="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=1920&q=85&auto=format&fit=crop"
+                        style={{
+                            position: "absolute",
+                            inset: 0,
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                            maxWidth: "none",
+                        }}
                     >
                         <source
                             src="https://videos.pexels.com/video-files/4087991/4087991-uhd_2732_1440_25fps.mp4"

@@ -1,4 +1,4 @@
-import useScrollReveal from "../../hooks/useScrollReveal";
+﻿import useScrollReveal from "../../hooks/useScrollReveal";
 import SmartImage from "../SmartImage";
 
 const PIECES = [
@@ -8,7 +8,6 @@ const PIECES = [
         description: "Cascading links that mirror the movement of current over coral. The centrepiece aquamarine was cut to catch light the way the sea holds sunrise.",
         image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=900&q=85&auto=format&fit=crop",
         alt: "Ondine necklace — gold chain with aquamarine pendant",
-        layout: "tall",
     },
     {
         name: "Marée Ring",
@@ -16,7 +15,6 @@ const PIECES = [
         description: "The band ripples like a tide pool's edge — hand-carved in platinum, holding a sapphire the colour of the ocean at depth.",
         image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=85&auto=format&fit=crop",
         alt: "Marée ring — platinum with deep blue sapphire",
-        layout: "square",
     },
     {
         name: "Écume Earrings",
@@ -24,7 +22,6 @@ const PIECES = [
         description: "Seafoam frozen in white gold. Each earring is asymmetric by design — because no two waves ever break the same way.",
         image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=85&auto=format&fit=crop",
         alt: "Écume earrings — white gold drop earrings with pearl",
-        layout: "square",
     },
     {
         name: "Rivage Bracelet",
@@ -32,7 +29,6 @@ const PIECES = [
         description: "Inspired by the line where sand meets sea at dusk. Rose gold links graduate from matte to polished — shoreline to shallows.",
         image: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=800&q=85&auto=format&fit=crop",
         alt: "Rivage bracelet — rose gold chain with champagne diamonds",
-        layout: "wide",
     },
     {
         name: "Abyssal Pendant",
@@ -40,7 +36,6 @@ const PIECES = [
         description: "From the deepest register of the collection — a Tahitian pearl suspended in blackened silver, like moonlight held beneath the surface.",
         image: "https://images.unsplash.com/photo-1602751584552-8ba73aad10e1?w=600&q=85&auto=format&fit=crop",
         alt: "Abyssal pendant — dark silver chain with Tahitian pearl",
-        layout: "square",
     },
     {
         name: "Littoral Cuff",
@@ -48,35 +43,22 @@ const PIECES = [
         description: "A single emerald sits in an organically sculpted gold cuff — as if the stone grew there naturally, shaped by centuries of tide.",
         image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&q=85&auto=format&fit=crop",
         alt: "Littoral cuff — gold bangle with green emerald",
-        layout: "square",
     },
 ];
 
 function PieceCard({ piece, index }) {
     const [ref, isVisible] = useScrollReveal({ threshold: 0.1 });
     const delay = (index % 3) * 180;
-    const isWide = piece.layout === "wide";
-    const isTall = piece.layout === "tall";
 
     return (
-        <div
-            ref={ref}
-            className={`group cursor-pointer
-        ${isTall ? "md:col-span-1 md:row-span-2" : ""}
-        ${isWide ? "md:col-span-2" : ""}`}
-        >
+        <div ref={ref} className="group cursor-pointer">
             <div
                 className={`transition-all duration-[1200ms] ease-luxury
           ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}`}
                 style={{ transitionDelay: `${delay}ms` }}
             >
                 {/* Image */}
-                <div
-                    className={`relative overflow-hidden bg-ecru-warm mb-6
-            ${isTall ? "aspect-[3/5]" : ""}
-            ${isWide ? "aspect-[16/9]" : ""}
-            ${!isTall && !isWide ? "aspect-[4/5]" : ""}`}
-                >
+                <div className="relative overflow-hidden bg-ecru-warm mb-6 aspect-[4/5]">
                     <SmartImage
                         src={piece.image}
                         alt={piece.alt}
@@ -113,10 +95,10 @@ function PieceCard({ piece, index }) {
 
                 {/* Text info */}
                 <div className="px-1">
-                    <h3 className="font-heading text-[1.2rem] md:text-[1.35rem] font-normal text-soft-black mb-1.5 tracking-[0.02em]">
+                    <h3 className="font-heading text-[1.2rem] md:text-[1.35rem] font-normal text-[#1e1a18] mb-1.5 tracking-[0.02em]">
                         {piece.name}
                     </h3>
-                    <p className="font-body text-[0.65rem] font-medium tracking-[0.15em] uppercase text-silver-dark mb-4">
+                    <p className="font-body text-[0.65rem] font-medium tracking-[0.15em] uppercase mb-4" style={{ color: "rgba(42,42,42,0.65)" }}>
                         {piece.subtitle}
                     </p>
                     <p className="font-heading text-[0.92rem] font-light italic text-soft-black/60 leading-[1.8] max-w-[380px]">
@@ -144,7 +126,7 @@ export default function CollectionPieces() {
             transition-all duration-[1200ms] ease-luxury
             ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
                 >
-                    <p className="font-body text-[0.6rem] font-medium tracking-[0.4em] uppercase text-silver-dark mb-6">
+                    <p className="font-body text-[0.6rem] font-medium tracking-[0.4em] uppercase mb-6" style={{ color: "rgba(107,29,42,0.65)" }}>
                         The Pieces
                     </p>
                     <h2 className="font-heading text-[clamp(2rem,3.5vw,3rem)] font-light text-burgundy leading-[1.25] mb-5">
@@ -152,14 +134,14 @@ export default function CollectionPieces() {
                         With the Sea
                     </h2>
                     <div className="w-12 h-px mx-auto bg-gradient-to-r from-burgundy to-silver mb-7" />
-                    <p className="font-body text-[0.85rem] font-light text-silver-dark leading-[1.9]">
+                    <p className="font-body text-[0.85rem] font-light leading-[1.9]" style={{ color: "#3a3330" }}>
                         Each piece exists as a singular expression — numbered, signed,<br className="hidden md:block" />
                         and accompanied by its own provenance journal.
                     </p>
                 </div>
 
                 {/* Masonry-style editorial grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-14 lg:gap-x-8 lg:gap-y-20">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-16">
                     {PIECES.map((piece, index) => (
                         <PieceCard key={piece.name} piece={piece} index={index} />
                     ))}

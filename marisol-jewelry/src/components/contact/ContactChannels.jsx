@@ -39,7 +39,7 @@ const CHANNELS = [
 ];
 
 export default function ContactChannels() {
-    const { ref, isVisible } = useScrollReveal(0.2);
+    const [ref, isVisible] = useScrollReveal({ threshold: 0.2 });
 
     return (
         <section ref={ref} className="bg-ecru px-6 py-20 md:py-28">
@@ -51,7 +51,7 @@ export default function ContactChannels() {
             ${isVisible ? "translate-y-0 opacity-100" : "translate-y-6 opacity-0"}
           `}
                 >
-          <span className="mb-4 block tracking-[0.3em] text-burgundy/60 font-body text-[11px] uppercase">
+          <span className="mb-4 block tracking-[0.3em] text-burgundy/80 font-body text-[11px] uppercase">
             Reach Our Atelier
           </span>
                     <h2 className="font-heading text-[clamp(1.6rem,3.5vw,2.4rem)] font-light text-charcoal leading-tight">
@@ -86,7 +86,7 @@ export default function ContactChannels() {
                             </div>
 
                             {/* Label */}
-                            <span className="mb-2 tracking-[0.25em] text-burgundy/50 font-body text-[10px] uppercase">
+                            <span className="mb-2 tracking-[0.25em] text-burgundy/80 font-body text-[10px] uppercase">
                 {channel.label}
               </span>
 
@@ -96,7 +96,7 @@ export default function ContactChannels() {
               </span>
 
                             {/* Description */}
-                            <p className="font-body text-[13px] font-light leading-relaxed text-charcoal/50">
+                            <p className="font-body text-[13px] font-light leading-relaxed text-charcoal/75">
                                 {channel.description}
                             </p>
 
