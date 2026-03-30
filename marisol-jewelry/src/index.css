@@ -1,0 +1,143 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════
+   TAILWIND v4 THEME — MARISOL BRAND
+   ═══════════════════════════════════════ */
+
+@theme {
+  /* Brand Colors */
+  --color-burgundy: #6b1d2a;
+  --color-burgundy-deep: #4a0e1a;
+  --color-burgundy-light: #8b2e3f;
+  --color-ecru: #f5f0e8;
+  --color-ecru-warm: #ede6d8;
+  --color-ecru-light: #faf8f4;
+  --color-silver: #b8b8b8;
+  --color-silver-light: #d4d4d4;
+  --color-silver-dark: #8a8a8a;
+  --color-deep-blue: #1a2744;
+  --color-ocean-blue: #2c4a6e;
+  --color-forest-green: #2d4a3e;
+  --color-charcoal: #1c1c1c;
+  --color-soft-black: #2a2a2a;
+
+  /* Typography */
+  --font-heading: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Montserrat", "Helvetica Neue", Arial, sans-serif;
+
+  /* Custom Easings */
+  --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Custom Animations */
+  --animate-fade-up: fade-up 1.2s var(--ease-luxury) forwards;
+  --animate-fade-up-delay-1: fade-up 1.2s 0.3s var(--ease-luxury) forwards;
+  --animate-fade-up-delay-2: fade-up 1.2s 0.6s var(--ease-luxury) forwards;
+  --animate-fade-up-delay-3: fade-up 1.2s 0.9s var(--ease-luxury) forwards;
+  --animate-fade-up-delay-4: fade-up 1.2s 1.2s var(--ease-luxury) forwards;
+  --animate-loader-pulse: loader-pulse 1.5s var(--ease-smooth) infinite;
+  --animate-loader-line: loader-line 1.5s var(--ease-smooth) infinite;
+  --animate-ken-burns: ken-burns 8s var(--ease-luxury) forwards;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes loader-pulse {
+    0%,
+    100% {
+      opacity: 0.4;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes loader-line {
+    0%,
+    100% {
+      width: 30px;
+    }
+    50% {
+      width: 80px;
+    }
+  }
+
+  @keyframes ken-burns {
+    from {
+      transform: scale(1.08);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+}
+
+/* ═══════════════════════════════════════
+   GLOBAL BASE STYLES
+   ═══════════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-ecru-light);
+  color: var(--color-soft-black);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ecru-light);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-silver);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-burgundy-light);
+}
+
+/* ═══════════════════════════════════════
+   CUSTOM UTILITY LAYER
+   ═══════════════════════════════════════ */
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+  .font-body {
+    font-family: var(--font-body);
+  }
+  .text-burgundy {
+    color: var(--color-burgundy);
+  }
+  .text-burgundy-light {
+    color: var(--color-burgundy-light);
+  }
+  .bg-burgundy {
+    background-color: var(--color-burgundy);
+  }
+  .border-burgundy {
+    border-color: var(--color-burgundy);
+  }
+  .tracking-luxury {
+    letter-spacing: 0.35em;
+  }
+  .tracking-label {
+    letter-spacing: 0.25em;
+  }
+}
+
