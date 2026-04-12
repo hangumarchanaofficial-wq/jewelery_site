@@ -307,7 +307,7 @@ export default function AppointmentForm() {
                                 <div className="pt-4">
                                     <button
                                         type="submit"
-                                        className="group relative w-full overflow-hidden border border-burgundy bg-burgundy px-10 py-4 font-body text-[12px] tracking-[0.3em] uppercase text-ecru transition-all duration-700 ease-luxury hover:bg-burgundy-deep hover:shadow-[0_8px_30px_rgba(107,29,42,0.2)]"
+                                        className="group relative w-full overflow-hidden border border-burgundy bg-burgundy px-6 sm:px-8 md:px-10 py-4 font-body text-[12px] tracking-[0.3em] uppercase text-ecru transition-all duration-700 ease-luxury hover:bg-burgundy-deep hover:shadow-[0_8px_30px_rgba(107,29,42,0.2)]"
                                     >
                                         <span className="relative z-10">Request Appointment</span>
                                         <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />

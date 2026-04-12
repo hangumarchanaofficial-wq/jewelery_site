@@ -118,7 +118,7 @@ export default function CollectionPieces() {
             id="collection-pieces"
             className="py-[clamp(100px,12vw,160px)] bg-ecru-light"
         >
-            <div className="mx-auto max-w-[1340px] px-6 md:px-10 lg:px-15">
+            <div className="mx-auto max-w-[1340px] px-page-gutter">
                 {/* Section Header */}
                 <div
                     ref={headerRef}
@@ -157,7 +157,7 @@ export default function CollectionPieces() {
                         href="#"
                         className="group relative inline-block font-body text-[0.65rem] font-medium
               tracking-[0.3em] uppercase text-burgundy border border-burgundy/30
-              px-12 py-5 overflow-hidden transition-all duration-400 ease-smooth
+              px-6 sm:px-10 md:px-12 py-5 overflow-hidden transition-all duration-400 ease-smooth
               hover:text-ecru hover:border-burgundy"
                     >
             <span

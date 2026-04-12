@@ -30,7 +30,7 @@ export default function CinematicVisual() {
     return (
         <section
             ref={ref}
-            className="relative bg-charcoal overflow-hidden h-screen min-h-[600px]"
+            className="relative bg-charcoal overflow-hidden h-[100dvh] min-h-[480px] sm:min-h-[560px] md:min-h-[600px]"
         >
             <div
                 className={`h-full transition-all duration-[2000ms] ease-luxury
@@ -111,7 +111,7 @@ export default function CinematicVisual() {
                     </div>
 
                     {/* Caption overlay */}
-                    <div className="absolute bottom-[clamp(28px,4vw,56px)] left-0 right-0 z-[2] text-center px-6">
+                    <div className="absolute bottom-[max(clamp(28px,4vw,56px),env(safe-area-inset-bottom,0px))] left-0 right-0 z-[2] text-center pl-[max(1.5rem,env(safe-area-inset-left,0px))] pr-[max(1.5rem,env(safe-area-inset-right,0px))]">
                         <p
                             className={`font-body text-[0.58rem] font-medium tracking-[0.35em] uppercase text-ecru/50
                 transition-all duration-700 ease-luxury

@@ -12,7 +12,7 @@ export default function CollectionStory() {
             ref={sectionRef}
             className="py-[clamp(100px,12vw,160px)] bg-ecru-light overflow-hidden"
         >
-            <div className="mx-auto max-w-[1340px] px-6 md:px-10 lg:px-15">
+            <div className="mx-auto max-w-[1340px] px-page-gutter">
                 {/* Top: Centered editorial intro */}
                 <div
                     ref={quoteRef}
@@ -54,8 +54,8 @@ export default function CollectionStory() {
 
                             {/* Floating caption */}
                             <div
-                                className="absolute bottom-6 right-6 md:bottom-10 md:right-10 md:-mr-6
-                  bg-ecru-light/95 backdrop-blur-sm p-6 md:p-8 max-w-[260px]
+                                className="absolute bottom-0 left-0 right-0 max-w-none rounded-none border-t border-silver/10
+                  bg-ecru-light/95 backdrop-blur-sm p-5 sm:p-6 md:bottom-10 md:right-10 md:left-auto md:max-w-[260px] md:rounded-sm md:border-0 md:-mr-6
                   shadow-[0_8px_40px_rgba(26,39,68,0.08)]"
                             >
                                 <p className="font-body text-[0.58rem] font-medium tracking-[0.3em] uppercase text-burgundy-light mb-2">

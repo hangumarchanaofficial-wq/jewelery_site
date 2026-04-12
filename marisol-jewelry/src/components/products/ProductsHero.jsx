@@ -6,7 +6,7 @@ export default function ProductsHero() {
     return (
         <section className="relative pt-40 pb-[clamp(60px,8vw,100px)] bg-ecru-light overflow-hidden">
             {/* Subtle decorative element — large faded diamond */}
-            <div className="absolute top-20 right-[10%] w-[300px] h-[300px] opacity-[0.03] pointer-events-none">
+            <div className="hidden md:block absolute top-20 right-[10%] w-[300px] h-[300px] opacity-[0.03] pointer-events-none">
                 <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M150 0 L300 150 L150 300 L0 150 Z" stroke="#b8c4d6" strokeWidth="1" />
                     <path d="M150 40 L260 150 L150 260 L40 150 Z" stroke="#b8c4d6" strokeWidth="0.5" />

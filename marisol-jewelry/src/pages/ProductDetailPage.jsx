@@ -31,7 +31,7 @@ export default function ProductDetailPage({ productId }) {
                 {/* ═══════════════════════════════════════
             PRODUCT SECTION — Gallery + Info
             ═══════════════════════════════════════ */}
-                <section className="pt-32 md:pt-36 lg:pt-40 pb-[clamp(60px,8vw,100px)] bg-ecru-light">
+                <section className="pt-28 md:pt-32 lg:pt-40 pb-[clamp(60px,8vw,100px)] bg-ecru-light">
                     <div className="container-luxury">
                         <div
                             ref={galleryRef}

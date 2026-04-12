@@ -22,7 +22,7 @@ export default function CollectionHero() {
     };
 
     return (
-        <section className="relative w-full h-screen min-h-[650px] overflow-hidden bg-charcoal">
+        <section className="relative w-full h-[100dvh] min-h-[480px] sm:min-h-[560px] md:min-h-[650px] overflow-hidden bg-charcoal">
             {/* Video Background */}
             <div className="absolute inset-0 w-full h-full">
                 {/* Fallback Image */}
@@ -77,7 +77,7 @@ export default function CollectionHero() {
             />
 
             {/* Content */}
-            <div className="absolute inset-0 z-[4] flex flex-col items-center justify-center text-center px-6">
+            <div className="absolute inset-0 z-[4] flex flex-col items-center justify-center text-center pl-[max(1.5rem,env(safe-area-inset-left,0px))] pr-[max(1.5rem,env(safe-area-inset-right,0px))]">
                 {/* Collection Label */}
                 <div className="opacity-0 animate-fade-up-delay-1">
                     <span className="inline-block font-body text-[0.6rem] font-medium tracking-[0.5em] uppercase text-silver-light/70 border border-silver-light/20 px-6 py-2.5 mb-8">
@@ -115,7 +115,7 @@ export default function CollectionHero() {
             </div>
 
             {/* Scroll indicator */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-[5] flex flex-col items-center gap-3 opacity-0 animate-fade-in-slow">
+            <div className="absolute bottom-[max(2.5rem,env(safe-area-inset-bottom,0px))] left-1/2 -translate-x-1/2 z-[5] flex flex-col items-center gap-3 opacity-0 animate-fade-in-slow">
                 <span className="font-body text-[0.55rem] tracking-[0.3em] uppercase text-ecru/40">
                     Scroll
                 </span>

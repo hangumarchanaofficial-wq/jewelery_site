@@ -1,11 +1,10 @@
-import { useState, useEffect } from "react";
-import BrandLogo from "./BrandLogo";
+﻿import { useState, useEffect } from "react";
 
 const NAV_LINKS = [
-    { label: "About Us",   href: "#/about",      type: "page" },
-    { label: "Collection", href: "#/collection",  type: "page" },
-    { label: "Products",   href: "#/products",    type: "page" },
-    { label: "Contact Us", href: "#/contact",     type: "page" },
+    { label: "About Us", href: "#/about", type: "page" },
+    { label: "Collection", href: "#/collection", type: "page" },
+    { label: "Products", href: "#/products", type: "page" },
+    { label: "Contact Us", href: "#/contact", type: "page" },
 ];
 
 export default function Header() {
@@ -27,7 +26,9 @@ export default function Header() {
 
     useEffect(() => {
         document.body.style.overflow = menuOpen ? "hidden" : "";
-        return () => { document.body.style.overflow = ""; };
+        return () => {
+            document.body.style.overflow = "";
+        };
     }, [menuOpen]);
 
     const isActive = (href) => {
@@ -39,7 +40,7 @@ export default function Header() {
 
     const handleNavClick = (e, link) => {
         setMenuOpen(false);
-        if (link.type === "page") return; // hash nav handles it
+        if (link.type === "page") return;
 
         e.preventDefault();
         const target = document.querySelector(link.href);
@@ -49,41 +50,43 @@ export default function Header() {
         }
     };
 
-    // Pages with light backgrounds need dark text from the start
     const lightBgPages = ["#/products", "#/about", "#/contact", "#/product/"];
     const isLightPage = lightBgPages.some((p) => currentPage.startsWith(p));
     const isDark = scrolled || isLightPage;
 
-    const brandTextClass = isDark ? "text-ecru" : "text-[rgba(245,240,232,0.96)] drop-shadow-[0_1px_12px_rgba(0,0,0,0.22)]";
-    const navTextClass = isDark ? "text-ecru/80 hover:text-white" : "text-[rgba(245,240,232,0.94)] hover:text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.28)]";
+    const brandTextClass = isDark
+        ? "text-ecru"
+        : "text-[rgba(245,240,232,0.96)] drop-shadow-[0_1px_12px_rgba(0,0,0,0.22)]";
+    const navTextClass = isDark
+        ? "text-ecru/80 hover:text-white"
+        : "text-[rgba(245,240,232,0.94)] hover:text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.28)]";
     const activeNavTextClass = isDark ? "text-white" : "text-ecru";
     const navUnderlineClass = isDark ? "bg-ecru/90" : "bg-ecru/85";
     const mobileToggleColor = isDark ? "bg-ecru" : "bg-ecru";
-    const logoColor = isDark ? "#e8e4dc" : "rgba(245,240,232,0.96)";
 
     return (
         <header
             className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ease-smooth
+        pl-[env(safe-area-inset-left,0px)] pr-[env(safe-area-inset-right,0px)]
         ${
                 isDark
-                    ? "bg-charcoal/95 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.35)] py-4"
-                    : "bg-transparent py-7"
+                    ? "bg-charcoal/95 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.35)] py-3.5 pt-[calc(env(safe-area-inset-top,0px)+0.875rem)]"
+                    : "bg-transparent pb-7 pt-[calc(env(safe-area-inset-top,0px)+1.75rem)]"
             }`}
         >
             {!isDark && (
                 <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-charcoal/25 via-charcoal/10 to-transparent pointer-events-none" />
             )}
-            <div className="container-luxury flex items-center justify-between">
-                {/* Brand */}
-                <a href="#/" className="relative z-[1] flex items-center gap-3">
-                    <BrandLogo className="h-9 w-9 shrink-0" color={logoColor} />
-                    <span className={`font-heading text-[1.5rem] md:text-[1.65rem] font-normal tracking-[0.28em] uppercase ${brandTextClass}`}>
-            Aphrodite
-          </span>
+            <div className="container-luxury relative z-[1001] flex items-center justify-between">
+                <a href="#/" className="relative z-[1002]">
+                    <span
+                        className={`font-heading text-[1.5rem] md:text-[1.65rem] font-normal tracking-[0.28em] uppercase ${brandTextClass}`}
+                    >
+                        Aphrodite
+                    </span>
                 </a>
 
-                {/* Desktop Nav */}
-                <nav className="relative z-[1] hidden lg:flex items-center gap-8 xl:gap-12">
+                <nav className="relative z-[1002] hidden lg:flex items-center gap-8 xl:gap-12">
                     {NAV_LINKS.map((link) => (
                         <a
                             key={link.label}
@@ -102,16 +105,17 @@ export default function Header() {
                     ))}
                 </nav>
 
-                {/* Mobile Toggle */}
                 <button
+                    type="button"
                     onClick={() => setMenuOpen(!menuOpen)}
-                    className="lg:hidden relative z-[1001] flex flex-col gap-[5px] p-2"
+                    className="lg:hidden relative z-[1002] flex flex-col gap-[5px] p-2"
                     aria-label="Toggle menu"
+                    aria-expanded={menuOpen}
                 >
-          <span
-              className={`block w-6 h-[1.5px] ${mobileToggleColor} transition-transform duration-300 ease-smooth
+                    <span
+                        className={`block w-6 h-[1.5px] ${mobileToggleColor} transition-transform duration-300 ease-smooth
               ${menuOpen ? "translate-y-[6.5px] rotate-45" : ""}`}
-          />
+                    />
                     <span
                         className={`block w-6 h-[1.5px] ${mobileToggleColor} transition-opacity duration-300
               ${menuOpen ? "opacity-0" : "opacity-100"}`}
@@ -122,32 +126,33 @@ export default function Header() {
                     />
                 </button>
 
-                {/* Mobile Menu */}
                 <nav
-                    className={`lg:hidden fixed inset-0 bg-charcoal flex flex-col items-center
-            justify-center gap-9 transition-all duration-500 ease-luxury
-            ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
+                    className={`lg:hidden fixed inset-0 z-[998] flex min-h-[100dvh] flex-col bg-charcoal
+            pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]
+            transition-all duration-500 ease-luxury
+            ${menuOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"}`}
+                    aria-hidden={!menuOpen}
                 >
-                    <a
-                        href="#/"
-                        onClick={() => setMenuOpen(false)}
-                        className="font-body text-sm font-medium tracking-[0.3em] uppercase
-              text-ecru/80 hover:text-white transition-colors duration-300 mb-4"
-                    >
-                        Home
-                    </a>
-                    {NAV_LINKS.map((link) => (
+                    <div className="flex flex-1 flex-col items-center justify-center gap-10 px-6">
                         <a
-                            key={link.label}
-                            href={link.href}
-                            onClick={(e) => handleNavClick(e, link)}
-                            className={`font-body text-sm font-medium tracking-[0.3em] uppercase
-                transition-colors duration-300
-                ${isActive(link.href) ? "text-white" : "text-ecru/80 hover:text-white"}`}
+                            href="#/"
+                            onClick={() => setMenuOpen(false)}
+                            className="font-body text-sm font-medium tracking-[0.3em] uppercase text-ecru/80 transition-colors duration-300 hover:text-white"
                         >
-                            {link.label}
+                            Home
                         </a>
-                    ))}
+                        {NAV_LINKS.map((link) => (
+                            <a
+                                key={link.label}
+                                href={link.href}
+                                onClick={(e) => handleNavClick(e, link)}
+                                className={`font-body text-sm font-medium tracking-[0.3em] uppercase transition-colors duration-300
+                ${isActive(link.href) ? "text-white" : "text-ecru/80 hover:text-white"}`}
+                            >
+                                {link.label}
+                            </a>
+                        ))}
+                    </div>
                 </nav>
             </div>
         </header>

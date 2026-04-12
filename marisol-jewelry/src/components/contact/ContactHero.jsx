@@ -5,7 +5,7 @@ export default function ContactHero() {
     const [titleRef, titleVisible] = useScrollReveal({ threshold: 0.2 });
 
     return (
-        <section className="relative h-screen min-h-[650px] overflow-hidden">
+        <section className="relative h-[100dvh] min-h-[480px] sm:min-h-[560px] md:min-h-[650px] overflow-hidden">
             {/* Background Image */}
             <div className="absolute inset-0">
                 <SmartImage
@@ -22,7 +22,7 @@ export default function ContactHero() {
             <div
                 ref={titleRef}
                 className={`
-          relative z-10 flex h-full flex-col items-center justify-center px-6 text-center
+          relative z-10 flex h-full flex-col items-center justify-center text-center pl-[max(1.5rem,env(safe-area-inset-left,0px))] pr-[max(1.5rem,env(safe-area-inset-right,0px))]
           transition-all duration-[1200ms] ease-luxury
           ${titleVisible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}
         `}

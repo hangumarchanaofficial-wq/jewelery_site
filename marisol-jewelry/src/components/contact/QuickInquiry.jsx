@@ -4,7 +4,10 @@ export default function QuickInquiry() {
     const [ref, isVisible] = useScrollReveal({ threshold: 0.2 });
 
     return (
-        <section ref={ref} className="bg-ecru-warm px-6 py-20 md:py-28">
+        <section
+            ref={ref}
+            className="bg-ecru-warm py-20 md:py-28 pl-[max(1.5rem,env(safe-area-inset-left,0px))] pr-[max(1.5rem,env(safe-area-inset-right,0px))]"
+        >
             <div className="mx-auto max-w-3xl text-center">
                 {/* Header */}
                 <div
@@ -38,7 +41,7 @@ export default function QuickInquiry() {
                         href="mailto:atelier@aphrodite.com?subject=Inquiry%20from%20Aphrodite%20Website"
                         className="
               group relative flex items-center gap-3 overflow-hidden rounded-sm
-              border border-burgundy bg-transparent px-10 py-4
+              border border-burgundy bg-transparent px-6 sm:px-8 md:px-10 py-4
               font-body text-[12px] tracking-[0.25em] uppercase text-burgundy
               transition-all duration-700 ease-luxury
               hover:bg-burgundy hover:text-ecru hover:shadow-[0_8px_30px_rgba(26,39,68,0.2)]
@@ -64,7 +67,7 @@ export default function QuickInquiry() {
                         rel="noopener noreferrer"
                         className="
               group relative flex items-center gap-3 overflow-hidden rounded-sm
-              border border-silver/35 bg-transparent px-10 py-4
+              border border-silver/35 bg-transparent px-6 sm:px-8 md:px-10 py-4
               font-body text-[12px] tracking-[0.25em] uppercase text-deep-blue
               transition-all duration-700 ease-luxury
               hover:bg-deep-blue hover:text-ecru hover:border-deep-blue hover:shadow-[0_6px_25px_rgba(0,0,0,0.2)]

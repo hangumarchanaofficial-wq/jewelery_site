@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from "react";
+﻿import { useState, useEffect, useCallback } from "react";
 import SmartImage from "./SmartImage";
 
 const SLIDES = [
@@ -50,8 +50,7 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative w-full h-screen min-h-[600px] max-h-[1100px] overflow-hidden">
-            {/* Slides */}
+        <section className="relative w-full h-[100dvh] min-h-[480px] sm:min-h-[560px] md:min-h-[600px] max-h-[1100px] overflow-hidden">
             {SLIDES.map((slide, index) => (
                 <div
                     key={index}
@@ -67,7 +66,6 @@ export default function Hero() {
                 </div>
             ))}
 
-            {/* Gradient Overlay */}
             <div
                 className="absolute inset-0 z-[3]"
                 style={{
@@ -76,8 +74,7 @@ export default function Hero() {
                 }}
             />
 
-            {/* Content */}
-            <div className="absolute inset-0 z-[4] flex flex-col items-center justify-center text-center px-6">
+            <div className="absolute inset-0 z-[4] flex flex-col items-center justify-center text-center pl-[max(1.5rem,env(safe-area-inset-left,0px))] pr-[max(1.5rem,env(safe-area-inset-right,0px))]">
                 <span
                     className="font-body text-[0.7rem] font-medium tracking-[0.35em] uppercase
             text-silver-light mb-6 opacity-0 animate-fade-up-delay-1"
@@ -87,7 +84,7 @@ export default function Hero() {
 
                 <h1
                     className="font-heading text-[clamp(2.2rem,5vw,4.2rem)] font-light
-            text-ecru leading-[1.15] max-w-[900px] mb-12
+            text-ecru leading-[1.15] max-w-[900px] mb-8 md:mb-12
             opacity-0 animate-fade-up-delay-2"
                 >
                     Miracles of Nature brings in a masterpiece of Luxury
@@ -99,7 +96,7 @@ export default function Hero() {
                         onClick={handleCTA}
                         className="group relative inline-block font-body text-[0.68rem] font-medium
               tracking-[0.3em] uppercase text-ecru border border-ecru/50
-              px-12 py-[18px] overflow-hidden transition-all duration-400 ease-smooth
+              px-6 sm:px-10 md:px-12 py-[18px] overflow-hidden transition-all duration-400 ease-smooth
               hover:text-burgundy hover:border-ecru"
                     >
                         <span
@@ -112,20 +109,24 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Dots */}
-            <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-[5] flex gap-4">
+            <div className="absolute bottom-[max(3rem,env(safe-area-inset-bottom,0px))] left-1/2 -translate-x-1/2 z-[5] flex gap-2 sm:gap-4">
                 {SLIDES.map((_, index) => (
                     <button
                         key={index}
+                        type="button"
                         onClick={() => goToSlide(index)}
                         aria-label={`Go to slide ${index + 1}`}
-                        className={`h-[2px] transition-all duration-500 ease-smooth border-0 cursor-pointer
+                        className="flex min-h-[44px] min-w-[44px] cursor-pointer items-center justify-center border-0 bg-transparent p-0"
+                    >
+                        <span
+                            className={`block h-[2px] transition-all duration-500 ease-smooth
               ${
-                            index === current
-                                ? "w-14 bg-ecru"
-                                : "w-8 bg-ecru/30 hover:bg-ecru/50"
-                        }`}
-                    />
+                                index === current
+                                    ? "w-14 bg-ecru"
+                                    : "w-8 bg-ecru/30 hover:bg-ecru/50"
+                            }`}
+                        />
+                    </button>
                 ))}
             </div>
         </section>

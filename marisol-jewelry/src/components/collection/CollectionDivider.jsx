@@ -28,7 +28,7 @@ export default function CollectionDivider() {
                 }}
             />
 
-            <div className="relative z-[3] mx-auto max-w-[1340px] px-6 md:px-10 lg:px-15">
+            <div className="relative z-[3] mx-auto max-w-[1340px] px-page-gutter">
                 <div
                     className={`max-w-[800px] mx-auto text-center transition-all duration-[1400ms] ease-luxury
             ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}

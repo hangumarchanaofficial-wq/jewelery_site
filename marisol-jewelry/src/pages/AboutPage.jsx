@@ -6,7 +6,6 @@ import BrandStory from "../components/about/BrandStory";
 import VisualStory from "../components/about/VisualStory";
 import ValuesSection from "../components/about/ValuesSection";
 import SignatureStatement from "../components/about/SignatureStatement";
-import TeamSection from "../components/about/TeamSection";
 import Footer from "../components/Footer";
 
 export default function AboutPage() {
@@ -27,7 +26,6 @@ export default function AboutPage() {
                 <VisualStory />
                 <ValuesSection />
                 <SignatureStatement />
-                <TeamSection />
             </main>
             <Footer />
         </>

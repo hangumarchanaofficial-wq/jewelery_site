@@ -42,6 +42,7 @@ export default function Lightbox({ images, startIndex = 0, onClose }) {
     return (
         <div
             className={`fixed inset-0 z-[9000] flex items-center justify-center
+        pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]
         transition-all duration-400 ease-smooth
         ${visible ? "opacity-100" : "opacity-0"}`}
             role="dialog"
@@ -57,7 +58,8 @@ export default function Lightbox({ images, startIndex = 0, onClose }) {
             {/* Close button */}
             <button
                 onClick={handleClose}
-                className="absolute top-6 right-6 z-[9002] w-10 h-10 flex items-center justify-center
+                className="absolute z-[9002] w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center
+          top-[max(1.5rem,env(safe-area-inset-top,0px))] right-[max(1.5rem,env(safe-area-inset-right,0px))]
           text-ecru/60 hover:text-ecru transition-colors duration-300"
                 aria-label="Close lightbox"
             >
@@ -67,7 +69,7 @@ export default function Lightbox({ images, startIndex = 0, onClose }) {
             </button>
 
             {/* Counter */}
-            <div className="absolute top-7 left-6 z-[9002]">
+            <div className="absolute z-[9002] top-[max(1.75rem,env(safe-area-inset-top,0px))] left-[max(1.5rem,env(safe-area-inset-left,0px))]">
         <span className="font-body text-[0.6rem] tracking-[0.2em] uppercase text-ecru/40">
           {current + 1} / {images.length}
         </span>
@@ -76,8 +78,9 @@ export default function Lightbox({ images, startIndex = 0, onClose }) {
             {/* Navigation arrows */}
             <button
                 onClick={prev}
-                className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-[9002]
-          w-10 h-10 md:w-12 md:h-12 flex items-center justify-center
+                className="absolute top-1/2 -translate-y-1/2 z-[9002]
+          left-[max(0.75rem,env(safe-area-inset-left,0px))] md:left-8
+          min-h-[44px] min-w-[44px] w-11 h-11 md:w-12 md:h-12 flex items-center justify-center
           border border-ecru/15 rounded-full text-ecru/50
           hover:border-ecru/40 hover:text-ecru transition-all duration-300"
                 aria-label="Previous image"
@@ -89,8 +92,9 @@ export default function Lightbox({ images, startIndex = 0, onClose }) {
 
             <button
                 onClick={next}
-                className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-[9002]
-          w-10 h-10 md:w-12 md:h-12 flex items-center justify-center
+                className="absolute top-1/2 -translate-y-1/2 z-[9002]
+          right-[max(0.75rem,env(safe-area-inset-right,0px))] md:right-8
+          min-h-[44px] min-w-[44px] w-11 h-11 md:w-12 md:h-12 flex items-center justify-center
           border border-ecru/15 rounded-full text-ecru/50
           hover:border-ecru/40 hover:text-ecru transition-all duration-300"
                 aria-label="Next image"
@@ -117,7 +121,7 @@ export default function Lightbox({ images, startIndex = 0, onClose }) {
             </div>
 
             {/* Caption */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[9002] text-center">
+            <div className="absolute bottom-[max(1.5rem,env(safe-area-inset-bottom,0px))] left-1/2 -translate-x-1/2 z-[9002] text-center px-4">
                 <p className="font-body text-[0.6rem] tracking-[0.2em] uppercase text-ecru/40">
                     {images[current].label}
                 </p>
