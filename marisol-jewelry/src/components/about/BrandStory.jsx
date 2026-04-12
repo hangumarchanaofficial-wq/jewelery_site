@@ -9,7 +9,7 @@ const CHAPTERS = [
         imageAlt: "Cinque Terre coastline at golden hour with cliffs meeting the Ligurian sea",
         quote:
             "It began with a single winter on the Ligurian coast — three months of silence, sea air, and the rhythmic patience of waves carving stone.",
-        body: "In 2019, Elara Montclair left a decade-long career in Parisian haute joaillerie to find something she had lost: the reason she had fallen in love with jewelry in the first place. She rented a stone cottage in Manarola, overlooking the Mediterranean, and spent the winter sketching forms the water seemed to suggest — spirals of current, the geometry of light through a swell, the way a tide pool holds its treasures with quiet grace. By spring, the first seven sketches had become the first seven pieces. They were shown privately in a single room in Genoa, lit by candles and the sound of the sea through open windows. Every piece sold that evening. Marisol was born.",
+        body: "In 2019, Elara Montclair left a decade-long career in Parisian haute joaillerie to find something she had lost: the reason she had fallen in love with jewelry in the first place. She rented a stone cottage in Manarola, overlooking the Mediterranean, and spent the winter sketching forms the water seemed to suggest — spirals of current, the geometry of light through a swell, the way a tide pool holds its treasures with quiet grace. By spring, the first seven sketches had become the first seven pieces. They were shown privately in a single room in Genoa, lit by candles and the sound of the sea through open windows. Every piece sold that evening. Aphrodite was born.",
         reverse: false,
     },
     {
@@ -19,7 +19,7 @@ const CHAPTERS = [
         imageAlt: "Close-up of artisan hands working at a jeweler's bench under warm light",
         quote:
             "Our atelier sits where the mountains meet the coast — a place where the air carries salt and the light is never the same twice.",
-        body: "Today, Marisol's atelier occupies a converted fisherman's warehouse in the hills above Portofino. The stone walls are original; the windows face the sea. A team of five master artisans works here — each trained in the Ligurian tradition of hand-forging, a technique that shapes metal without casting, producing pieces with a density and warmth that machine-made jewelry cannot replicate. The atelier operates at a deliberately unhurried pace. A single piece may take three to eight weeks to complete. There are no production schedules, no seasonal quotas. Each creation is finished when the artisan feels it is ready — and not a moment before.",
+        body: "Today, Aphrodite's atelier occupies a converted fisherman's warehouse in the hills above Portofino. The stone walls are original; the windows face the sea. A team of five master artisans works here — each trained in the Ligurian tradition of hand-forging, a technique that shapes metal without casting, producing pieces with a density and warmth that machine-made jewelry cannot replicate. The atelier operates at a deliberately unhurried pace. A single piece may take three to eight weeks to complete. There are no production schedules, no seasonal quotas. Each creation is finished when the artisan feels it is ready — and not a moment before.",
         reverse: true,
     },
     {
@@ -29,7 +29,7 @@ const CHAPTERS = [
         imageAlt: "Precious gemstones and gold pieces arranged on a natural stone surface",
         quote:
             "We do not choose stones for their price. We choose them for their ability to hold light the way the sea holds sunrise.",
-        body: "Every material in a Marisol piece is sourced with the same intention as the design itself. Our gold comes from a single Swiss refinery that works exclusively with recycled precious metals — gold and platinum recovered from existing sources rather than newly mined. Our gemstones are sourced through direct relationships with small-scale miners in Sri Lanka, Colombia, Mozambique, and French Polynesia. We visit each origin personally, selecting stones not by spreadsheet but by holding them to the window and watching how they respond to natural light. This process is slower and more expensive than conventional sourcing, but it produces pieces with provenance you can feel.",
+        body: "Every material in an Aphrodite piece is sourced with the same intention as the design itself. Our gold comes from a single Swiss refinery that works exclusively with recycled precious metals — gold and platinum recovered from existing sources rather than newly mined. Our gemstones are sourced through direct relationships with small-scale miners in Sri Lanka, Colombia, Mozambique, and French Polynesia. We visit each origin personally, selecting stones not by spreadsheet but by holding them to the window and watching how they respond to natural light. This process is slower and more expensive than conventional sourcing, but it produces pieces with provenance you can feel.",
         reverse: false,
     },
 ];

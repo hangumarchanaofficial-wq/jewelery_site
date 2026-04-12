@@ -8,9 +8,9 @@ export default function ProductsHero() {
             {/* Subtle decorative element — large faded diamond */}
             <div className="absolute top-20 right-[10%] w-[300px] h-[300px] opacity-[0.03] pointer-events-none">
                 <svg viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M150 0 L300 150 L150 300 L0 150 Z" stroke="#6B1D2A" strokeWidth="1" />
-                    <path d="M150 40 L260 150 L150 260 L40 150 Z" stroke="#6B1D2A" strokeWidth="0.5" />
-                    <path d="M150 80 L220 150 L150 220 L80 150 Z" stroke="#6B1D2A" strokeWidth="0.3" />
+                    <path d="M150 0 L300 150 L150 300 L0 150 Z" stroke="#b8c4d6" strokeWidth="1" />
+                    <path d="M150 40 L260 150 L150 260 L40 150 Z" stroke="#b8c4d6" strokeWidth="0.5" />
+                    <path d="M150 80 L220 150 L150 220 L80 150 Z" stroke="#b8c4d6" strokeWidth="0.3" />
                 </svg>
             </div>
 

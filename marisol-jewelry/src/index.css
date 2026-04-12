@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════════
-   M A R I S O L — LUXURY JEWELRY BRAND
+   A P H R O D I T E — LUXURY JEWELRY BRAND
    Tailwind CSS v4 Design Token System
 
    This file is the single source of truth for:
@@ -21,16 +21,17 @@
 
 @theme {
 
-  /* ─── Brand Color Palette ─── */
-  --color-burgundy:       #6b1d2a;
-  --color-burgundy-deep:  #4a0e1a;
-  --color-burgundy-light: #8b2e3f;
-  --color-burgundy-muted: #7a3345;
+  /* ─── Dark navy chrome + very light navy page (same hue family) ─── */
+  --color-burgundy:       #1a2744;
+  --color-burgundy-deep:  #141c2e;
+  --color-burgundy-light: #2c3d5c;
+  --color-burgundy-muted: #243652;
 
-  --color-ecru:           #f5f0e8;
-  --color-ecru-warm:      #ede6d8;
-  --color-ecru-light:     #faf8f4;
-  --color-ecru-dark:      #e5ddd0;
+  /* Page surfaces: cool, desaturated navy-white (not warm cream) */
+  --color-ecru:           #f0f3f9;
+  --color-ecru-warm:      #e6eaf4;
+  --color-ecru-light:     #f5f7fc;
+  --color-ecru-dark:      #dde4f0;
 
   --color-silver:         #b8b8b8;
   --color-silver-light:   #d4d4d4;
@@ -42,9 +43,10 @@
   --color-ocean-light:    #3d6b99;
   --color-forest-green:   #2d4a3e;
 
-  --color-charcoal:       #1c1c1c;
-  --color-soft-black:     #2a2a2a;
-  --color-dark-surface:   #222222;
+  /* Header / footer / loader: deep navy (matches burgundy family) */
+  --color-charcoal:       #0a1220;
+  --color-soft-black:     #2a3142;
+  --color-dark-surface:   #0e1628;
 
 
   /* ─── Typography ─── */
@@ -58,7 +60,7 @@
   --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
 
 
-  /* ─── Custom Shadows ─── */
+  /* ─── Custom Shadows (light UI) ─── */
   --shadow-luxury:    0 8px 40px rgba(26, 39, 68, 0.08);
   --shadow-elevated:  0 16px 64px rgba(26, 39, 68, 0.12);
   --shadow-subtle:    0 2px 16px rgba(26, 39, 68, 0.05);
@@ -249,25 +251,25 @@
   --gradient-hero-home:
           linear-gradient(
                   to bottom,
-                  rgba(26, 39, 68, 0.15) 0%,
-                  rgba(74, 14, 26, 0.30) 50%,
-                  rgba(26, 39, 68, 0.55) 100%
+                  rgba(10, 16, 28, 0.2) 0%,
+                  rgba(8, 15, 28, 0.45) 50%,
+                  rgba(5, 10, 20, 0.72) 100%
           );
 
   --gradient-hero-collection:
           linear-gradient(
                   180deg,
-                  rgba(26, 39, 68, 0.25) 0%,
-                  rgba(74, 14, 26, 0.18) 35%,
-                  rgba(26, 39, 68, 0.50) 70%,
-                  rgba(26, 39, 68, 0.75) 100%
+                  rgba(15, 23, 41, 0.35) 0%,
+                  rgba(10, 16, 28, 0.28) 35%,
+                  rgba(8, 14, 26, 0.55) 70%,
+                  rgba(5, 10, 20, 0.82) 100%
           );
 
   --gradient-vignette:
           radial-gradient(
                   ellipse at center,
                   transparent 40%,
-                  rgba(26, 39, 68, 0.3) 100%
+                  rgba(5, 10, 20, 0.45) 100%
           );
 
   --gradient-card-overlay:
@@ -326,7 +328,7 @@ a {
 
 /* Selection color */
 ::selection {
-  background-color: rgba(107, 29, 42, 0.15);
+  background-color: rgba(26, 39, 68, 0.12);
   color: var(--color-burgundy-deep);
 }
 
@@ -342,7 +344,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-silver);
+  background: var(--color-silver-dark);
   border-radius: 3px;
 }
 
@@ -353,7 +355,7 @@ a {
 /* Firefox scrollbar */
 * {
   scrollbar-width: thin;
-  scrollbar-color: var(--color-silver) var(--color-ecru-light);
+  scrollbar-color: var(--color-silver-dark) var(--color-ecru-light);
 }
 
 
@@ -649,7 +651,7 @@ a {
     letter-spacing: 0.3em;
     text-transform: uppercase;
     padding: 18px 48px;
-    border: 1px solid rgba(107, 29, 42, 0.3);
+    border: 1px solid rgba(26, 39, 68, 0.3);
     color: var(--color-burgundy);
     cursor: pointer;
     background: transparent;

@@ -46,13 +46,13 @@ export default function SectionHeader({
 
             {/* Description */}
             {description && (
-                <p
+                <div
                     className={`font-body text-[0.88rem] font-light leading-[1.9] max-w-[540px]
             ${center ? "mx-auto" : ""}
             ${light ? "text-ecru/75" : "text-soft-black/70"}`}
                 >
                     {description}
-                </p>
+                </div>
             )}
         </div>
     );

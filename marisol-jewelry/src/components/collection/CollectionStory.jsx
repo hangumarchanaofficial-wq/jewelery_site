@@ -20,7 +20,7 @@ export default function CollectionStory() {
             transition-all duration-[1200ms] ease-luxury
             ${quoteVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
                 >
-                    <p className="font-body text-[0.6rem] font-medium tracking-[0.4em] uppercase text-silver-dark mb-8">
+                    <p className="font-body text-[0.6rem] font-medium tracking-[0.4em] uppercase text-deep-blue/60 mb-8">
                         The Inspiration
                     </p>
                     <blockquote className="font-heading text-[clamp(1.4rem,2.8vw,2.2rem)] font-light italic text-burgundy leading-[1.5] mb-8">
@@ -28,7 +28,7 @@ export default function CollectionStory() {
                         we listened to the ocean until it<br />
                         told us what it wanted to become."
                     </blockquote>
-                    <p className="font-heading text-sm italic text-silver-dark tracking-[0.1em]">
+                    <p className="font-heading text-sm italic text-deep-blue/70 tracking-[0.1em]">
                         — Elara Montclair, Creative Director
                     </p>
                 </div>
@@ -91,18 +91,18 @@ export default function CollectionStory() {
                             The Ocean Whisper collection was born during a solitary winter spent on the Ligurian coast — mornings of watching the Mediterranean reshape the shoreline, afternoons of sketching forms that the water seemed to suggest.
                         </p>
 
-                        <p className="font-body text-[0.82rem] font-light text-silver-dark leading-[2] mb-6">
+                        <p className="font-body text-[0.82rem] font-light text-soft-black/85 leading-[2] mb-6">
                             Each piece in this collection traces the ephemeral geometry of waves — the way light fractures across a swell, the curve where water meets sand and neither can be told apart. Our goldsmiths translate these moments into precious metal using techniques passed down through four generations of Ligurian artisans.
                         </p>
 
-                        <p className="font-body text-[0.82rem] font-light text-silver-dark leading-[2] mb-10">
+                        <p className="font-body text-[0.82rem] font-light text-soft-black/85 leading-[2] mb-10">
                             The stones — aquamarines from Mozambique, South Sea pearls, sapphires the colour of twilight — were chosen not for their size, but for the way they hold light. Each one is a small ocean caught in stillness.
                         </p>
 
                         {/* Signature detail */}
                         <div className="flex items-center gap-5">
                             <div className="w-12 h-px bg-burgundy/30" />
-                            <span className="font-body text-[0.62rem] font-medium tracking-[0.2em] uppercase text-silver-dark">
+                            <span className="font-body text-[0.62rem] font-medium tracking-[0.2em] uppercase text-deep-blue/70">
                 7 Pieces &middot; Limited Edition
               </span>
                         </div>

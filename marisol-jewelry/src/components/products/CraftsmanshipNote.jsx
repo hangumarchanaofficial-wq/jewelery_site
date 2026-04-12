@@ -80,7 +80,7 @@ export default function CraftsmanshipNote() {
                         <div className="flex items-center gap-4">
                             <div className="w-10 h-px bg-burgundy/20" />
                             <span className="font-heading text-sm italic text-silver-dark tracking-tight-luxury">
-                The Marisol Atelier
+                The Aphrodite Atelier
               </span>
                         </div>
                     </div>

@@ -152,7 +152,16 @@ export default function SignaturePieces() {
                 <SectionHeader
                     label="The Collection"
                     title="Signature Pieces"
-                    description="Each creation is a meditation on nature's perfection — shaped by artisan hands, inspired by the eternal rhythm of the sea."
+                    description={
+                        <>
+                            Each piece is uniquely crafted to few of our prestigious clients, who
+                            choose elegance and quiet luxury over common and loud statements.
+                            <br />
+                            <br />
+                            Our signature master pieces choose their clients — with attitude and
+                            class.
+                        </>
+                    }
                     center
                 />
 

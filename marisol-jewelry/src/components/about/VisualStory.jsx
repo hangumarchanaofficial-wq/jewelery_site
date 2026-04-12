@@ -51,15 +51,15 @@ function VisualCard({ visual, index }) {
           loading="lazy"
           className="w-full h-full object-cover transition-transform duration-1000 ease-luxury group-hover:scale-[1.04]"
         />
-        <div className="absolute inset-0 bg-[#1c1c1c] opacity-0 group-hover:opacity-[0.05] transition-opacity duration-700 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#1a2744] opacity-0 transition-opacity duration-700 group-hover:opacity-[0.06] pointer-events-none" />
       </div>
 
       {/* Caption */}
-      <figcaption className="pt-5 border-t border-[rgba(107,29,42,0.14)]">
+      <figcaption className="border-t border-burgundy/15 pt-5">
         <p className="font-body text-[0.6rem] font-semibold tracking-[0.34em] uppercase text-burgundy mb-2" style={{ opacity: 0.65 }}>
           {visual.title}
         </p>
-        <p className="font-heading text-[0.96rem] font-light italic leading-[1.75]" style={{ color: 'rgba(42,42,42,0.65)' }}>
+        <p className="font-heading text-[0.96rem] font-light italic leading-[1.75] text-soft-black/70">
           {visual.note}
         </p>
       </figcaption>
@@ -83,8 +83,8 @@ export default function VisualStory() {
         >
           {/* Left: label + large heading + rule */}
           <div className="max-w-md">
-            <p className="font-body text-[0.72rem] font-medium uppercase tracking-[0.42em] mb-5" style={{ color: 'rgba(42,42,42,0.50)' }}>
-              The World of Marisol
+            <p className="font-body text-[0.72rem] font-medium uppercase tracking-[0.42em] mb-5 text-soft-black/55">
+              The World of Aphrodite
             </p>
             <h2 className="font-heading font-light leading-[1.0] tracking-[-0.02em] text-burgundy"
                 style={{ fontSize: 'clamp(2.6rem, 4.2vw, 4rem)' }}>
@@ -95,8 +95,8 @@ export default function VisualStory() {
 
           {/* Right: prose + blockquote */}
           <div className="lg:pt-2">
-            <p className="font-body text-[0.88rem] font-light leading-[1.95] mb-6" style={{ color: 'rgba(42,42,42,0.88)' }}>
-              Marisol is shaped by a small sequence of quiet moments &mdash; material gathered,
+            <p className="font-body text-[0.88rem] font-light leading-[1.95] mb-6 text-soft-black/90">
+              Aphrodite is shaped by a small sequence of quiet moments &mdash; material gathered,
               light observed, form tested, and only then the final setting.
             </p>
             <blockquote className="border-l-[1.5px] border-burgundy/25 pl-5">

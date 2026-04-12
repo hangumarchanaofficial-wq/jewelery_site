@@ -72,38 +72,28 @@ export default function Hero() {
                 className="absolute inset-0 z-[3]"
                 style={{
                     background:
-                        "linear-gradient(to bottom, rgba(26,39,68,0.15) 0%, rgba(74,14,26,0.30) 50%, rgba(26,39,68,0.55) 100%)",
+                        "linear-gradient(to bottom, rgba(10,16,28,0.2) 0%, rgba(8,15,28,0.45) 50%, rgba(5,10,20,0.72) 100%)",
                 }}
             />
 
             {/* Content */}
             <div className="absolute inset-0 z-[4] flex flex-col items-center justify-center text-center px-6">
-        <span
-            className="font-body text-[0.7rem] font-medium tracking-[0.4em] uppercase
+                <span
+                    className="font-body text-[0.7rem] font-medium tracking-[0.35em] uppercase
             text-silver-light mb-6 opacity-0 animate-fade-up-delay-1"
-        >
-          Ocean-Inspired Luxury
-        </span>
+                >
+                    Timeless &nbsp;|&nbsp; Elegant &nbsp;|&nbsp; Luxury
+                </span>
 
                 <h1
-                    className="font-heading text-[clamp(2.4rem,5.5vw,4.8rem)] font-light
-            text-ecru leading-[1.2] max-w-[800px] mb-4
+                    className="font-heading text-[clamp(2.2rem,5vw,4.2rem)] font-light
+            text-ecru leading-[1.15] max-w-[900px] mb-12
             opacity-0 animate-fade-up-delay-2"
                 >
-                    Where Nature Meets
-                    <br />
-                    Timeless Elegance
+                    Miracles of Nature brings in a masterpiece of Luxury
                 </h1>
 
-                <p
-                    className="font-heading text-[clamp(1rem,1.8vw,1.3rem)] font-light italic
-            text-ecru/80 max-w-[500px] mb-12
-            opacity-0 animate-fade-up-delay-3"
-                >
-                    Handcrafted treasures born from the whisper of the sea
-                </p>
-
-                <div className="opacity-0 animate-fade-up-delay-4">
+                <div className="opacity-0 animate-fade-up-delay-3">
                     <a
                         href="#collection"
                         onClick={handleCTA}
@@ -112,11 +102,11 @@ export default function Hero() {
               px-12 py-[18px] overflow-hidden transition-all duration-400 ease-smooth
               hover:text-burgundy hover:border-ecru"
                     >
-            <span
-                className="absolute inset-0 bg-ecru -translate-x-full
+                        <span
+                            className="absolute inset-0 bg-ecru -translate-x-full
                 transition-transform duration-500 ease-luxury
                 group-hover:translate-x-0"
-            />
+                        />
                         <span className="relative z-10">Explore Collection</span>
                     </a>
                 </div>

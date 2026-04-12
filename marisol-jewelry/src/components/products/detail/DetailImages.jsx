@@ -89,7 +89,7 @@ function DetailCard({ image, index, total }) {
                     0{index + 1}
                 </span>
                 <div>
-                    <p className="font-heading text-[1.05rem] font-light italic text-charcoal leading-snug">
+                    <p className="font-heading text-[1.05rem] font-light italic text-soft-black leading-snug">
                         {image.caption}
                     </p>
                     <div className="mt-2 w-6 h-px bg-burgundy/30 transition-all duration-500 group-hover:w-12 group-hover:bg-burgundy/60" />

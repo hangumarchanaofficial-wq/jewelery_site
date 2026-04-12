@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   MARISOL — Product Catalog
+   APHRODITE — Product Catalog
    14 pieces across 5 categories
    Each product has primary + hover image for the gallery effect
    ═══════════════════════════════════════════════════════════════ */

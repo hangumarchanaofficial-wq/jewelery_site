@@ -4,7 +4,7 @@ export default function QuickInquiry() {
     const [ref, isVisible] = useScrollReveal({ threshold: 0.2 });
 
     return (
-        <section ref={ref} className="bg-ecru px-6 py-20 md:py-28">
+        <section ref={ref} className="bg-ecru-warm px-6 py-20 md:py-28">
             <div className="mx-auto max-w-3xl text-center">
                 {/* Header */}
                 <div
@@ -16,10 +16,10 @@ export default function QuickInquiry() {
           <span className="mb-4 block tracking-[0.3em] text-burgundy font-body text-[11px] uppercase">
             Quick Connect
           </span>
-                    <h2 className="mb-4 font-heading text-[clamp(1.4rem,3vw,2rem)] font-light text-charcoal">
+                    <h2 className="mb-4 font-heading text-[clamp(1.4rem,3vw,2rem)] font-light text-deep-blue">
                         Prefer a Direct Message?
                     </h2>
-                    <p className="mx-auto max-w-md font-body text-[14px] font-light leading-relaxed text-charcoal/75">
+                    <p className="mx-auto max-w-md font-body text-[14px] font-light leading-relaxed text-soft-black/80">
                         If you have a brief question or simply wish to say hello,
                         reach us instantly through your preferred channel.
                     </p>
@@ -35,13 +35,13 @@ export default function QuickInquiry() {
                 >
                     {/* Email Button */}
                     <a
-                        href="mailto:atelier@marisol.com?subject=Inquiry%20from%20Marisol%20Website"
+                        href="mailto:atelier@aphrodite.com?subject=Inquiry%20from%20Aphrodite%20Website"
                         className="
               group relative flex items-center gap-3 overflow-hidden rounded-sm
               border border-burgundy bg-transparent px-10 py-4
               font-body text-[12px] tracking-[0.25em] uppercase text-burgundy
               transition-all duration-700 ease-luxury
-              hover:bg-burgundy hover:text-ecru hover:shadow-[0_6px_25px_rgba(107,29,42,0.15)]
+              hover:bg-burgundy hover:text-ecru hover:shadow-[0_8px_30px_rgba(26,39,68,0.2)]
             "
                     >
                         <svg
@@ -59,15 +59,15 @@ export default function QuickInquiry() {
 
                     {/* WhatsApp Button */}
                     <a
-                        href="https://wa.me/14155550178?text=Hello%20Marisol%2C%20I%20have%20a%20question."
+                        href="https://wa.me/14155550178?text=Hello%20Aphrodite%2C%20I%20have%20a%20question."
                         target="_blank"
                         rel="noopener noreferrer"
                         className="
               group relative flex items-center gap-3 overflow-hidden rounded-sm
-              border border-charcoal/40 bg-transparent px-10 py-4
-              font-body text-[12px] tracking-[0.25em] uppercase text-charcoal
+              border border-silver/35 bg-transparent px-10 py-4
+              font-body text-[12px] tracking-[0.25em] uppercase text-deep-blue
               transition-all duration-700 ease-luxury
-              hover:bg-charcoal hover:text-ecru hover:border-charcoal hover:shadow-[0_6px_25px_rgba(26,26,26,0.12)]
+              hover:bg-deep-blue hover:text-ecru hover:border-deep-blue hover:shadow-[0_6px_25px_rgba(0,0,0,0.2)]
             "
                     >
                         <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 transition-colors duration-700">
@@ -81,7 +81,7 @@ export default function QuickInquiry() {
                 {/* Availability Note */}
                 <p
                     className={`
-            mt-10 font-body text-[12px] font-light text-charcoal/65
+            mt-10 font-body text-[12px] font-light text-soft-black/70
             transition-all duration-[1000ms] delay-500 ease-luxury
             ${isVisible ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}
           `}

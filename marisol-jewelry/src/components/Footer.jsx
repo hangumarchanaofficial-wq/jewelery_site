@@ -39,11 +39,11 @@ export default function Footer() {
                     {/* ── Brand Column ── */}
                     <FooterColumn delay={0}>
                         <p className="font-heading text-[1.4rem] font-normal tracking-[0.3em] uppercase text-white mb-5">
-                            Marisol
+                            Aphrodite
                         </p>
-                        <p className="font-body text-[0.8rem] font-normal text-[#d4cfc7] leading-[1.9] max-w-[280px]">
-                            Ocean-inspired luxury jewelry, handcrafted with intention. Each
-                            piece tells a story of nature, artistry, and timeless elegance.
+                        <p className="font-body text-[0.8rem] font-normal text-[#c8cdd8] leading-[1.9] max-w-[280px]">
+                            Heavenly luxury, crafted with nature. Miracles of nature brought into a
+                            masterpiece of luxury — timeless, elegant, and quietly bold.
                         </p>
                     </FooterColumn>
 
@@ -95,11 +95,11 @@ export default function Footer() {
                         <div className="space-y-2.5">
                             <p>
                                 <a
-                                    href="mailto:atelier@marisol.com"
+                                    href="mailto:atelier@aphrodite.com"
                                     className="font-body text-[0.82rem] font-normal text-[#c8c2b8]
                                         transition-colors duration-300 ease-smooth hover:text-white"
                                 >
-                                    atelier@marisol.com
+                                    atelier@aphrodite.com
                                 </a>
                             </p>
                             <p>
@@ -203,7 +203,7 @@ export default function Footer() {
                         justify-between items-center gap-4"
                 >
                     <p className="font-body text-[0.72rem] font-normal text-[#a09a90] tracking-[0.05em]">
-                        &copy; 2026 Marisol. All rights reserved.
+                        &copy; 2026 Aphrodite. All rights reserved.
                     </p>
                     <div className="flex gap-6">
                         <a

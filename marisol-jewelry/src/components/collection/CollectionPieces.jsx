@@ -95,13 +95,13 @@ function PieceCard({ piece, index }) {
 
                 {/* Text info */}
                 <div className="px-1">
-                    <h3 className="font-heading text-[1.2rem] md:text-[1.35rem] font-normal text-[#1e1a18] mb-1.5 tracking-[0.02em]">
+                    <h3 className="font-heading text-[1.2rem] md:text-[1.35rem] font-normal text-deep-blue mb-1.5 tracking-[0.02em]">
                         {piece.name}
                     </h3>
-                    <p className="font-body text-[0.65rem] font-medium tracking-[0.15em] uppercase mb-4" style={{ color: "rgba(42,42,42,0.65)" }}>
+                    <p className="font-body text-[0.65rem] font-medium tracking-[0.15em] uppercase mb-4 text-deep-blue/75">
                         {piece.subtitle}
                     </p>
-                    <p className="font-heading text-[0.92rem] font-light italic text-soft-black/60 leading-[1.8] max-w-[380px]">
+                    <p className="font-heading text-[0.92rem] font-light italic text-deep-blue/75 leading-[1.8] max-w-[380px]">
                         {piece.description}
                     </p>
                 </div>
@@ -126,7 +126,7 @@ export default function CollectionPieces() {
             transition-all duration-[1200ms] ease-luxury
             ${headerVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"}`}
                 >
-                    <p className="font-body text-[0.6rem] font-medium tracking-[0.4em] uppercase mb-6" style={{ color: "rgba(107,29,42,0.65)" }}>
+                    <p className="font-body text-[0.6rem] font-medium tracking-[0.4em] uppercase mb-6 text-deep-blue/65">
                         The Pieces
                     </p>
                     <h2 className="font-heading text-[clamp(2rem,3.5vw,3rem)] font-light text-burgundy leading-[1.25] mb-5">
@@ -134,7 +134,7 @@ export default function CollectionPieces() {
                         With the Sea
                     </h2>
                     <div className="w-12 h-px mx-auto bg-gradient-to-r from-burgundy to-silver mb-7" />
-                    <p className="font-body text-[0.85rem] font-light leading-[1.9]" style={{ color: "#3a3330" }}>
+                    <p className="font-body text-[0.85rem] font-light leading-[1.9] text-soft-black/85">
                         Each piece exists as a singular expression — numbered, signed,<br className="hidden md:block" />
                         and accompanied by its own provenance journal.
                     </p>

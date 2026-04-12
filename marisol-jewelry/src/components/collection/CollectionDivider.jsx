@@ -56,7 +56,7 @@ export default function CollectionDivider() {
                     <div className="flex items-center justify-center gap-4">
                         <div className="w-8 h-px bg-silver/20" />
                         <span className="font-body text-[0.58rem] font-medium tracking-[0.3em] uppercase text-silver/80">
-              Marisol Atelier &middot; Est. 2019
+              Aphrodite Atelier &middot; Est. 2019
             </span>
                         <div className="w-8 h-px bg-silver/20" />
                     </div>

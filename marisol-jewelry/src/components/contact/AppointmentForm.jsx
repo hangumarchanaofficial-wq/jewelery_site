@@ -55,7 +55,7 @@ function LuxurySelect({ label, placeholder, options, value, onChange }) {
 
     return (
         <div ref={ref} className="relative">
-            <label className="mb-3 block tracking-[0.2em] text-charcoal/70 font-body text-[10px] uppercase">
+            <label className="mb-3 block tracking-[0.2em] text-soft-black/80 font-body text-[10px] uppercase">
                 {label}
             </label>
             <button
@@ -64,7 +64,7 @@ function LuxurySelect({ label, placeholder, options, value, onChange }) {
                 className={`w-full flex items-center justify-between pb-3 pt-1 border-b bg-transparent
                     font-body text-[15px] font-light text-left outline-none transition-all duration-300
                     ${open ? "border-burgundy/60" : "border-silver/30"}
-                    ${value ? "text-charcoal" : "text-charcoal/60"}`}
+                    ${value ? "text-soft-black" : "text-soft-black/70"}`}
             >
                 <span>{value || placeholder}</span>
                 <svg
@@ -88,7 +88,7 @@ function LuxurySelect({ label, placeholder, options, value, onChange }) {
                                     transition-colors duration-200
                                     ${value === opt
                                         ? "bg-burgundy/5 text-burgundy border-l-2 border-burgundy"
-                                        : "text-charcoal/75 hover:bg-ecru-warm hover:text-charcoal border-l-2 border-transparent"
+                                        : "text-soft-black/85 hover:bg-ecru-warm hover:text-burgundy border-l-2 border-transparent"
                                     }`}
                             >
                                 {opt}
@@ -136,10 +136,10 @@ export default function AppointmentForm() {
                             <path d="M14 20L18 24L26 16" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
-                    <h2 className="mb-4 font-heading text-[clamp(1.8rem,3.5vw,2.6rem)] font-light text-charcoal">
+                    <h2 className="mb-4 font-heading text-[clamp(1.8rem,3.5vw,2.6rem)] font-light text-deep-blue">
                         Thank You
                     </h2>
-                    <p className="mx-auto max-w-md font-body text-[15px] font-light leading-relaxed text-charcoal/70">
+                    <p className="mx-auto max-w-md font-body text-[15px] font-light leading-relaxed text-soft-black/80">
                         Your appointment request has been received. A member of our concierge team
                         will reach out within 24 hours to confirm your consultation.
                     </p>
@@ -171,16 +171,16 @@ export default function AppointmentForm() {
                         <span className="mb-5 tracking-[0.3em] text-burgundy/80 font-body text-[11px] uppercase">
                             Private Consultation
                         </span>
-                        <h2 className="mb-6 font-heading text-[clamp(1.8rem,3.5vw,2.8rem)] font-light leading-[1.15] text-charcoal">
+                        <h2 className="mb-6 font-heading text-[clamp(1.8rem,3.5vw,2.8rem)] font-light leading-[1.15] text-deep-blue">
                             Book an<br />Appointment
                         </h2>
                         <div className="mb-8 h-px w-16 bg-gradient-to-r from-burgundy/30 to-transparent" />
-                        <p className="mb-6 font-body text-[15px] font-light leading-[1.8] text-charcoal/80">
-                            Each Marisol piece is conceived through intimate dialogue. Whether you
+                        <p className="mb-6 font-body text-[15px] font-light leading-[1.8] text-soft-black/90">
+                            Each Aphrodite piece is conceived through intimate dialogue. Whether you
                             seek a signature creation or a bespoke commission, our artisans dedicate
                             unhurried attention to understanding your vision.
                         </p>
-                        <p className="font-body text-[13px] font-light leading-[1.8] text-charcoal/70">
+                        <p className="font-body text-[13px] font-light leading-[1.8] text-soft-black/80">
                             Consultations are available in person at our San Francisco atelier,
                             or virtually via video call. Please share your preferences below,
                             and we will arrange everything for you.
@@ -188,7 +188,7 @@ export default function AppointmentForm() {
                         <div className="mt-12 hidden overflow-hidden lg:block">
                             <SmartImage
                                 src="https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=600&q=80&auto=format&fit=crop"
-                                alt="Artisan crafting a gold ring in the Marisol atelier"
+                                alt="Artisan crafting a gold ring in the Aphrodite atelier"
                                 className="h-64 w-full object-cover opacity-80 transition-transform duration-[1200ms] ease-luxury hover:scale-105"
                             />
                         </div>
@@ -214,7 +214,7 @@ export default function AppointmentForm() {
                                 {/* Name & Email */}
                                 <div className="grid gap-8 md:grid-cols-2">
                                     <div>
-                                        <label htmlFor="fullName" className="mb-3 block tracking-[0.2em] text-charcoal/70 font-body text-[10px] uppercase">
+                                        <label htmlFor="fullName" className="mb-3 block tracking-[0.2em] text-soft-black/80 font-body text-[10px] uppercase">
                                             Full Name
                                         </label>
                                         <input
@@ -227,11 +227,11 @@ export default function AppointmentForm() {
                                             onBlur={() => setFocusedField(null)}
                                             required
                                             placeholder="Your name"
-                                            className={`w-full border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light text-charcoal placeholder:text-charcoal/55 outline-none [&:invalid]:shadow-none transition-all duration-500 ${focusedField === "fullName" ? "border-burgundy/60" : "border-silver/30"}`}
+                                            className={`w-full border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light text-soft-black placeholder:text-soft-black/50 outline-none [&:invalid]:shadow-none transition-all duration-500 ${focusedField === "fullName" ? "border-burgundy/60" : "border-silver/30"}`}
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="email" className="mb-3 block tracking-[0.2em] text-charcoal/70 font-body text-[10px] uppercase">
+                                        <label htmlFor="email" className="mb-3 block tracking-[0.2em] text-soft-black/80 font-body text-[10px] uppercase">
                                             Email Address
                                         </label>
                                         <input
@@ -244,14 +244,14 @@ export default function AppointmentForm() {
                                             onBlur={() => setFocusedField(null)}
                                             required
                                             placeholder="your@email.com"
-                                            className={`w-full border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light text-charcoal placeholder:text-charcoal/55 outline-none [&:invalid]:shadow-none transition-all duration-500 ${focusedField === "email" ? "border-burgundy/60" : "border-silver/30"}`}
+                                            className={`w-full border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light text-soft-black placeholder:text-soft-black/50 outline-none [&:invalid]:shadow-none transition-all duration-500 ${focusedField === "email" ? "border-burgundy/60" : "border-silver/30"}`}
                                         />
                                     </div>
                                 </div>
 
                                 {/* WhatsApp */}
                                 <div>
-                                    <label htmlFor="whatsapp" className="mb-3 block tracking-[0.2em] text-charcoal/70 font-body text-[10px] uppercase">
+                                    <label htmlFor="whatsapp" className="mb-3 block tracking-[0.2em] text-soft-black/80 font-body text-[10px] uppercase">
                                         WhatsApp Number <span className="normal-case tracking-normal text-silver/70">(optional)</span>
                                     </label>
                                     <input
@@ -263,13 +263,13 @@ export default function AppointmentForm() {
                                         onFocus={() => setFocusedField("whatsapp")}
                                         onBlur={() => setFocusedField(null)}
                                         placeholder="+1 (000) 000-0000"
-                                        className={`w-full border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light text-charcoal placeholder:text-charcoal/55 outline-none transition-all duration-500 ${focusedField === "whatsapp" ? "border-burgundy/60" : "border-silver/30"}`}
+                                        className={`w-full border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light text-soft-black placeholder:text-soft-black/50 outline-none transition-all duration-500 ${focusedField === "whatsapp" ? "border-burgundy/60" : "border-silver/30"}`}
                                     />
                                 </div>
 
                                 {/* Description */}
                                 <div>
-                                    <label htmlFor="description" className="mb-3 block tracking-[0.2em] text-charcoal/70 font-body text-[10px] uppercase">
+                                    <label htmlFor="description" className="mb-3 block tracking-[0.2em] text-soft-black/80 font-body text-[10px] uppercase">
                                         Describe Your Vision
                                     </label>
                                     <textarea
@@ -281,7 +281,7 @@ export default function AppointmentForm() {
                                         onBlur={() => setFocusedField(null)}
                                         rows={4}
                                         placeholder="Tell us about the piece you envision..."
-                                        className={`w-full resize-none border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light leading-relaxed text-charcoal placeholder:text-charcoal/55 outline-none transition-all duration-500 ${focusedField === "description" ? "border-burgundy/60" : "border-silver/30"}`}
+                                        className={`w-full resize-none border-b bg-transparent pb-3 pt-1 font-body text-[15px] font-light leading-relaxed text-soft-black placeholder:text-soft-black/50 outline-none transition-all duration-500 ${focusedField === "description" ? "border-burgundy/60" : "border-silver/30"}`}
                                     />
                                 </div>
 
@@ -314,7 +314,7 @@ export default function AppointmentForm() {
                                     </button>
                                 </div>
 
-                                <p className="text-center font-body text-[11px] font-light leading-relaxed text-charcoal/60">
+                                <p className="text-center font-body text-[11px] font-light leading-relaxed text-soft-black/70">
                                     Your information is held in strictest confidence.
                                     <br />
                                     We will never share your details with third parties.

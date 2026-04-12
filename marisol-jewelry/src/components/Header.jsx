@@ -54,19 +54,19 @@ export default function Header() {
     const isLightPage = lightBgPages.some((p) => currentPage.startsWith(p));
     const isDark = scrolled || isLightPage;
 
-    const brandTextClass = isDark ? "text-burgundy" : "text-[rgba(245,240,232,0.96)] drop-shadow-[0_1px_12px_rgba(0,0,0,0.22)]";
-    const navTextClass = isDark ? "text-soft-black hover:text-burgundy" : "text-[rgba(245,240,232,0.94)] hover:text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.28)]";
-    const activeNavTextClass = isDark ? "text-burgundy" : "text-ecru";
-    const navUnderlineClass = isDark ? "bg-burgundy" : "bg-ecru/85";
-    const mobileToggleColor = isDark ? "bg-burgundy" : "bg-ecru";
-    const logoColor = isDark ? "#6B1D2A" : "rgba(245,240,232,0.96)";
+    const brandTextClass = isDark ? "text-ecru" : "text-[rgba(245,240,232,0.96)] drop-shadow-[0_1px_12px_rgba(0,0,0,0.22)]";
+    const navTextClass = isDark ? "text-ecru/80 hover:text-white" : "text-[rgba(245,240,232,0.94)] hover:text-white drop-shadow-[0_1px_10px_rgba(0,0,0,0.28)]";
+    const activeNavTextClass = isDark ? "text-white" : "text-ecru";
+    const navUnderlineClass = isDark ? "bg-ecru/90" : "bg-ecru/85";
+    const mobileToggleColor = isDark ? "bg-ecru" : "bg-ecru";
+    const logoColor = isDark ? "#e8e4dc" : "rgba(245,240,232,0.96)";
 
     return (
         <header
             className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ease-smooth
         ${
                 isDark
-                    ? "bg-ecru-light/97 backdrop-blur-xl shadow-[0_1px_0_rgba(107,29,42,0.08)] py-4"
+                    ? "bg-charcoal/95 backdrop-blur-xl shadow-[0_1px_0_rgba(0,0,0,0.35)] py-4"
                     : "bg-transparent py-7"
             }`}
         >
@@ -75,9 +75,10 @@ export default function Header() {
             )}
             <div className="container-luxury flex items-center justify-between">
                 {/* Brand */}
-                <a href="#/" className="relative z-[1] flex items-center">
-                    <span className={`font-heading text-[1.65rem] font-normal tracking-luxury uppercase ${brandTextClass}`}>
-            Marisol
+                <a href="#/" className="relative z-[1] flex items-center gap-3">
+                    <BrandLogo className="h-9 w-9 shrink-0" color={logoColor} />
+                    <span className={`font-heading text-[1.5rem] md:text-[1.65rem] font-normal tracking-[0.28em] uppercase ${brandTextClass}`}>
+            Aphrodite
           </span>
                 </a>
 
@@ -123,7 +124,7 @@ export default function Header() {
 
                 {/* Mobile Menu */}
                 <nav
-                    className={`lg:hidden fixed inset-0 bg-ecru-light flex flex-col items-center
+                    className={`lg:hidden fixed inset-0 bg-charcoal flex flex-col items-center
             justify-center gap-9 transition-all duration-500 ease-luxury
             ${menuOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
                 >
@@ -131,7 +132,7 @@ export default function Header() {
                         href="#/"
                         onClick={() => setMenuOpen(false)}
                         className="font-body text-sm font-medium tracking-[0.3em] uppercase
-              text-soft-black hover:text-burgundy transition-colors duration-300 mb-4"
+              text-ecru/80 hover:text-white transition-colors duration-300 mb-4"
                     >
                         Home
                     </a>
@@ -142,7 +143,7 @@ export default function Header() {
                             onClick={(e) => handleNavClick(e, link)}
                             className={`font-body text-sm font-medium tracking-[0.3em] uppercase
                 transition-colors duration-300
-                ${isActive(link.href) ? "text-burgundy" : "text-soft-black hover:text-burgundy"}`}
+                ${isActive(link.href) ? "text-white" : "text-ecru/80 hover:text-white"}`}
                         >
                             {link.label}
                         </a>

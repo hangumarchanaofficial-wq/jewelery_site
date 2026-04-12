@@ -51,7 +51,7 @@ export default function PersonalTouch() {
                 <div className="mx-auto my-8 h-px w-12 bg-gradient-to-r from-transparent via-silver/40 to-transparent" />
 
                 <p className="font-body text-[13px] font-light tracking-[0.15em] uppercase text-silver/80">
-                    — The Marisol Atelier
+                    — The Aphrodite Atelier
                 </p>
             </div>
         </section>

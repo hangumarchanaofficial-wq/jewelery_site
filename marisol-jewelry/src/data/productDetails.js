@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   MARISOL — Complete Product Detail Data (All 14 Pieces)
+   APHRODITE — Complete Product Detail Data (All 14 Pieces)
    ═══════════════════════════════════════════════════════════════ */
 
 function makeGallery(images) {
@@ -282,7 +282,7 @@ const PRODUCT_DETAILS = {
         tagline: "A love letter to the Mediterranean, written in pearls.",
         story: "Fourteen months of selecting South Sea pearls, each chosen for its unique lustre and oceanic depth. The Perla Strand is the centrepiece of a private collection, now offered in limited numbers.",
         specs: { metal: "18k Rose Gold clasp and spacers", stone: "23 South Sea Pearls, 9–12mm graduated", origin: "Australia & Indonesia", dimensions: "Total length: 46cm (princess length)", weight: "52 grams total", sizing: "Fixed length with rose gold toggle clasp" },
-        description: { craftsmanship: "Each pearl is hand-knotted on silk thread with a single knot between each pearl — a technique that protects the pearls from rubbing and ensures the strand drapes with perfect weight. The rose gold toggle clasp is engraved with the Marisol wave motif.", materials: "South Sea pearls are the largest and rarest cultured pearls, grown in the Pinctada maxima oyster. These specimens range from champagne to soft white with pink overtones, creating a gradient effect along the strand.", inspiration: "The Perla was commissioned for a collector who wanted to carry the memory of Santorini mornings — the way light scattered across the Aegean. We built the strand to echo that graduated luminosity." },
+        description: { craftsmanship: "Each pearl is hand-knotted on silk thread with a single knot between each pearl — a technique that protects the pearls from rubbing and ensures the strand drapes with perfect weight. The rose gold toggle clasp is engraved with the Aphrodite wave motif.", materials: "South Sea pearls are the largest and rarest cultured pearls, grown in the Pinctada maxima oyster. These specimens range from champagne to soft white with pink overtones, creating a gradient effect along the strand.", inspiration: "The Perla was commissioned for a collector who wanted to carry the memory of Santorini mornings — the way light scattered across the Aegean. We built the strand to echo that graduated luminosity." },
         gallery: makeGallery([
             { src: "https://images.unsplash.com/photo-1599459183200-59c3b0208c09?w=720&q=85&auto=format&fit=crop", alt: "Perla Strand — full view", label: "Full View" },
             { src: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=720&q=85&auto=format&fit=crop", alt: "Perla Strand — clasp detail", label: "Clasp Detail" },

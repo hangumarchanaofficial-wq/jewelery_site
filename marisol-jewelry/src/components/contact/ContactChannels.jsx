@@ -9,8 +9,8 @@ const CHANNELS = [
             </svg>
         ),
         label: "Email",
-        value: "atelier@marisol.com",
-        href: "mailto:atelier@marisol.com",
+        value: "atelier@aphrodite.com",
+        href: "mailto:atelier@aphrodite.com",
         description: "For detailed inquiries & bespoke requests",
     },
     {
@@ -33,7 +33,7 @@ const CHANNELS = [
         ),
         label: "WhatsApp",
         value: "Message Us",
-        href: "https://wa.me/14155550178?text=Hello%20Marisol%2C%20I%E2%80%99d%20like%20to%20inquire%20about%20a%20piece.",
+        href: "https://wa.me/14155550178?text=Hello%20Aphrodite%2C%20I%E2%80%99d%20like%20to%20inquire%20about%20a%20piece.",
         description: "Instant connection with our concierge team",
     },
 ];
@@ -42,7 +42,7 @@ export default function ContactChannels() {
     const [ref, isVisible] = useScrollReveal({ threshold: 0.2 });
 
     return (
-        <section ref={ref} className="bg-ecru px-6 py-20 md:py-28">
+        <section ref={ref} className="bg-ecru-warm px-6 py-20 md:py-28">
             <div className="mx-auto max-w-5xl">
                 {/* Section Label */}
                 <div
@@ -54,7 +54,7 @@ export default function ContactChannels() {
           <span className="mb-4 block tracking-[0.3em] text-burgundy/80 font-body text-[11px] uppercase">
             Reach Our Atelier
           </span>
-                    <h2 className="font-heading text-[clamp(1.6rem,3.5vw,2.4rem)] font-light text-charcoal leading-tight">
+                    <h2 className="font-heading text-[clamp(1.6rem,3.5vw,2.4rem)] font-light text-deep-blue leading-tight">
                         How to Connect
                     </h2>
                     <div className="mx-auto mt-6 h-px w-16 bg-gradient-to-r from-transparent via-silver to-transparent" />
@@ -69,10 +69,10 @@ export default function ContactChannels() {
                             target={channel.label === "WhatsApp" ? "_blank" : undefined}
                             rel={channel.label === "WhatsApp" ? "noopener noreferrer" : undefined}
                             className={`
-                group flex flex-col items-center rounded-sm border border-silver/20 bg-white/50
+                group flex flex-col items-center rounded-sm border border-silver/20 bg-ecru-light/35
                 p-10 text-center backdrop-blur-sm
                 transition-all duration-700 ease-luxury
-                hover:border-burgundy/20 hover:bg-white hover:shadow-[0_8px_40px_rgba(107,29,42,0.06)]
+                hover:border-silver/40 hover:bg-ecru-light/55 hover:shadow-[0_8px_40px_rgba(0,0,0,0.25)]
                 ${isVisible
                                 ? "translate-y-0 opacity-100"
                                 : "translate-y-8 opacity-0"
@@ -91,12 +91,12 @@ export default function ContactChannels() {
               </span>
 
                             {/* Value */}
-                            <span className="mb-3 font-heading text-xl font-light text-charcoal">
+                            <span className="mb-3 font-heading text-xl font-light text-deep-blue">
                 {channel.value}
               </span>
 
                             {/* Description */}
-                            <p className="font-body text-[13px] font-light leading-relaxed text-charcoal/75">
+                            <p className="font-body text-[13px] font-light leading-relaxed text-soft-black/80">
                                 {channel.description}
                             </p>
 

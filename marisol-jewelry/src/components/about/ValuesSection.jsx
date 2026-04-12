@@ -9,7 +9,7 @@ const VALUES = [
   {
     number: '02',
     title: 'Handcrafted Always',
-    text: 'No machines, no moulds, no shortcuts. Every Marisol piece is forged, carved, set, and polished entirely by hand — a process that takes between three and eight weeks per creation.',
+    text: 'No machines, no moulds, no shortcuts. Every Aphrodite piece is forged, carved, set, and polished entirely by hand — a process that takes between three and eight weeks per creation.',
   },
   {
     number: '03',
