@@ -3,7 +3,6 @@ import PageLoader from "../components/PageLoader";
 import Header from "../components/Header";
 import ProductsHero from "../components/products/ProductsHero";
 import ProductGrid from "../components/products/ProductGrid";
-import CraftsmanshipNote from "../components/products/CraftsmanshipNote";
 import Footer from "../components/Footer";
 
 export default function ProductsPage() {
@@ -21,7 +20,6 @@ export default function ProductsPage() {
             <main>
                 <ProductsHero />
                 <ProductGrid />
-                <CraftsmanshipNote />
             </main>
             <Footer />
         </>

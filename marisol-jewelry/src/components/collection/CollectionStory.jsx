@@ -9,6 +9,7 @@ export default function CollectionStory() {
 
     return (
         <section
+            id="collection-story"
             ref={sectionRef}
             className="py-[clamp(100px,12vw,160px)] bg-ecru-light overflow-hidden"
         >

@@ -5,7 +5,6 @@ import CollectionHero from "../components/collection/CollectionHero";
 import CollectionStory from "../components/collection/CollectionStory";
 import CinematicVisual from "../components/collection/CinematicVisual";
 import CollectionPieces from "../components/collection/CollectionPieces";
-import CollectionDivider from "../components/collection/CollectionDivider";
 import Footer from "../components/Footer";
 
 export default function CollectionPage() {
@@ -25,7 +24,6 @@ export default function CollectionPage() {
                 <CollectionStory />
                 <CinematicVisual />
                 <CollectionPieces />
-                <CollectionDivider />
             </main>
             <Footer />
         </>
