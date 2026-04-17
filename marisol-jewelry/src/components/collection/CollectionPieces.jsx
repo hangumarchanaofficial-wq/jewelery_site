@@ -57,13 +57,17 @@ function PieceCard({ piece, index }) {
     const delay = (index % 3) * 180;
 
     return (
-        <div ref={ref} className="group cursor-pointer">
+        <div ref={ref}>
             <div
                 className={`transition-all duration-[1200ms] ease-luxury
           ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-14"}`}
                 style={{ transitionDelay: `${delay}ms` }}
             >
-                <div className="relative overflow-hidden bg-ecru-warm mb-6 aspect-[4/5]">
+                <a
+                    href="#/products"
+                    className="group block relative overflow-hidden bg-ecru-warm mb-6 aspect-[4/5]"
+                    aria-label={`View ${piece.name}`}
+                >
                     <SmartImage
                         src={piece.image}
                         alt={piece.alt}
@@ -94,7 +98,7 @@ function PieceCard({ piece, index }) {
                             <path d="M7 17L17 7M17 7H7M17 7V17" strokeLinecap="round" strokeLinejoin="round" />
                         </svg>
                     </div>
-                </div>
+                </a>
 
                 <div className="px-1">
                     <h3 className="font-heading text-[1.2rem] md:text-[1.35rem] font-normal text-deep-blue mb-1.5 tracking-[0.02em]">
@@ -131,7 +135,7 @@ export default function CollectionPieces() {
                         The Pieces
                     </p>
                     <h2 className="font-heading text-[clamp(2rem,3.5vw,3rem)] font-light text-burgundy leading-[1.25] mb-5">
-                        Seven Conversations<br />
+                        Six Conversations<br />
                         With the Sea
                     </h2>
                     <div className="w-12 h-px mx-auto bg-gradient-to-r from-burgundy to-silver mb-7" />
@@ -153,7 +157,7 @@ export default function CollectionPieces() {
                     style={{ transitionDelay: "400ms" }}
                 >
                     <a
-                        href="#"
+                        href="#/products"
                         className="group relative inline-block font-body text-[0.65rem] font-medium
               tracking-[0.3em] uppercase text-burgundy border border-burgundy/30
               px-6 sm:px-10 md:px-12 py-5 overflow-hidden transition-all duration-400 ease-smooth

@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import useScrollReveal from "../../hooks/useScrollReveal";
 import SmartImage from "../SmartImage";
+import { submitAppointment } from "../../api/appointmentApi";
 
 const ITEM_TYPES = [
     "Engagement Ring",
@@ -113,6 +114,8 @@ export default function AppointmentForm() {
         reachableHours: "",
     });
     const [submitted, setSubmitted] = useState(false);
+    const [submitting, setSubmitting] = useState(false);
+    const [errorMsg, setErrorMsg] = useState("");
     const [focusedField, setFocusedField] = useState(null);
 
     const handleChange = (e) => {
@@ -120,10 +123,39 @@ export default function AppointmentForm() {
         setFormData((prev) => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Appointment request:", formData);
-        setSubmitted(true);
+        setErrorMsg("");
+
+        if (!formData.fullName.trim() || !formData.email.trim() || !formData.itemType) {
+            setErrorMsg("Please fill in your name, email, and select a category.");
+            return;
+        }
+
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(formData.email.trim())) {
+            setErrorMsg("Please provide a valid email address.");
+            return;
+        }
+
+        setSubmitting(true);
+
+        try {
+            const result = await submitAppointment(formData);
+            if (result.success) {
+                setSubmitted(true);
+            } else {
+                setErrorMsg(result.message || "Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            if (import.meta.env.DEV) console.error("Appointment submission error:", error);
+            setErrorMsg(
+                error.message ||
+                    "Unable to submit your request. Please check your connection and try again."
+            );
+        } finally {
+            setSubmitting(false);
+        }
     };
 
     if (submitted) {
@@ -202,6 +234,14 @@ export default function AppointmentForm() {
                             className="border border-silver/15 bg-white/60 p-8 shadow-[0_4px_30px_rgba(0,0,0,0.03)] backdrop-blur-sm md:p-12"
                         >
                             <div className="space-y-8">
+                                {errorMsg && (
+                                    <div className="border border-red-200 bg-red-50/80 px-5 py-4 text-center">
+                                        <p className="font-body text-[13px] font-light text-red-700">
+                                            {errorMsg}
+                                        </p>
+                                    </div>
+                                )}
+
                                 {/* Category */}
                                 <LuxurySelect
                                     label="What Are You Looking For?"
@@ -307,10 +347,19 @@ export default function AppointmentForm() {
                                 <div className="pt-4">
                                     <button
                                         type="submit"
-                                        className="group relative w-full overflow-hidden border border-burgundy bg-burgundy px-6 sm:px-8 md:px-10 py-4 font-body text-[12px] tracking-[0.3em] uppercase text-ecru transition-all duration-700 ease-luxury hover:bg-burgundy-deep hover:shadow-[0_8px_30px_rgba(107,29,42,0.2)]"
+                                        disabled={submitting}
+                                        className={`group relative w-full overflow-hidden border border-burgundy px-6 sm:px-8 md:px-10 py-4 font-body text-[12px] tracking-[0.3em] uppercase text-ecru transition-all duration-700 ease-luxury ${
+                                            submitting
+                                                ? "bg-burgundy/60 cursor-not-allowed"
+                                                : "bg-burgundy hover:bg-burgundy-deep hover:shadow-[0_8px_30px_rgba(107,29,42,0.2)]"
+                                        }`}
                                     >
-                                        <span className="relative z-10">Request Appointment</span>
-                                        <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                                        <span className="relative z-10">
+                                            {submitting ? "Submitting..." : "Request Appointment"}
+                                        </span>
+                                        {!submitting && (
+                                            <div className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 group-hover:translate-x-full" />
+                                        )}
                                     </button>
                                 </div>
 

@@ -23,7 +23,13 @@ export default function ProductDetailPage({ productId }) {
         import("../data/productDetails.js")
             .then(({ getProductDetail }) => {
                 if (!isActive) return;
-                setProduct(getProductDetail(productId));
+                const detail = getProductDetail(productId);
+                setProduct(detail);
+            })
+            .catch(() => {
+                if (!isActive) return;
+                setProduct(null);
+                setLoading(false);
             })
             .finally(() => {
                 if (!isActive) return;
@@ -34,6 +40,22 @@ export default function ProductDetailPage({ productId }) {
             isActive = false;
         };
     }, [productId]);
+
+    if (!product && !loading) {
+        return (
+            <div className="flex flex-col items-center justify-center min-h-[60vh] gap-6 px-6 text-center">
+                <p className="font-heading text-[clamp(1.4rem,2.5vw,2rem)] font-light text-soft-black/70">
+                    This piece could not be found.
+                </p>
+                <a
+                    href="#/products"
+                    className="font-body text-[0.68rem] font-medium tracking-[0.25em] uppercase text-burgundy hover:opacity-70 transition-opacity"
+                >
+                    ← View all pieces
+                </a>
+            </div>
+        );
+    }
 
     if (!product) return <PageLoader visible />;
 

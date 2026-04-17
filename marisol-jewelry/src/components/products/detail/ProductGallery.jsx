@@ -83,6 +83,12 @@ export default function ProductGallery({ gallery, onOpenLightbox }) {
             <div
                 className="relative flex-1 overflow-hidden bg-ecru-warm cursor-zoom-in group"
                 onClick={() => onOpenLightbox(activeIndex)}
+                onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                        e.preventDefault();
+                        onOpenLightbox(activeIndex);
+                    }
+                }}
                 role="button"
                 aria-label={`Enlarge image: ${gallery[activeIndex].alt}`}
                 tabIndex={0}

@@ -7,54 +7,54 @@ import SmartImage from "./SmartImage";
 
 const PIECES = [
     {
-        id: "pen-002",
-        name: "Oceana Pendant",
-        price: "From $4,200",
-        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=900&q=85&auto=format&fit=crop",
-        alt: "Oceana Pendant Necklace with aquamarine stone",
+        id: "nec-003",
+        name: "Horizon Collar",
+        price: "$7,200",
+        image: "https://images.pexels.com/photos/31757541/pexels-photo-31757541.jpeg?auto=compress&cs=tinysrgb&w=1920",
+        alt: "Horizon collar necklace in platinum with sapphire gradient",
         featured: true,
     },
     {
-        id: "rin-003",
-        name: "Coral Eternity Ring",
-        price: "From $2,800",
-        image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&q=85&auto=format&fit=crop",
-        alt: "Delicate rose gold band with coral-inspired design",
+        id: "rin-001",
+        name: "Marée Solitaire",
+        price: "$4,800",
+        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=85&auto=format&fit=crop",
+        alt: "Marée solitaire ring in platinum with deep blue sapphire",
     },
     {
         id: "ear-001",
-        name: "Lunaire Drop Earrings",
-        price: "From $1,950",
+        name: "Ondine Drops",
+        price: "$2,450",
         image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=85&auto=format&fit=crop",
-        alt: "Moon-shaped silver drop earrings",
+        alt: "Ondine drop earrings in white gold with aquamarine stones",
     },
     {
         id: "bra-001",
-        name: "Marea Gold Bracelet",
-        price: "From $3,400",
+        name: "Marea Cuff",
+        price: "$3,400",
         image: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=85&auto=format&fit=crop",
-        alt: "Woven gold chain bracelet inspired by waves",
+        alt: "Marea cuff bracelet in gold with emerald cabochon",
     },
     {
         id: "nec-001",
-        name: "Soleil Pearl Strand",
-        price: "From $3,950",
+        name: "Perla Strand",
+        price: "$5,600",
         image: "https://images.unsplash.com/photo-1599459183200-59c3b0208c09?w=600&q=85&auto=format&fit=crop",
-        alt: "Luminous pearl necklace resting against soft fabric",
+        alt: "Perla necklace — strand of South Sea pearls on rose gold",
     },
     {
-        id: "ear-003",
-        name: "Astra Tide Hoops",
-        price: "From $2,250",
-        image: "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=600&q=85&auto=format&fit=crop",
-        alt: "Diamond hoop earrings arranged on a pale stone surface",
+        id: "rin-002",
+        name: "Bosque Emerald",
+        price: "$6,400",
+        image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&q=85&auto=format&fit=crop",
+        alt: "Bosque ring in sculpted gold with Colombian emerald",
     },
     {
         id: "nec-002",
-        name: "Velora Chain",
-        price: "From $3,150",
+        name: "Rivage Chain",
+        price: "$3,900",
         image: "https://images.unsplash.com/photo-1515562141589-67f0d569b6bc?w=600&q=85&auto=format&fit=crop",
-        alt: "Fine gold chain necklace draped across weathered driftwood",
+        alt: "Rivage chain necklace in gold with champagne diamond accents",
     },
 ];
 
@@ -72,7 +72,7 @@ function ProductCard({ piece, index }) {
                 >
                     <a
                         href={`#/product/${piece.id}`}
-                        className="group block h-full relative overflow-hidden bg-ecru-warm min-h-[300px] sm:min-h-[350px] md:min-h-[520px] lg:h-full lg:aspect-[6/5]"
+                        className="group block w-full h-full relative overflow-hidden bg-ecru-warm min-h-[300px] sm:min-h-[350px] md:min-h-[520px] lg:h-full"
                         aria-label={`${piece.name}, ${piece.price}`}
                     >
                         <SmartImage

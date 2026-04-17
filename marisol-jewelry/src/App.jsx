@@ -38,9 +38,19 @@ function parseHash(hash) {
     return { page: "home" };
 }
 
+const PAGE_TITLES = {
+    home: "Aphrodite — Heavenly Luxury",
+    collection: "Collection — Aphrodite",
+    products: "Products — Aphrodite",
+    "product-detail": "Piece Detail — Aphrodite",
+    about: "About — Aphrodite",
+    contact: "Contact — Aphrodite",
+};
+
 export default function App() {
     const [route, setRoute] = useState(parseHash(window.location.hash));
     const [loading, setLoading] = useState(true);
+    const [routeAnnouncement, setRouteAnnouncement] = useState("");
 
     useLayoutEffect(() => {
         setLoading(false);
@@ -51,8 +61,10 @@ export default function App() {
 
         const onHashChange = () => {
             setLoading(true);
-            setRoute(parseHash(window.location.hash));
-            window.scrollTo({ top: 0, behavior: "instant" });
+            const newRoute = parseHash(window.location.hash);
+            setRoute(newRoute);
+            setRouteAnnouncement(PAGE_TITLES[newRoute.page] || "Page changed");
+            window.scrollTo({ top: 0, behavior: "auto" });
             clearTimeout(loaderTimeout);
             loaderTimeout = setTimeout(() => setLoading(false), 300);
         };
@@ -117,5 +129,12 @@ export default function App() {
             break;
     }
 
-    return <Suspense fallback={<PageLoader />}>{pageContent}</Suspense>;
+    return (
+        <>
+            <p className="sr-only" aria-live="polite" aria-atomic="true">
+                {routeAnnouncement}
+            </p>
+            <Suspense fallback={<PageLoader />}>{pageContent}</Suspense>
+        </>
+    );
 }

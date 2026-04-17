@@ -92,7 +92,7 @@ export default function ProductInfo({ product }) {
             {/* ─── Inquiry CTAs ─── */}
             <div className="space-y-3">
                 <a
-                    href={`mailto:atelier@aphrodite.com?subject=Inquiry: ${product.name}&body=I am interested in learning more about the ${product.name} (${product.material}).`}
+                    href={`mailto:atelier@aphrodite.com?subject=${encodeURIComponent(`Inquiry: ${product.name}`)}&body=${encodeURIComponent(`I am interested in learning more about the ${product.name} (${product.material}).`)}`}
                     className="group relative flex items-center justify-center gap-3 w-full py-[18px]
             border border-burgundy/30 overflow-hidden transition-all duration-400 ease-smooth
             hover:border-burgundy"
@@ -114,7 +114,7 @@ export default function ProductInfo({ product }) {
                 </a>
 
                 <a
-                    href={`https://wa.me/14155550178?text=Hello, I'm interested in the ${product.name} (${product.material}). Could you share more details?`}
+                    href={`https://wa.me/14155550178?text=${encodeURIComponent(`Hello, I'm interested in the ${product.name} (${product.material}). Could you share more details?`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group relative flex items-center justify-center gap-3 w-full py-[18px]

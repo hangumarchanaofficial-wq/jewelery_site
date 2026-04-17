@@ -298,8 +298,8 @@ html {
   scroll-behavior: smooth;
   /* Fixed header (~5.5rem) — keeps in-page anchors and scroll targets clear of the bar */
   scroll-padding-top: 5.5rem;
-  /* `stable` can reserve a permanent gutter and leave a visible strip beside full-bleed sections */
-  scrollbar-gutter: auto;
+  /* Reserve scrollbar width from first paint to prevent horizontal layout shift */
+  scrollbar-gutter: stable;
 }
 
 body {
@@ -932,9 +932,9 @@ a {
     color: black;
   }
 
-  .header,
-  .footer,
-  .page-loader,
+  header,
+  footer,
+  [role="status"],
   video,
   .play-button {
     display: none !important;

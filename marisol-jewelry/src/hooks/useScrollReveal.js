@@ -8,25 +8,44 @@ export default function useScrollReveal({
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const element = ref.current;
-        if (!element) return;
+        let observer;
+        let retryTimer;
 
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                if (entry.isIntersecting) {
-                    setIsVisible(true);
-                    observer.unobserve(element);
+        const attachObserver = () => {
+            const element = ref.current;
+            if (!element || isVisible) return false;
+
+            observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setIsVisible(true);
+                        observer?.unobserve(element);
+                    }
+                },
+                {
+                    threshold,
+                    rootMargin,
                 }
-            },
-            {
-                threshold,
-                rootMargin,
-            }
-        );
+            );
 
-        observer.observe(element);
-        return () => observer.disconnect();
-    }, [threshold, rootMargin]);
+            observer.observe(element);
+            return true;
+        };
+
+        if (!attachObserver()) {
+            // Element may mount after a loader/conditional render; retry briefly.
+            retryTimer = setInterval(() => {
+                if (attachObserver()) {
+                    clearInterval(retryTimer);
+                }
+            }, 100);
+        }
+
+        return () => {
+            if (retryTimer) clearInterval(retryTimer);
+            if (observer) observer.disconnect();
+        };
+    }, [threshold, rootMargin, isVisible]);
 
     return [ref, isVisible];
 }

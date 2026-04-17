@@ -1,16 +1,51 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import SmartImage from "../../SmartImage";
 
 export default function Lightbox({ images, startIndex = 0, onClose }) {
     const [current, setCurrent] = useState(startIndex);
     const [isZoomed, setIsZoomed] = useState(false);
     const [visible, setVisible] = useState(false);
+    const closeButtonRef = useRef(null);
+    const dialogRef = useRef(null);
 
-    // Animate in
+    // Animate in and move focus to close button
     useEffect(() => {
         document.body.style.overflow = "hidden";
-        requestAnimationFrame(() => setVisible(true));
+        requestAnimationFrame(() => {
+            setVisible(true);
+            closeButtonRef.current?.focus();
+        });
         return () => { document.body.style.overflow = ""; };
+    }, []);
+
+    // Focus trap inside dialog
+    useEffect(() => {
+        const dialog = dialogRef.current;
+        if (!dialog) return;
+
+        const handleTab = (e) => {
+            if (e.key !== "Tab") return;
+            const focusable = dialog.querySelectorAll(
+                'button, [href], input, [tabindex]:not([tabindex="-1"])'
+            );
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+
+            if (e.shiftKey) {
+                if (document.activeElement === first) {
+                    e.preventDefault();
+                    last.focus();
+                }
+            } else {
+                if (document.activeElement === last) {
+                    e.preventDefault();
+                    first.focus();
+                }
+            }
+        };
+
+        dialog.addEventListener("keydown", handleTab);
+        return () => dialog.removeEventListener("keydown", handleTab);
     }, []);
 
     const handleClose = useCallback(() => {
@@ -41,6 +76,7 @@ export default function Lightbox({ images, startIndex = 0, onClose }) {
 
     return (
         <div
+            ref={dialogRef}
             className={`fixed inset-0 z-[9000] flex items-center justify-center
         pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]
         transition-all duration-400 ease-smooth
@@ -57,6 +93,7 @@ export default function Lightbox({ images, startIndex = 0, onClose }) {
 
             {/* Close button */}
             <button
+                ref={closeButtonRef}
                 onClick={handleClose}
                 className="absolute z-[9002] w-11 h-11 min-h-[44px] min-w-[44px] flex items-center justify-center
           top-[max(1.5rem,env(safe-area-inset-top,0px))] right-[max(1.5rem,env(safe-area-inset-right,0px))]

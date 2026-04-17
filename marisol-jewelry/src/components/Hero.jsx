@@ -5,8 +5,8 @@ const SLIDES = [
     {
         id: "gold-necklace-driftwood",
         image:
-            "https://images.unsplash.com/photo-1515562141589-67f0d569b6bc?w=1920&q=85&auto=format&fit=crop",
-        alt: "Luxury gold necklace draped on natural driftwood",
+            "https://images.pexels.com/photos/31757541/pexels-photo-31757541.jpeg?auto=compress&cs=tinysrgb&w=1920",
+        alt: "Elegant model wearing gold and pearl jewelry",
     },
     {
         id: "coastline-golden-hour",

@@ -38,8 +38,7 @@ export default function CinematicVisual() {
             >
                 {/* Video Container */}
                 <div
-                    className="relative w-full h-full cursor-pointer group"
-                    onClick={togglePlay}
+                    className="relative w-full h-full group"
                     onMouseEnter={() => setShowControls(true)}
                     onMouseLeave={() => setShowControls(isPlaying ? false : true)}
                 >
@@ -88,14 +87,19 @@ export default function CinematicVisual() {
                     {/* Play/Pause Button */}
                     <div
                         className={`absolute inset-0 z-[2] flex items-center justify-center
-              transition-opacity duration-500 ease-smooth
+              transition-opacity duration-500 ease-smooth pointer-events-none
               ${showControls || !isPlaying ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
                     >
-                        <div
-                            className="w-16 h-16 md:w-20 md:h-20 rounded-full border border-ecru/30
+                        <button
+                            type="button"
+                            onClick={togglePlay}
+                            aria-label={isPlaying ? "Pause video" : "Play video"}
+                            aria-pressed={isPlaying}
+                            className="pointer-events-auto w-16 h-16 md:w-20 md:h-20 rounded-full border border-ecru/30
                 flex items-center justify-center bg-charcoal/20 backdrop-blur-sm
                 transition-all duration-300 ease-smooth
-                hover:border-ecru/60 hover:bg-charcoal/40 hover:scale-110"
+                hover:border-ecru/60 hover:bg-charcoal/40 hover:scale-110
+                focus-visible:outline focus-visible:outline-2 focus-visible:outline-ecru/60"
                         >
                             {isPlaying ? (
                                 <svg className="w-5 h-5 text-ecru/80" viewBox="0 0 24 24" fill="currentColor">
@@ -107,7 +111,7 @@ export default function CinematicVisual() {
                                     <polygon points="6,4 20,12 6,20" />
                                 </svg>
                             )}
-                        </div>
+                        </button>
                     </div>
 
                     {/* Caption overlay */}
