@@ -153,14 +153,6 @@ export default function Header() {
                         className="absolute inset-0 z-0"
                     />
                     <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-10 px-6">
-                        <button
-                            type="button"
-                            onClick={() => setMenuOpen(false)}
-                            aria-label="Close menu"
-                            className="absolute right-6 top-6 font-body text-[0.65rem] font-medium tracking-[0.3em] uppercase text-ecru/80 transition-colors duration-300 hover:text-white"
-                        >
-                            Close
-                        </button>
                         <a
                             href="#/"
                             onClick={() => setMenuOpen(false)}
