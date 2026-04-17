@@ -1,6 +1,4 @@
 import { useState, useEffect } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import PageLoader from "../components/PageLoader";
 import ContactHero from "../components/contact/ContactHero";
 import ContactChannels from "../components/contact/ContactChannels";
@@ -19,15 +17,11 @@ export default function ContactPage() {
     return (
         <>
             {loading && <PageLoader />}
-            <Header />
-            <main>
-                <ContactHero />
-                <ContactChannels />
-                <AppointmentForm />
-                <PersonalTouch />
-                <QuickInquiry />
-            </main>
-            <Footer />
+            <ContactHero />
+            <ContactChannels />
+            <AppointmentForm />
+            <PersonalTouch />
+            <QuickInquiry />
         </>
     );
 }

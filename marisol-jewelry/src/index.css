@@ -22,10 +22,15 @@
 @theme {
 
   /* ─── Dark navy chrome + very light navy page (same hue family) ─── */
-  --color-burgundy:       #1a2744;
-  --color-burgundy-deep:  #141c2e;
-  --color-burgundy-light: #2c3d5c;
-  --color-burgundy-muted: #243652;
+  --color-navy:       #1a2744;
+  --color-navy-deep:  #141c2e;
+  --color-navy-light: #2c3d5c;
+  --color-navy-muted: #243652;
+  /* Back-compat aliases while classes are migrated from burgundy -> navy */
+  --color-burgundy:       var(--color-navy);
+  --color-burgundy-deep:  var(--color-navy-deep);
+  --color-burgundy-light: var(--color-navy-light);
+  --color-burgundy-muted: var(--color-navy-muted);
 
   /* Page surfaces: cool, desaturated navy-white (not warm cream) */
   --color-ecru:           #f0f3f9;
@@ -326,7 +331,7 @@ a {
 
 /* Focus styles — accessible but on-brand */
 :focus-visible {
-  outline: 1.5px solid var(--color-burgundy);
+  outline: 1.5px solid var(--color-navy);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -334,7 +339,7 @@ a {
 /* Selection color */
 ::selection {
   background-color: rgba(26, 39, 68, 0.12);
-  color: var(--color-burgundy-deep);
+  color: var(--color-navy-deep);
 }
 
 
@@ -354,7 +359,7 @@ a {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-burgundy-light);
+  background: var(--color-navy-light);
 }
 
 /* Firefox scrollbar */
@@ -429,12 +434,13 @@ a {
     background-clip: text;
   }
 
+  .text-gradient-navy,
   .text-gradient-burgundy {
     background: linear-gradient(
             135deg,
-            var(--color-burgundy-deep) 0%,
-            var(--color-burgundy-light) 50%,
-            var(--color-burgundy) 100%
+            var(--color-navy-deep) 0%,
+            var(--color-navy-light) 50%,
+            var(--color-navy) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -443,10 +449,11 @@ a {
 
 
   /* ─── Decorative Dividers ─── */
+  .divider-navy-silver,
   .divider-burgundy-silver {
     background: linear-gradient(
             to right,
-            var(--color-burgundy),
+            var(--color-navy),
             var(--color-silver)
     );
   }
@@ -652,7 +659,7 @@ a {
   }
 
   .btn-luxury:hover {
-    color: var(--color-burgundy);
+    color: var(--color-navy);
     border-color: var(--color-ecru);
   }
 
@@ -678,7 +685,7 @@ a {
     text-transform: uppercase;
     padding: 18px 48px;
     border: 1px solid rgba(26, 39, 68, 0.3);
-    color: var(--color-burgundy);
+    color: var(--color-navy);
     cursor: pointer;
     background: transparent;
     transition:
@@ -693,14 +700,14 @@ a {
     left: -100%;
     width: 100%;
     height: 100%;
-    background-color: var(--color-burgundy);
+    background-color: var(--color-navy);
     transition: left 0.5s var(--ease-luxury);
     z-index: 0;
   }
 
   .btn-luxury-dark:hover {
     color: var(--color-ecru);
-    border-color: var(--color-burgundy);
+    border-color: var(--color-navy);
   }
 
   .btn-luxury-dark:hover::before {
@@ -723,7 +730,7 @@ a {
     font-weight: 500;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--color-burgundy);
+    color: var(--color-navy);
     transition: gap 0.3s var(--ease-smooth);
   }
 
@@ -735,7 +742,7 @@ a {
     display: block;
     width: 32px;
     height: 1px;
-    background-color: var(--color-burgundy);
+    background-color: var(--color-navy);
     transition: width 0.3s var(--ease-smooth);
   }
 
@@ -764,12 +771,12 @@ a {
     left: 0;
     width: 0;
     height: 1px;
-    background-color: var(--color-burgundy);
+    background-color: var(--color-navy);
     transition: width 0.4s var(--ease-luxury);
   }
 
   .nav-link:hover {
-    color: var(--color-burgundy);
+    color: var(--color-navy);
   }
 
   .nav-link:hover::after {
@@ -809,7 +816,7 @@ a {
     height: 1px;
     background: linear-gradient(
             to right,
-            var(--color-burgundy),
+            var(--color-navy),
             var(--color-silver)
     );
   }
@@ -821,7 +828,7 @@ a {
     margin-right: auto;
     background: linear-gradient(
             to right,
-            var(--color-burgundy),
+            var(--color-navy),
             var(--color-silver)
     );
   }

@@ -7,6 +7,7 @@ import SmartImage from "./SmartImage";
 
 const PIECES = [
     {
+        id: "pen-002",
         name: "Oceana Pendant",
         price: "From $4,200",
         image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=900&q=85&auto=format&fit=crop",
@@ -14,36 +15,42 @@ const PIECES = [
         featured: true,
     },
     {
+        id: "rin-003",
         name: "Coral Eternity Ring",
         price: "From $2,800",
         image: "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=600&q=85&auto=format&fit=crop",
         alt: "Delicate rose gold band with coral-inspired design",
     },
     {
+        id: "ear-001",
         name: "Lunaire Drop Earrings",
         price: "From $1,950",
         image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=85&auto=format&fit=crop",
         alt: "Moon-shaped silver drop earrings",
     },
     {
+        id: "bra-001",
         name: "Marea Gold Bracelet",
         price: "From $3,400",
         image: "https://images.unsplash.com/photo-1611085583191-a3b181a88401?w=600&q=85&auto=format&fit=crop",
         alt: "Woven gold chain bracelet inspired by waves",
     },
     {
+        id: "nec-001",
         name: "Soleil Pearl Strand",
         price: "From $3,950",
         image: "https://images.unsplash.com/photo-1599459183200-59c3b0208c09?w=600&q=85&auto=format&fit=crop",
         alt: "Luminous pearl necklace resting against soft fabric",
     },
     {
+        id: "ear-003",
         name: "Astra Tide Hoops",
         price: "From $2,250",
         image: "https://images.unsplash.com/photo-1588444837495-c6cfeb53f32d?w=600&q=85&auto=format&fit=crop",
         alt: "Diamond hoop earrings arranged on a pale stone surface",
     },
     {
+        id: "nec-002",
         name: "Velora Chain",
         price: "From $3,150",
         image: "https://images.unsplash.com/photo-1515562141589-67f0d569b6bc?w=600&q=85&auto=format&fit=crop",
@@ -57,13 +64,17 @@ function ProductCard({ piece, index }) {
 
     if (piece.featured) {
         return (
-            <div ref={ref} className="relative overflow-hidden cursor-pointer group h-full">
+            <div ref={ref} className="h-full">
                 <div
                     className={`h-full transition-all duration-1000 ease-luxury
                     ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                     style={{ transitionDelay: `${delay}ms` }}
                 >
-                    <div className="relative overflow-hidden bg-ecru-warm min-h-[300px] sm:min-h-[350px] md:min-h-[520px] lg:h-full lg:aspect-[6/5]">
+                    <a
+                        href={`#/product/${piece.id}`}
+                        className="group block h-full relative overflow-hidden bg-ecru-warm min-h-[300px] sm:min-h-[350px] md:min-h-[520px] lg:h-full lg:aspect-[6/5]"
+                        aria-label={`${piece.name}, ${piece.price}`}
+                    >
                         <SmartImage
                             src={piece.image}
                             alt={piece.alt}
@@ -82,34 +93,40 @@ function ProductCard({ piece, index }) {
                                 {piece.price}
                             </span>
                         </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         );
     }
 
     return (
-        <div ref={ref} className="relative overflow-hidden cursor-pointer group h-full">
+        <div ref={ref} className="h-full">
             <div
                 className={`h-full flex flex-col transition-all duration-1000 ease-luxury
                 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
                 style={{ transitionDelay: `${delay}ms` }}
             >
-                <div className="relative overflow-hidden bg-ecru-warm aspect-[4/3] sm:aspect-[5/4] lg:flex-1 lg:min-h-0">
-                    <SmartImage
-                        src={piece.image}
-                        alt={piece.alt}
-                        className="w-full h-full object-cover transition-transform duration-800 ease-luxury group-hover:scale-[1.06]"
-                    />
-                </div>
-                <div className="pt-2.5 sm:pt-3 pb-1 px-0.5 sm:px-1 min-h-[56px] sm:min-h-[64px] lg:min-h-[70px]">
-                    <h3 className="font-heading text-[0.92rem] sm:text-[1.02rem] lg:text-[1.05rem] font-normal text-soft-black mb-0.5 sm:mb-1 tracking-[0.02em] min-h-[2rem] sm:min-h-[2.4rem]">
-                        {piece.name}
-                    </h3>
-                    <span className="font-body text-[0.62rem] sm:text-[0.68rem] font-normal tracking-[0.14em] uppercase text-silver-dark">
-                        {piece.price}
-                    </span>
-                </div>
+                <a
+                    href={`#/product/${piece.id}`}
+                    className="group block h-full"
+                    aria-label={`${piece.name}, ${piece.price}`}
+                >
+                    <div className="relative overflow-hidden bg-ecru-warm aspect-[4/3] sm:aspect-[5/4] lg:flex-1 lg:min-h-0">
+                        <SmartImage
+                            src={piece.image}
+                            alt={piece.alt}
+                            className="w-full h-full object-cover transition-transform duration-800 ease-luxury group-hover:scale-[1.06]"
+                        />
+                    </div>
+                    <div className="pt-2.5 sm:pt-3 pb-1 px-0.5 sm:px-1 min-h-[56px] sm:min-h-[64px] lg:min-h-[70px]">
+                        <h3 className="font-heading text-[0.92rem] sm:text-[1.02rem] lg:text-[1.05rem] font-normal text-soft-black mb-0.5 sm:mb-1 tracking-[0.02em] min-h-[2rem] sm:min-h-[2.4rem]">
+                            {piece.name}
+                        </h3>
+                        <span className="font-body text-[0.62rem] sm:text-[0.68rem] font-normal tracking-[0.14em] uppercase text-silver-dark">
+                            {piece.price}
+                        </span>
+                    </div>
+                </a>
             </div>
         </div>
     );

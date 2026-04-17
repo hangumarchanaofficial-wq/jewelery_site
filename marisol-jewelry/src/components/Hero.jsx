@@ -3,16 +3,19 @@ import SmartImage from "./SmartImage";
 
 const SLIDES = [
     {
+        id: "gold-necklace-driftwood",
         image:
             "https://images.unsplash.com/photo-1515562141589-67f0d569b6bc?w=1920&q=85&auto=format&fit=crop",
         alt: "Luxury gold necklace draped on natural driftwood",
     },
     {
+        id: "coastline-golden-hour",
         image:
             "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=85&auto=format&fit=crop",
         alt: "Serene ocean coastline at golden hour",
     },
     {
+        id: "pearl-jewelry-fabric",
         image:
             "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=1920&q=85&auto=format&fit=crop",
         alt: "Elegant pearl jewelry on soft fabric",
@@ -38,7 +41,7 @@ export default function Hero() {
             setCurrent((prev) => (prev + 1) % SLIDES.length);
         }, 6000);
         return () => clearInterval(interval);
-    }, [current]);
+    }, []);
 
     const handleCTA = (e) => {
         e.preventDefault();
@@ -50,21 +53,36 @@ export default function Hero() {
     };
 
     return (
-        <section className="relative w-full h-[100dvh] min-h-[480px] sm:min-h-[560px] md:min-h-[600px] max-h-[1100px] overflow-hidden">
+        <section
+            role="region"
+            aria-label="Featured jewelry collection slideshow"
+            aria-roledescription="carousel"
+            className="relative w-full h-[100dvh] min-h-[480px] sm:min-h-[560px] md:min-h-[600px] max-h-[1100px] overflow-hidden"
+        >
             {SLIDES.map((slide, index) => (
                 <div
-                    key={index}
+                    key={slide.id}
+                    role="group"
+                    aria-roledescription="slide"
+                    aria-label={`Slide ${index + 1} of ${SLIDES.length}`}
+                    aria-hidden={index !== current}
                     className={`absolute inset-0 transition-opacity duration-[1800ms] ease-luxury
             ${index === current ? "opacity-100 z-[2]" : "opacity-0 z-[1]"}`}
                 >
                     <SmartImage
                         src={slide.image}
                         alt={slide.alt}
+                        loading={index === 0 ? "eager" : "lazy"}
+                        fetchPriority={index === 0 ? "high" : "low"}
+                        decoding="async"
                         className={`w-full h-full object-cover transition-transform duration-[8000ms] ease-luxury
               ${index === current ? "scale-100" : "scale-[1.08]"}`}
                     />
                 </div>
             ))}
+            <p className="sr-only" aria-live="polite" aria-atomic="true">
+                {`Showing slide ${current + 1} of ${SLIDES.length}: ${SLIDES[current].alt}`}
+            </p>
 
             <div
                 className="absolute inset-0 z-[3]"
@@ -92,7 +110,7 @@ export default function Hero() {
 
                 <div className="opacity-0 animate-fade-up-delay-3">
                     <a
-                        href="#collection"
+                        href="#/"
                         onClick={handleCTA}
                         className="group relative inline-block font-body text-[0.68rem] font-medium
               tracking-[0.3em] uppercase text-ecru border border-ecru/50
@@ -110,9 +128,9 @@ export default function Hero() {
             </div>
 
             <div className="absolute bottom-[max(3rem,env(safe-area-inset-bottom,0px))] left-1/2 -translate-x-1/2 z-[5] flex gap-2 sm:gap-4">
-                {SLIDES.map((_, index) => (
+                {SLIDES.map((slide, index) => (
                     <button
-                        key={index}
+                        key={slide.id}
                         type="button"
                         onClick={() => goToSlide(index)}
                         aria-label={`Go to slide ${index + 1}`}

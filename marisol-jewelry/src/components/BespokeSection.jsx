@@ -36,7 +36,7 @@ function BespokePiece({ piece }) {
         ${imageVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"}`}
         >
             <div className="hidden md:block absolute -top-10 left-1/2 w-px h-20 z-[2]"
-                style={{ background: "linear-gradient(to bottom, var(--color-burgundy), transparent)" }}
+                style={{ background: "linear-gradient(to bottom, var(--color-navy), transparent)" }}
             />
             <div className="relative overflow-hidden aspect-[3/4] sm:aspect-[4/5] bg-ecru group">
                 <SmartImage
@@ -68,15 +68,15 @@ function BespokePiece({ piece }) {
             <p className="font-body text-[0.78rem] sm:text-[0.82rem] font-normal text-soft-black/80 leading-[1.8] sm:leading-[1.9] mb-8 sm:mb-10">
                 {piece.detail}
             </p>
-            <a
-                href="#"
+            <button
+                type="button"
                 className="group/link inline-flex items-center gap-3 font-body text-[0.65rem] sm:text-[0.7rem]
                     font-semibold tracking-label uppercase text-burgundy
                     transition-[gap] duration-300 ease-smooth hover:gap-5 active:opacity-70 touch-manipulation"
             >
                 Discover the Story
                 <span className="block w-8 h-px bg-burgundy transition-[width] duration-300 ease-smooth group-hover/link:w-12" />
-            </a>
+            </button>
         </div>
     );
 

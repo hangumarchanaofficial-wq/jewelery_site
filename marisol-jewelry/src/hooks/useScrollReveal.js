@@ -1,6 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
-export default function useScrollReveal(options = {}) {
+export default function useScrollReveal({
+    threshold = 0.15,
+    rootMargin = "0px 0px -60px 0px",
+} = {}) {
     const ref = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
 
@@ -16,14 +19,14 @@ export default function useScrollReveal(options = {}) {
                 }
             },
             {
-                threshold: options.threshold || 0.15,
-                rootMargin: options.rootMargin || "0px 0px -60px 0px",
+                threshold,
+                rootMargin,
             }
         );
 
         observer.observe(element);
         return () => observer.disconnect();
-    }, [options.threshold, options.rootMargin]);
+    }, [threshold, rootMargin]);
 
     return [ref, isVisible];
 }

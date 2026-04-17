@@ -31,6 +31,17 @@ export default function Header() {
         };
     }, [menuOpen]);
 
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape" && menuOpen) {
+                setMenuOpen(false);
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyDown);
+        return () => document.removeEventListener("keydown", handleKeyDown);
+    }, [menuOpen]);
+
     const isActive = (href) => {
         if (href.startsWith("#/")) {
             return currentPage.startsWith(href);
@@ -111,6 +122,7 @@ export default function Header() {
                     className="lg:hidden relative z-[1002] flex flex-col gap-[5px] p-2"
                     aria-label="Toggle menu"
                     aria-expanded={menuOpen}
+                    aria-controls="mobile-navigation"
                 >
                     <span
                         className={`block w-6 h-[1.5px] ${mobileToggleColor} transition-transform duration-300 ease-smooth
@@ -127,13 +139,28 @@ export default function Header() {
                 </button>
 
                 <nav
+                    id="mobile-navigation"
                     className={`lg:hidden fixed inset-0 z-[998] flex min-h-[100dvh] flex-col bg-charcoal
             pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]
             transition-all duration-500 ease-luxury
             ${menuOpen ? "visible opacity-100" : "pointer-events-none invisible opacity-0"}`}
                     aria-hidden={!menuOpen}
                 >
-                    <div className="flex flex-1 flex-col items-center justify-center gap-10 px-6">
+                    <button
+                        type="button"
+                        onClick={() => setMenuOpen(false)}
+                        aria-label="Close menu backdrop"
+                        className="absolute inset-0 z-0"
+                    />
+                    <div className="relative z-10 flex flex-1 flex-col items-center justify-center gap-10 px-6">
+                        <button
+                            type="button"
+                            onClick={() => setMenuOpen(false)}
+                            aria-label="Close menu"
+                            className="absolute right-6 top-6 font-body text-[0.65rem] font-medium tracking-[0.3em] uppercase text-ecru/80 transition-colors duration-300 hover:text-white"
+                        >
+                            Close
+                        </button>
                         <a
                             href="#/"
                             onClick={() => setMenuOpen(false)}
