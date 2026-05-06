@@ -25,6 +25,8 @@ services:
     ports:
       - "4001:4001"
     env_file: ./services/user-service/.env
+    environment:
+      DB_HOST: postgres
     depends_on: [postgres]
 
   availability-service:
@@ -32,6 +34,9 @@ services:
     ports:
       - "4002:4002"
     env_file: ./services/availability-service/.env
+    environment:
+      DB_HOST: postgres
+      REDIS_URL: redis://redis:6379
     depends_on: [postgres, redis]
 
   booking-service:
@@ -39,6 +44,10 @@ services:
     ports:
       - "4003:4003"
     env_file: ./services/booking-service/.env
+    environment:
+      DB_HOST: postgres
+      AVAILABILITY_SERVICE_URL: http://availability-service:4002
+      NOTIFICATION_SERVICE_URL: http://notification-service:4005
     depends_on: [postgres, availability-service]
 
   feedback-service:
@@ -46,6 +55,8 @@ services:
     ports:
       - "4004:4004"
     env_file: ./services/feedback-service/.env
+    environment:
+      DB_HOST: postgres
     depends_on: [postgres]
 
   notification-service:

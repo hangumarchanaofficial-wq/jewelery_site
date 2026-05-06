@@ -1,0 +1,46 @@
+
+> web@1.0.0 dev
+> next dev
+
+   ▲ Next.js 15.5.15
+   - Local:        http://localhost:3000
+   - Network:      http://10.4.2.2:3000
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 2.2s
+ ○ Compiling /api/admin/availability ...
+ ✓ Compiled /api/admin/availability in 1088ms (356 modules)
+ GET /api/feedback 200 in 1351ms
+ GET /api/admin/stats 200 in 2674ms
+ GET /api/admin/availability 200 in 2657ms
+ GET /api/availability 200 in 3342ms
+ ○ Compiling / ...
+ ✓ Compiled / in 6.7s (1409 modules)
+ GET / 200 in 7181ms
+ ✓ Compiled /_not-found in 479ms (1396 modules)
+ GET /consultation-altar.svg 404 in 646ms
+ GET /notification-sw.js 404 in 45ms
+ GET / 200 in 170ms
+ GET /consultation-altar.svg 404 in 61ms
+ GET /notification-sw.js 404 in 41ms
+ GET /book 404 in 63ms
+ GET /notification-sw.js 404 in 72ms
+ GET /book 404 in 40ms
+ GET /book 404 in 40ms
+ GET /notification-sw.js 404 in 38ms
+ GET /notification-sw.js 404 in 34ms
+ GET /book 404 in 46ms
+ GET /notification-sw.js 404 in 40ms
+ GET /book 404 in 48ms
+ GET /book 404 in 39ms
+ GET /notification-sw.js 404 in 39ms
+ GET /notification-sw.js 404 in 40ms
+ ✓ Compiled in 1048ms (1391 modules)
+ ○ Compiling /book ...
+ ✓ Compiled /book in 1328ms (1522 modules)
+ GET /book 200 in 1575ms
+ GET /book 200 in 35ms
+[?25h

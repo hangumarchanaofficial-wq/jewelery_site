@@ -6,12 +6,12 @@ frontend:
         - npm ci
     build:
       commands:
-        - npm run build --workspace web
+        - npm run build
   artifacts:
-    baseDirectory: apps/web/out
+    baseDirectory: .next
     files:
       - '**/*'
   cache:
     paths:
       - node_modules/**/*
-      - apps/web/.next/cache/**/*
+      - .next/cache/**/*

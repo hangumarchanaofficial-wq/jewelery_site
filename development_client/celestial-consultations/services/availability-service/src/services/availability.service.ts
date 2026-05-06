@@ -2,14 +2,13 @@ import { pool } from "../config/db";
 import { redis } from "../config/redis";
 
 const DEFAULT_SLOTS = [
-  { time: "9:00 AM",  taken: false },
-  { time: "10:00 AM", taken: false },
-  { time: "11:00 AM", taken: false },
-  { time: "1:00 PM",  taken: false },
-  { time: "2:00 PM",  taken: false },
-  { time: "3:00 PM",  taken: false },
-  { time: "4:00 PM",  taken: false },
-  { time: "5:00 PM",  taken: false },
+  { time: "09:00 AM", taken: false },
+  { time: "10:30 AM", taken: false },
+  { time: "12:00 PM", taken: false },
+  { time: "02:30 PM", taken: false },
+  { time: "04:00 PM", taken: false },
+  { time: "06:00 PM", taken: false },
+  { time: "08:00 PM", taken: false },
 ];
 
 export const AvailabilityService = {
