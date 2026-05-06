@@ -1,0 +1,52 @@
+
+> dev
+> npm run dev --workspace web
+
+
+> web@1.0.0 dev
+> next dev
+
+   ▲ Next.js 15.5.15
+   - Local:        http://localhost:3000
+   - Network:      http://10.4.2.2:3000
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · optimizePackageImports
+
+ ✓ Starting...
+ ✓ Ready in 2.4s
+ ○ Compiling /admin ...
+ ✓ Compiled /admin in 6s (1479 modules)
+ GET /admin 200 in 6505ms
+ GET /admin 200 in 119ms
+ ○ Compiling /admin/clients ...
+ ✓ Compiled /admin/clients in 666ms (1473 modules)
+ GET /admin/clients 200 in 1026ms
+ ✓ Compiled /_not-found in 377ms (1464 modules)
+ GET /notification-sw.js 404 in 502ms
+ ✓ Compiled /admin/payments in 368ms (1466 modules)
+ GET /admin/payments 200 in 481ms
+ ✓ Compiled /admin in 332ms (816 modules)
+ GET /admin 200 in 579ms
+ GET /admin 200 in 519ms
+ ○ Compiling /admin/bookings ...
+ ✓ Compiled /admin/bookings in 1309ms (1479 modules)
+ GET /notification-sw.js 404 in 1499ms
+ GET /admin/bookings 200 in 1139ms
+ GET /admin/bookings 200 in 41ms
+ GET /admin 200 in 42ms
+ GET /admin/clients 200 in 63ms
+ ○ Compiling /admin/calendar ...
+ ✓ Compiled /admin/calendar in 1347ms (1521 modules)
+ GET /admin/calendar 200 in 1486ms
+ GET /admin/calendar 200 in 46ms
+ GET /admin/bookings 200 in 39ms
+ GET /admin 200 in 26ms
+ GET /admin/calendar 200 in 38ms
+ GET /admin/bookings 200 in 36ms
+ GET /admin 200 in 23ms
+ GET /admin/bookings 200 in 34ms
+ GET /admin 200 in 21ms
+ GET /admin/clients 200 in 53ms
+ GET /admin/calendar 200 in 35ms
+ GET /admin 200 in 22ms

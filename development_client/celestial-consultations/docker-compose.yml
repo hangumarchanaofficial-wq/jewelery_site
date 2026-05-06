@@ -1,0 +1,69 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: celestial_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./database/migrations:/docker-entrypoint-initdb.d
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  user-service:
+    build: ./services/user-service
+    ports:
+      - "4001:4001"
+    env_file: ./services/user-service/.env
+    depends_on: [postgres]
+
+  availability-service:
+    build: ./services/availability-service
+    ports:
+      - "4002:4002"
+    env_file: ./services/availability-service/.env
+    depends_on: [postgres, redis]
+
+  booking-service:
+    build: ./services/booking-service
+    ports:
+      - "4003:4003"
+    env_file: ./services/booking-service/.env
+    depends_on: [postgres, availability-service]
+
+  feedback-service:
+    build: ./services/feedback-service
+    ports:
+      - "4004:4004"
+    env_file: ./services/feedback-service/.env
+    depends_on: [postgres]
+
+  notification-service:
+    build: ./services/notification-service
+    ports:
+      - "4005:4005"
+    env_file: ./services/notification-service/.env
+
+  web:
+    build: ./apps/web
+    ports:
+      - "3000:3000"
+    env_file: ./apps/web/.env.local
+    depends_on:
+      - booking-service
+      - availability-service
+      - feedback-service
+
+volumes:
+  postgres_data:
+  redis_data:
